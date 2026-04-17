@@ -1,0 +1,18 @@
+{
+  "seed": 199441360,
+  "preflop_samples": 1711,
+  "mc_scale": 1.1960216944729805,
+  "haircut_scale": 0.6162629155139829,
+  "aggro_up_threshold": 0.547331376895446,
+  "aggro_down_threshold": 0.45,
+  "aggro_step": 0.16365262733737607,
+  "bounty_bump_scale": 1.1862543175502915,
+  "preflop_call_margin": 0.04052781931372232,
+  "river_probe_raise_prob": 0.5376180747833821,
+  "low_equity_bluff_prob": 0.3449330274551519,
+  "postflop_value_raise_eq": 0.8630728810070052,
+  "semi_raise_eq_low": 0.5576964681334766,
+  "semi_raise_eq_high": 0.767999096314951,
+  "semi_raise_fold_prior": 0.5162509809675553,
+  "postflop_call_margin": 0.09518729724315873
+}
