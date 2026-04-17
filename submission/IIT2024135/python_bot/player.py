@@ -1,19 +1,24 @@
 """
-Mahavir V3: Precision Exploit + Monte Carlo (No CFR)
-====================================================
-Key improvements over V2:
-  1. REMOVED CFR (was hurting, not helping)
-  2. BLUFF DETECTION: small bets (< pot*0.35) = likely bluff → call wider
-  3. BET EVERY STREET: baseline folds non-premium to any bet > pot//5
-  4. SMARTER DEFENSE: only discount equity vs passive opponents, not vs bluffers
-  5. HIGHER BLUFF FREQUENCY: barrel all 3 streets consistently
-  6. WIDER PREFLOP CALLS: don't overfold to 3-bets with playable hands
+Mahavir V4: Multithreaded Precision Exploit + Monte Carlo
+=========================================================
+Key improvements over V3:
+  1. THREADED MC EQUITY: Monte Carlo rollouts split across N threads
+     — each thread has its own RNG and deck copy → zero contention
+  2. BACKGROUND PRECOMPUTE: preflop equity computed asynchronously in
+     handle_new_round, ready before get_action is called
+  3. PARALLEL OBSERVATIONS: opponent modeling runs concurrently with
+     equity calculation
+  4. ADAPTIVE THREAD POOL: thread count scales with remaining clock
+  5. All prior exploit logic (bluff detection, street betting, bounty
+     awareness) fully preserved
 """
 
 from __future__ import annotations
 
 import random
 import eval7
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from threading import Lock
 
 from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
 from skeleton.bot import Bot
@@ -22,6 +27,10 @@ from skeleton.runner import parse_args, run_bot
 RANKS = "23456789TJQKA"
 RANK_VALUE = {r: i + 2 for i, r in enumerate(RANKS)}
 BIG_BLIND = 2
+
+# Thread pool sizing — tuned for the 60s game clock budget
+MAX_THREADS = 4
+MIN_THREADS = 2
 
 
 def clamp(x, lo, hi):
@@ -75,6 +84,39 @@ def preflop_equity(hole, bounty=None):
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+# Thread-local MC worker — each invocation gets its own RNG + deck copy
+# ═══════════════════════════════════════════════════════════════════════════
+def _mc_worker(hero_cards, board_cards, dead_set, samples, seed):
+    """Run `samples` Monte Carlo rollouts using an independent RNG.
+
+    Each thread gets a unique seed → no lock contention on random state.
+    eval7.evaluate is a Cython/C function that releases the GIL, so
+    multiple threads truly run in parallel during evaluation.
+    """
+    rng = random.Random(seed)
+    hero = [eval7.Card(c) for c in hero_cards]
+    board = [eval7.Card(c) for c in board_cards]
+    rem = [c for c in eval7.Deck().cards if str(c) not in dead_set]
+    board_rem = 5 - len(board)
+    wins = 0
+    ties = 0
+
+    for _ in range(samples):
+        rng.shuffle(rem)
+        opp = rem[:2]
+        run = rem[2:2 + board_rem]
+        full_board = board + run if board_rem else board
+        s1 = eval7.evaluate(hero + full_board)
+        s2 = eval7.evaluate(opp + full_board)
+        if s1 > s2:
+            wins += 1
+        elif s1 == s2:
+            ties += 1
+
+    return wins, ties, samples
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 # Main Bot
 # ═══════════════════════════════════════════════════════════════════════════
 class Player(Bot):
@@ -85,7 +127,24 @@ class Player(Bot):
         self.opp_post_actions = 0
         self.opp_post_aggr = 0
         self._i_raised_pre = False
+        self._seed_counter = 0
+        self._seed_lock = Lock()
+
+        # Persistent thread pool — avoids thread creation overhead each call
+        self._pool = ThreadPoolExecutor(max_workers=MAX_THREADS,
+                                        thread_name_prefix="mc")
+
+        # Background precomputation future
+        self._preflop_eq_future = None
+        self._preflop_eq_cache = None
+
         random.seed(9917231)
+
+    def _next_seed(self):
+        """Generate unique seed for each thread to avoid RNG contention."""
+        with self._seed_lock:
+            self._seed_counter += 1
+            return self._seed_counter * 7919  # prime multiplier for spread
 
     # ─────────────────────────────────────────────────────────────
     # Engine callbacks
@@ -93,9 +152,79 @@ class Player(Bot):
     def handle_new_round(self, game_state, round_state, active):
         self._seen_state_keys = set()
         self._i_raised_pre = False
+        self._preflop_eq_cache = None
+
+        # ▶ BACKGROUND PRECOMPUTE: submit preflop equity calc to thread pool
+        # This runs in parallel while the engine processes other setup messages
+        my_cards = round_state.hands[active]
+        bounty_rank = round_state.bounties[active] if round_state.bounties else None
+        opp_bounty = round_state.bounties[1 - active] if round_state.bounties else None
+
+        def _compute_preflop():
+            eq = preflop_equity(my_cards, bounty_rank)
+            # Bonus if we hold opponent's bounty card
+            if opp_bounty and opp_bounty != '-1':
+                if my_cards[0][0] == opp_bounty or my_cards[1][0] == opp_bounty:
+                    eq = min(0.96, eq + 0.06)
+            return eq
+
+        self._preflop_eq_future = self._pool.submit(_compute_preflop)
 
     def handle_round_over(self, game_state, terminal_state, active):
         pass
+
+    # ─────────────────────────────────────────────────────────────
+    # Multithreaded Monte Carlo equity
+    # ─────────────────────────────────────────────────────────────
+    def _mc_equity_threaded(self, hero_str, board_str, total_samples):
+        """Split MC rollouts across multiple threads for parallel execution.
+
+        Each thread gets:
+          - Its own Random(seed) instance → no lock contention
+          - Its own deck copy → no shared mutable state
+          - eval7.evaluate releases the GIL → true parallel C computation
+        """
+        hero = [eval7.Card(c) for c in hero_str]
+        board = [eval7.Card(c) for c in board_str]
+        dead_set = {str(c) for c in hero + board}
+
+        # Determine thread count based on workload
+        num_threads = self._adaptive_thread_count(total_samples)
+        chunk = total_samples // num_threads
+        remainder = total_samples % num_threads
+
+        futures = []
+        for i in range(num_threads):
+            n = chunk + (1 if i < remainder else 0)
+            if n <= 0:
+                continue
+            seed = self._next_seed()
+            fut = self._pool.submit(_mc_worker, hero_str, board_str,
+                                    dead_set, n, seed)
+            futures.append(fut)
+
+        # Aggregate results as threads complete
+        total_wins = 0
+        total_ties = 0
+        total_n = 0
+        for fut in as_completed(futures):
+            w, t, n = fut.result()
+            total_wins += w
+            total_ties += t
+            total_n += n
+
+        return (total_wins + 0.5 * total_ties) / max(1, total_n)
+
+    def _adaptive_thread_count(self, samples):
+        """Use more threads for larger workloads, fewer when samples are tiny."""
+        if samples >= 200:
+            return MAX_THREADS
+        elif samples >= 80:
+            return 3
+        elif samples >= 40:
+            return MIN_THREADS
+        else:
+            return 1  # overhead not worth it for tiny workloads
 
     # ─────────────────────────────────────────────────────────────
     # Main decision
@@ -115,15 +244,21 @@ class Player(Bot):
         bounty_rank = round_state.bounties[active]
         opp_bounty_rank = round_state.bounties[1 - active]
 
-        self._observe_opponent_action(round_state, active)
+        # ▶ PARALLEL: submit opponent observation to thread pool while
+        # we prepare other calculations
+        obs_future = self._pool.submit(
+            self._observe_opponent_action, round_state, active
+        )
 
         # Variance control: protect lead late
         if self._should_preserve_lead(game_state.bankroll, game_state.round_num):
+            obs_future.result()  # wait for observation to complete
             if CheckAction in legal: return CheckAction()
             if FoldAction in legal: return FoldAction()
 
         # Clock safety
         if game_state.game_clock < 1.0:
+            obs_future.result()
             if CheckAction in legal: return CheckAction()
             if continue_cost <= 2 and CallAction in legal: return CallAction()
             if FoldAction in legal: return FoldAction()
@@ -140,10 +275,23 @@ class Player(Bot):
         #  PRE-FLOP
         # ════════════════════════════════════════════════════════
         if street == 0:
-            eq = preflop_equity(my_cards, bounty_rank)
-            # Bonus if we hold opponent's bounty card
-            if opp_bounty_rank and (my_cards[0][0] == opp_bounty_rank or my_cards[1][0] == opp_bounty_rank):
-                eq = min(0.96, eq + 0.06)
+            # ▶ USE BACKGROUND PRECOMPUTE: retrieve preflop equity from future
+            if self._preflop_eq_future is not None:
+                try:
+                    eq = self._preflop_eq_future.result(timeout=0.5)
+                except Exception:
+                    eq = preflop_equity(my_cards, bounty_rank)
+                self._preflop_eq_future = None
+                self._preflop_eq_cache = eq
+            elif self._preflop_eq_cache is not None:
+                eq = self._preflop_eq_cache
+            else:
+                eq = preflop_equity(my_cards, bounty_rank)
+                if opp_bounty_rank and opp_bounty_rank != '-1':
+                    if my_cards[0][0] == opp_bounty_rank or my_cards[1][0] == opp_bounty_rank:
+                        eq = min(0.96, eq + 0.06)
+
+            obs_future.result()  # ensure observation completed
 
             # HIGH AGGRESSION: 4-bet+ (cost > 20)
             if continue_cost > BIG_BLIND * 10:
@@ -192,10 +340,23 @@ class Player(Bot):
                     return FoldAction() if FoldAction in legal else self._safe_check(legal)
 
         # ════════════════════════════════════════════════════════
-        #  POST-FLOP
+        #  POST-FLOP — Threaded MC equity
         # ════════════════════════════════════════════════════════
         samples = self._time_samples(game_state.game_clock, street)
-        eq = self._mc_equity(my_cards, board_cards, samples)
+
+        # ▶ PARALLEL MC: equity computed across multiple threads
+        # While MC runs, we also compute made-hand flags concurrently
+        eq_future = self._pool.submit(
+            self._mc_equity_threaded, my_cards, board_cards, samples
+        )
+        flags_future = self._pool.submit(
+            self._made_flags, my_cards, board_cards
+        )
+
+        # Wait for both results
+        obs_future.result()  # ensure opponent observation done
+        eq = eq_future.result()
+        top_pair, overpair, set_made, flush_made = flags_future.result()
 
         # Bounty adjustments
         vis = [c[0] for c in board_cards]
@@ -207,7 +368,6 @@ class Player(Bot):
             eq -= 0.12
 
         # Made-hand floor
-        top_pair, overpair, set_made, flush_made = self._made_flags(my_cards, board_cards)
         if set_made or flush_made: eq = max(eq, 0.83)
         elif top_pair or overpair: eq = max(eq, 0.63)
 
@@ -383,28 +543,6 @@ class Player(Bot):
         return pre, post
 
     # ─────────────────────────────────────────────────────────────
-    # Monte Carlo equity
-    # ─────────────────────────────────────────────────────────────
-    def _mc_equity(self, hero_str, board_str, samples):
-        hero = [eval7.Card(c) for c in hero_str]
-        board = [eval7.Card(c) for c in board_str]
-        dead = {str(c) for c in hero + board}
-        rem = [c for c in eval7.Deck().cards if str(c) not in dead]
-        board_rem = 5 - len(board)
-        wins = ties = 0
-
-        for _ in range(samples):
-            random.shuffle(rem)
-            opp = rem[:2]
-            run = rem[2:2 + board_rem]
-            full_board = board + run if board_rem else board
-            s1 = eval7.evaluate(hero + full_board)
-            s2 = eval7.evaluate(opp + full_board)
-            if s1 > s2: wins += 1
-            elif s1 == s2: ties += 1
-        return (wins + 0.5 * ties) / max(1, samples)
-
-    # ─────────────────────────────────────────────────────────────
     # Hand features
     # ─────────────────────────────────────────────────────────────
     def _made_flags(self, hero, board):
@@ -435,11 +573,16 @@ class Player(Bot):
     # Time and risk controls
     # ─────────────────────────────────────────────────────────────
     def _time_samples(self, game_clock, street):
-        if game_clock < 2.5: base = 30
-        elif game_clock < 6.0: base = 70
-        elif game_clock < 15.0: base = 120
-        elif game_clock < 30.0: base = 170
-        else: base = 220
+        """Dynamically scale sample count based on remaining clock.
+
+        With threading, we can afford MORE samples for the same wall-clock
+        budget because work is split across MAX_THREADS cores.
+        """
+        if game_clock < 2.5:   base = 40    # was 30 → threading overhead minimal
+        elif game_clock < 6.0: base = 100   # was 70
+        elif game_clock < 15.0: base = 180  # was 120
+        elif game_clock < 30.0: base = 280  # was 170
+        else:                  base = 400   # was 220
         if street == 5: base = int(base * 0.8)
         return max(20, base)
 
