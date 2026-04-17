@@ -1,655 +1,420 @@
-'''
-Strong Poker Bot — Clean rewrite.
+"""
+================================================================================
+  APEX — Adaptive Poker Exploit Agent
+  IIT2024267 | PokerBots-IIITA 2026
+================================================================================
 
-Strategy:
-  1. Preflop: Tight-aggressive hand chart (raise strong, call medium, fold weak).
-  2. Post-flop: Monte-Carlo equity + pot-odds for every decision.
-  3. Bounty: Bump aggression when our bounty rank is live.
-  4. CFR-style regret table, trained offline via self-play and loaded at start.
-     Falls back to pure equity if no table is found (still beats a simple bot).
+Motivation & Research Foundation
+----------------------------------
+This bot is inspired by two key bodies of work in computational poker:
 
-The CFR training is a standalone function you run ONCE from the terminal:
-    python player.py --train --iters 20000
+1. **Exploitative Play via Opponent Modelling** (Johanson et al., 2007):
+   Rather than seeking a Nash Equilibrium (GTO), this agent identifies and
+   exploits structural leaks in specific opponent programs. The core idea:
+   against a fixed, non-adaptive opponent, maximum EV comes from exploiting
+   their exact weaknesses, not from balancing our own range.
 
-That writes  cfr_regrets.json  next to player.py.
-During the match the file is loaded and used for look-ups; if it is missing
-the bot falls back to the equity-only strategy which is already strong.
+2. **Monte Carlo Counterfactual Regret Minimisation (MCCFR)** — simplified:
+   We use Monte Carlo sampling (eval7) for equity estimation rather than
+   full CFR, following the "information-set sampling" principle from
+   Lanctot et al. (2009). This gives us real-time equity with controllable
+   accuracy/speed tradeoff.
 
-Time budget per action: <30 ms  (equity MC uses 200 samples w/ eval7).
-'''
+Design Philosophy
+------------------
+The agent uses a **dual-mode opponent classifier** to switch between two
+exploit profiles mid-session:
 
-import random, math, os, json, argparse, time, itertools
-from collections import defaultdict
+  Mode A — "Fold-Heavy" (e.g. Baseline):
+    Bet cheap (pot//5 + 3) on every street with any equity >= 0.38.
+    Their folding threshold is "any bet > pot//5" → our cheap bet triggers
+    ~90% fold equity. Even with trash we profit (0.9 * pot >> call_loss).
 
-try:
-    import eval7
-    _E7 = True
-except ImportError:
-    _E7 = False
+  Mode B — "Call-Station / Sophisticated" (e.g. Player2):
+    Check medium hands (no wasted bluffs), bet for value (65% pot) when
+    clearly ahead (eq >= 0.65), overbet (1.3x pot) with monsters to exploit
+    their "fold one-pair to overbets" heuristic.
 
+The classifier needs only ~10 bets to converge via Bayesian fold-rate
+estimation. Before convergence, we default to Mode A (cheap bets) which
+is conservative and works against both opponent types.
+
+Preflop: We 3-bet strong hands (PF strength >= 0.65) and open wide (>= 0.38),
+pressuring both opponents preflop. Against large 3-bets, we push/fold using
+Nash equilibrium thresholds when stack-to-BB ratio falls below 12.
+
+Clock Safety: MC iterations are budgeted by game_clock, preventing TLEs.
+================================================================================
+"""
 from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
-from skeleton.states  import GameState, TerminalState, RoundState
-from skeleton.states  import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
-from skeleton.bot     import Bot
-from skeleton.runner  import parse_args, run_bot
+from skeleton.states import STARTING_STACK, BIG_BLIND
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot
+import eval7
+import random
 
-# ─────────────────────────────────────────────────────────────────────────────
-# CONSTANTS
-# ─────────────────────────────────────────────────────────────────────────────
+# ── Rank lookup ──────────────────────────────────────────────────────────────
+RANK_MAP = {r: i for i, r in enumerate("23456789TJQKA")}
 
-RANKS       = '23456789TJQKA'
-SUITS       = 'shdc'
-RANK_VAL    = {r: i for i, r in enumerate(RANKS)}
-ALL_CARDS   = [r + s for r in RANKS for s in SUITS]   # 52 strings
-REGRET_FILE = os.path.join(os.path.dirname(__file__), 'cfr_regrets.json')
+# ── Nash push/fold thresholds (HU, effective BB) ─────────────────────────────
+# Source: Sklansky-Malmuth push/fold charts, simplified for HU.
+# push_thresh = minimum preflop strength to open-jam
+# call_thresh = minimum preflop strength to call a jam
+_NASH = [
+    (12, 0.50, 0.60),   # 12+ BB: push top 50%, call top 60%
+    ( 8, 0.38, 0.50),   # 8-11 BB
+    ( 5, 0.20, 0.40),   # 5-7 BB: push wider, call tighter
+    ( 3, 0.00, 0.25),   # 3-4 BB: push any, call top 25%
+    ( 0, 0.00, 0.00),   # <3 BB:  always push, always call (pot committed)
+]
 
-# ─────────────────────────────────────────────────────────────────────────────
-# EQUITY  (fast Monte-Carlo using eval7 when available)
-# ─────────────────────────────────────────────────────────────────────────────
+def _nash_thresholds(eff_bb):
+    """Return (push_thresh, call_thresh) for given effective BB count."""
+    for cutoff, pt, ct in _NASH:
+        if eff_bb >= cutoff:
+            return pt, ct
+    return 0.0, 0.0
 
-def equity(hole: list, board: list, samples: int = 200) -> float:
-    '''Win probability for hole cards given current board. [0,1]'''
-    if len(hole) < 2:
-        return 0.5
-    known   = set(hole + board)
-    deck    = [c for c in ALL_CARDS if c not in known]
-    need    = 5 - len(board)
-    wins = ties = 0
 
-    if _E7 and eval7 is not None:
-        h_e7 = [eval7.Card(c) for c in hole]
-        b_e7 = [eval7.Card(c) for c in board]
-        for _ in range(samples):
-            draw      = random.sample(deck, 2 + need)
-            opp_e7    = [eval7.Card(c) for c in draw[:2]]
-            extra_e7  = [eval7.Card(c) for c in draw[2:]]
-            full      = b_e7 + extra_e7
-            me        = eval7.evaluate(h_e7  + full)
-            opp       = eval7.evaluate(opp_e7 + full)
-            if me > opp:   wins += 1
-            elif me == opp: ties += 1
+def hand_strength(hole):
+    """
+    Fast O(1) preflop hand strength estimate [0.10, 0.95].
+
+    Based on a simplified Chen formula:
+      - Pair strength scales with rank
+      - High-card strength from top two ranks
+      - Suited/connected bonuses
+    Returns a normalised score comparable to percentile in the hand range.
+    """
+    r1, r2 = hole[0][0], hole[1][0]
+    i1, i2 = RANK_MAP[r1], RANK_MAP[r2]
+    high, low = max(i1, i2), min(i1, i2)
+    suited = hole[0][1] == hole[1][1]
+    pair = r1 == r2
+    gap = high - low
+
+    if pair:
+        s = 0.50 + high * 0.035           # AA ≈ 0.94, 22 ≈ 0.57
+    elif high >= 12 and low >= 10:
+        s = 0.65 + low * 0.01             # Broadway combos
+    elif high == 12:
+        s = 0.48 + low * 0.01
+    elif high == 11:
+        s = 0.43 + low * 0.01
     else:
-        for _ in range(samples):
-            draw      = random.sample(deck, 2 + need)
-            opp_hole  = draw[:2]
-            full      = board + draw[2:]
-            me        = _score_hand(hole,     full)
-            opp       = _score_hand(opp_hole, full)
-            if me > opp:   wins += 1
-            elif me == opp: ties += 1
+        s = 0.25 + high * 0.02
+
+    if suited: s += 0.04
+    if gap <= 1 and not pair: s += 0.03   # connectors bonus
+    if gap >= 6: s -= 0.05                # big-gap penalty
+
+    return max(0.10, min(0.95, s))
+
+
+def mc_equity(my_cards, board_cards, iters=300):
+    """
+    Monte Carlo equity estimation via random runout sampling.
+
+    Samples `iters` random opponent hands + board runouts and measures
+    win/tie rate. O(iters) with eval7's optimised hand evaluator.
+    Returns float in [0, 1].
+    """
+    deck = eval7.Deck()
+    hero = [eval7.Card(c) for c in my_cards]
+    board = [eval7.Card(c) for c in board_cards]
+    known = set(hero + board)
+    # Build remaining deck excluding known cards
+    remaining = [c for c in deck.cards if c not in known]
+    need = 5 - len(board)   # cards still to come
+    wins = 0
+    for _ in range(iters):
+        random.shuffle(remaining)
+        sim_board = board + remaining[:need]
+        opp_cards = remaining[need:need + 2]
+        mv = eval7.evaluate(hero + sim_board)
+        ov = eval7.evaluate(opp_cards + sim_board)
+        if mv > ov:
+            wins += 2       # win = 2 points
+        elif mv == ov:
+            wins += 1       # tie = 1 point (split pot)
+    return wins / (2.0 * iters)
 
-    return (wins + 0.5 * ties) / samples
-
-
-def _score_hand(hole, board):
-    cards = hole + board
-    best  = -1
-    for combo in itertools.combinations(cards, 5):
-        s = _score5(combo)
-        if s > best: best = s
-    return best
-
-def _score5(cards):
-    rv  = sorted([RANK_VAL[c[0]] for c in cards], reverse=True)
-    flu = len({c[1] for c in cards}) == 1
-    st  = (rv == list(range(rv[0], rv[0]-5, -1))) or rv == [12,3,2,1,0]
-    rc  = defaultdict(int)
-    for r in rv: rc[r] += 1
-    freq = sorted(rc.values(), reverse=True)
-    dist = sorted(rc, key=lambda r:(rc[r],r), reverse=True)
-    tb   = sum(r*(13**i) for i,r in enumerate(reversed(dist)))
-    if st and flu: cat=8
-    elif freq[0]==4: cat=7
-    elif freq[:2]==[3,2]: cat=6
-    elif flu: cat=5
-    elif st: cat=4
-    elif freq[0]==3: cat=3
-    elif freq[:2]==[2,2]: cat=2
-    elif freq[0]==2: cat=1
-    else: cat=0
-    return cat*(13**6)+tb
-
-
-def pot_odds(call_cost: int, pot: int) -> float:
-    '''Minimum equity needed to call profitably.'''
-    total = pot + call_cost
-    if total <= 0: return 0.0
-    return call_cost / total
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# BOARD EXTRACTION  (handles both eval7.Deck and plain lists)
-# ─────────────────────────────────────────────────────────────────────────────
-
-def board_cards(rs: RoundState) -> list:
-    s = rs.street
-    if s == 0: return []
-    d = rs.deck
-    if d is None: return []
-    if isinstance(d, list):
-        return [str(c) for c in d[:s]]
-    try:
-        return [str(c) for c in d.peek(s)]
-    except Exception:
-        return []
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# PREFLOP HAND STRENGTH  (no equity MC needed — pure chart)
-# ─────────────────────────────────────────────────────────────────────────────
-
-def preflop_strength(hole: list) -> float:
-    '''
-    Returns a [0,1] hand-strength score based on Chen formula
-    approximation. No randomness — deterministic and instant.
-    '''
-    if len(hole) < 2: return 0.0
-    r0, r1 = hole[0][0], hole[1][0]
-    s0, s1 = hole[0][1], hole[1][1]
-    v0, v1 = RANK_VAL[r0], RANK_VAL[r1]
-    if v0 < v1: v0, v1 = v1, v0          # v0 ≥ v1
-
-    suited = (s0 == s1)
-    gap    = v0 - v1
-
-    # Chen formula (simplified, scaled to [0,1])
-    score = 0.0
-
-    # High card value
-    score += v0 / 2.0
-
-    # Pair bonus
-    if gap == 0:
-        score = max(score, 5.0)
-        if v0 >= 10: score += 4
-        elif v0 >= 6: score += 2
-        else:         score += 1
-
-    # Suited bonus
-    if suited: score += 2
-
-    # Connector bonus
-    if   gap == 0: pass           # pair already handled
-    elif gap == 1: score += 1
-    elif gap == 2: score += 0.5
-
-    # Penalty for gaps
-    if   gap == 3: score -= 1
-    elif gap == 4: score -= 2
-    elif gap >= 5: score -= 4
-
-    # Normalise roughly to [0,1];  max Chen score ~20 for AA
-    return min(max(score / 20.0, 0.0), 1.0)
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# CFR  (Vanilla CFR over a small abstraction)
-# ─────────────────────────────────────────────────────────────────────────────
-# Abstraction:
-#   • Preflop: 10 equity buckets of preflop_strength
-#   • Post-flop: 10 equity buckets via MC equity
-#   • Betting: check/fold/call/raise-small/raise-big  (5 abstract actions max)
-#   • History: last 3 abstract actions only (keeps key space tiny)
-# ─────────────────────────────────────────────────────────────────────────────
-
-N_BUCKETS = 10      # equity buckets
-MAX_DEPTH = 12      # recursion guard
-
-A_FOLD  = 'f'
-A_CHECK = 'k'
-A_CALL  = 'c'
-A_RAISE = 'r'    # moderate raise (~60% pot)
-A_ALLIN = 'a'    # all-in / max raise
-
-# Actions that end a street when both players have acted
-_PASSIVE = {A_CHECK, A_CALL}
-_STREETS = [0, 3, 4, 5]    # preflop, flop, turn, river
-
-
-def _legal_abstract(last_opp: str | None, n_raises: int) -> list:
-    '''Abstract legal actions given last opponent action and raise count.'''
-    if last_opp in (A_RAISE, A_ALLIN):
-        acts = [A_FOLD, A_CALL]
-        if n_raises < 2:
-            acts += [A_RAISE, A_ALLIN]
-        return acts
-    else:   # check / None (first to act)
-        acts = [A_CHECK]
-        if n_raises < 2:
-            acts += [A_RAISE, A_ALLIN]
-        return acts
-
-
-def _street_over(hist: list) -> bool:
-    '''True when the current street should advance.'''
-    if len(hist) < 2: return False
-    return hist[-1] in _PASSIVE and hist[-2] in _PASSIVE
-
-
-def _next_street(street: int) -> int:
-    idx = _STREETS.index(street) if street in _STREETS else -1
-    if idx == -1 or idx == len(_STREETS) - 1:
-        return 99   # showdown
-    return _STREETS[idx + 1]
-
-
-def _eq_bucket(hs: float) -> int:
-    return min(int(hs * N_BUCKETS), N_BUCKETS - 1)
-
-
-class _Node:
-    __slots__ = ('r', 's')
-    def __init__(self, n):
-        self.r = [0.0] * n   # regret sums
-        self.s = [0.0] * n   # strategy sums
-
-    def strategy(self, reach: float) -> list:
-        pos = [max(x, 0.0) for x in self.r]
-        tot = sum(pos)
-        if tot > 1e-12:
-            sig = [p / tot for p in pos]
-        else:
-            sig = [1.0 / len(self.r)] * len(self.r)
-        for i, v in enumerate(sig):
-            self.s[i] += reach * v
-        return sig
-
-    def avg(self) -> list:
-        tot = sum(self.s)
-        if tot > 1e-12:
-            return [v / tot for v in self.s]
-        return [1.0 / len(self.s)] * len(self.s)
-
-
-class CFR:
-    def __init__(self):
-        self._nodes: dict = {}
-
-    def _key(self, bucket: int, street: int, hist: list) -> str:
-        h = ''.join(hist[-3:])
-        return f'{bucket},{street},{h}'
-
-    def _node(self, key: str, n: int) -> _Node:
-        if key not in self._nodes:
-            self._nodes[key] = _Node(n)
-        elif self._nodes[key].r.__len__() != n:
-            self._nodes[key] = _Node(n)
-        return self._nodes[key]
-
-    def _terminal_util(self, street: int, eq0: float,
-                       pot: int, active: int) -> tuple:
-        '''Return (util0, util1) at a terminal node.'''
-        u0 = eq0 * pot - (1 - eq0) * pot
-        return (u0, -u0)
-
-    def _cfr(self, eq0: float, eq1: float, street: int,
-             hist: list, p0: float, p1: float,
-             pot: int, depth: int) -> tuple:
-
-        if depth > MAX_DEPTH:
-            u = eq0 * pot - (1 - eq0) * pot
-            return (u, -u)
-
-        # Fold terminal
-        if hist and hist[-1] == A_FOLD:
-            # last actor folded; the one before wins
-            last_actor = (depth - 1) % 2
-            if last_actor == 0:
-                return (-pot * 0.5, pot * 0.5)
-            else:
-                return (pot * 0.5, -pot * 0.5)
-
-        # Showdown
-        if street == 99:
-            u = eq0 * pot - (1 - eq0) * pot
-            return (u, -u)
-
-        # Street advance
-        if _street_over(hist):
-            return self._cfr(eq0, eq1, _next_street(street),
-                             [], p0, p1, pot, depth)
-
-        active  = depth % 2
-        eq_act  = eq0 if active == 0 else eq1
-        bucket  = _eq_bucket(eq_act)
-
-        last_opp_idx = len(hist) - 1 if hist else -1
-        last_opp = hist[-1] if hist else None
-        n_raises = sum(1 for a in hist if a in (A_RAISE, A_ALLIN))
-
-        acts    = _legal_abstract(last_opp, n_raises)
-        key     = self._key(bucket, street, hist)
-        node    = self._node(key, len(acts))
-        rw      = p0 if active == 0 else p1
-        sigma   = node.strategy(rw)
-
-        child_utils = []
-        for i, a in enumerate(acts):
-            new_hist = hist + [a]
-            new_pot  = pot
-            if a == A_CALL:
-                new_pot += min(20, pot // 4)     # rough call cost
-            elif a == A_RAISE:
-                new_pot += max(2, pot // 2)
-            elif a == A_ALLIN:
-                new_pot += pot * 2
-
-            np0 = p0 * sigma[i] if active == 0 else p0
-            np1 = p1 * sigma[i] if active == 1 else p1
-
-            u = self._cfr(eq0, eq1, street, new_hist,
-                          np0, np1, new_pot, depth + 1)
-            child_utils.append(u)
-
-        # Node utility
-        u0 = sum(sigma[i] * child_utils[i][0] for i in range(len(acts)))
-        u1 = sum(sigma[i] * child_utils[i][1] for i in range(len(acts)))
-
-        opp_reach = p1 if active == 0 else p0
-        node_u = u0 if active == 0 else u1
-
-        for i in range(len(acts)):
-            cf = child_utils[i][0] if active == 0 else child_utils[i][1]
-            node.r[i] += opp_reach * (cf - node_u)
-
-        return (u0, u1)
-
-    def train(self, iters: int = 10000, verbose: bool = True):
-        t0 = time.time()
-        for i in range(iters):
-            eq0 = random.random()
-            eq1 = random.random()
-            pot = BIG_BLIND + SMALL_BLIND
-            self._cfr(eq0, eq1, 0, [], 1.0, 1.0, pot, 0)
-            if verbose and (i+1) % 2000 == 0:
-                elapsed = time.time() - t0
-                print(f'  iter {i+1}/{iters}   nodes={len(self._nodes)}  '
-                      f't={elapsed:.1f}s')
-        print(f'Done. {len(self._nodes)} nodes.')
-
-    def get_avg_strategy(self, bucket: int, street: int,
-                         hist: list) -> dict | None:
-        '''Returns {action: prob} or None if key not found.'''
-        key  = self._key(bucket, street, hist)
-        if key not in self._nodes:
-            return None
-        node = self._nodes[key]
-        last_opp = hist[-1] if hist else None
-        n_raises = sum(1 for a in hist if a in (A_RAISE, A_ALLIN))
-        acts = _legal_abstract(last_opp, n_raises)
-        avg  = node.avg()
-        return {a: avg[i] for i, a in enumerate(acts)}
-
-    # ── persistence ──────────────────────────────────────────────────────────
-
-    def save(self, path: str = REGRET_FILE):
-        data = {}
-        for k, node in self._nodes.items():
-            data[k] = {'r': node.r, 's': node.s}
-        with open(path, 'w') as f:
-            json.dump(data, f)
-        print(f'Saved {len(data)} CFR nodes → {path}')
-
-    def load(self, path: str = REGRET_FILE) -> bool:
-        if not os.path.exists(path):
-            return False
-        with open(path) as f:
-            data = json.load(f)
-        for k, v in data.items():
-            n = _Node(len(v['r']))
-            n.r = v['r']
-            n.s = v['s']
-            self._nodes[k] = n
-        print(f'Loaded {len(self._nodes)} CFR nodes from {path}')
-        return True
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# BOUNTY HELPERS
-# ─────────────────────────────────────────────────────────────────────────────
-
-def bounty_active(hole: list, board: list, rank: str) -> bool:
-    return any(c[0] == rank for c in hole + board)
-
-def bounty_possible(hole: list, rank: str) -> bool:
-    return any(c[0] == rank for c in hole)
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# PLAYER
-# ─────────────────────────────────────────────────────────────────────────────
 
 class Player(Bot):
-    '''
-    Equity-first poker bot with optional CFR strategy overlay.
+    """
+    Adaptive exploit agent with real-time opponent profiling.
 
-    Decision flow:
-      1. Compute equity (preflop: Chen score, post-flop: MC).
-      2. If a trained CFR node exists for this info-set, sample from it.
-      3. Otherwise fall back to direct equity decision rules.
-      4. Bounty rank present → multiply raise size.
-    '''
-
-    # Equity thresholds for direct rules (post-flop)
-    RAISE_THRESH = 0.72  # raise if equity > this
-    CALL_THRESH  = 0.50   # call  if equity > this (else fold)
-
-    # Preflop thresholds (Chen score, normalised)
-    PRE_RAISE    = 0.70
-    PRE_CALL     = 0.45
+    State tracked across hands:
+      our_bets   : total times we bet/raised postflop
+      opp_folds  : times opponent folded after we bet
+      fold_rate  : rolling fold-to-our-bet ratio → opponent classifier
+    """
 
     def __init__(self):
-        self.cfr = CFR()
-        self._loaded = self.cfr.load()
-        self._hist: list = []   # abstract action history this hand
-        self._hole: list = []
-        self._bounty: str = ''
+        # Fold tracking for opponent classification
+        self.our_bets = 0
+        self.opp_folds = 0
+        self._bet_this_hand = False
 
-    # ── lifecycle ────────────────────────────────────────────────────────────
+    def handle_new_round(self, game_state, round_state, active):
+        """Reset per-hand state."""
+        self._bet_this_hand = False
 
-    def handle_new_round(self, gs: GameState, rs: RoundState, active: int):
-        self._hist   = []
-        self._hole   = rs.hands[active] if rs.hands[active] else []
-        self._bounty = rs.bounties[active] if rs.bounties[active] else ''
+    def handle_round_over(self, game_state, terminal_state, active):
+        """
+        Detect opponent folds after our bets.
+        If we bet this hand, check whether opponent's hole cards are hidden
+        at terminal state — hidden = they folded (standard skeleton behaviour:
+        folded player's cards are set to [] in terminal state).
+        """
+        if not self._bet_this_hand:
+            return
+        # Detect fold: opponent's cards are empty in terminal state
+        try:
+            opp_idx = 1 - active
+            opp_cards = terminal_state.previous_state.hands[opp_idx]
+            if opp_cards is None or len(opp_cards) == 0:
+                self.opp_folds += 1
+        except Exception:
+            # Fallback: if terminal delta is strongly positive and we bet,
+            # they likely folded (conservative heuristic)
+            try:
+                delta = terminal_state.deltas[active]
+                if delta > 0 and self.our_bets > 0:
+                    self.opp_folds += 1
+            except Exception:
+                pass
 
-    def handle_round_over(self, gs: GameState, ts: TerminalState, active: int):
-        pass   # online learning not needed once CFR is pre-trained
+    # ── Opponent classifier ─────────────────────────────────────────────────
 
-    # ── action ───────────────────────────────────────────────────────────────
+    def _fold_rate(self):
+        """
+        Bayesian fold rate: (folds + 1) / (bets + 2).
+        The Laplace smoothing (+1/+2) ensures sensible defaults before
+        we have enough data — returns 0.50 until we see ~10+ bets.
+        """
+        return (self.opp_folds + 1) / (self.our_bets + 2)
 
-    def get_action(self, gs: GameState, rs: RoundState, active: int):
-        legal     = rs.legal_actions()
-        street    = rs.street
-        hole      = rs.hands[active]
-        board     = board_cards(rs)
-        my_pip    = rs.pips[active]
-        opp_pip   = rs.pips[1 - active]
-        my_stack  = rs.stacks[active]
-        opp_stack = rs.stacks[1 - active]
-        call_cost = opp_pip - my_pip
-        pot       = (STARTING_STACK - my_stack) + (STARTING_STACK - opp_stack)
-        bounty    = rs.bounties[active] if rs.bounties[active] else ''
-        is_bb     = bool(active)
+    def _is_fold_heavy(self):
+        """
+        Returns True if opponent folds frequently (baseline-like).
+        Threshold: fold_rate > 0.55.
+        We need at least 8 bets before trusting this classification.
+        Before that, default to True (cheap bets are safe vs both opponents).
+        """
+        if self.our_bets < 8:
+            return True     # conservative default: cheap bets harm no one
+        return self._fold_rate() > 0.55
 
+    def _record_bet(self):
+        """Mark that we bet/raised this hand (for fold tracking)."""
+        self._bet_this_hand = True
+        self.our_bets += 1
+
+    # ── Main action logic ───────────────────────────────────────────────────
+
+    def get_action(self, game_state, round_state, active):
+        legal = round_state.legal_actions()
+        street = round_state.street
+        hole = round_state.hands[active]
+        board = round_state.deck[:street]
+        my_pip = round_state.pips[active]
+        opp_pip = round_state.pips[1 - active]
+        my_stack = round_state.stacks[active]
+        opp_stack = round_state.stacks[1 - active]
+        cost = opp_pip - my_pip              # chips to call
+        pot = 2 * STARTING_STACK - my_stack - opp_stack
+        my_bounty = round_state.bounties[active]
+
+        # Raise bounds (0 if raise is not a legal action)
+        mn, mx = 0, 0
         if RaiseAction in legal:
-            min_r, max_r = rs.raise_bounds()
-        else:
-            min_r = max_r = opp_pip
+            mn, mx = round_state.raise_bounds()
 
-        # ── 1. Compute equity ────────────────────────────────────────────────
-        if street == 0:
-            eq = preflop_strength(hole)
-        else:
-            eq = equity(hole, board)
-        eq-=0.03
+        clk = game_state.game_clock
 
-        if not is_bb:
-            eq -= 0.04
-        else:
-            eq += 0.02
-        # ── 2. Bounty boost ──────────────────────────────────────────────────
-        b_active   = bounty and bounty_active(hole, board, bounty)
-        b_possible = bounty and bounty_possible(hole, bounty)
-        if b_active:
-            eq = min(eq + 0.12, 1.0)
-        elif b_possible:
-            eq = min(eq + 0.05, 1.0)
-
-        # ── 3. CFR strategy look-up ──────────────────────────────────────────
-        bucket = _eq_bucket(eq)
-        cfr_strat = None
-        if cfr_strat:
-            action = self._cfr_action(cfr_strat, legal, pot, call_cost,
-                                      min_r, max_r, my_pip, eq, street)
-        else:
-            action = self._equity_action(eq, legal, pot, call_cost,
-                                         min_r, max_r, my_pip, street,
-                                         is_bb, bounty)
-
-        # ── 4. Record abstract action ────────────────────────────────────────
-        self._hist.append(self._to_abstract(action, min_r, max_r))
-        return action
-
-    # ── helpers ──────────────────────────────────────────────────────────────
-
-    def _cfr_action(self, strat: dict, legal: set, pot: int, call_cost: int,
-                    min_r: int, max_r: int, my_pip: int,
-                    eq: float, street: int):
-        '''Sample from CFR strategy, then translate to engine action.'''
-        # Threshold-prune (Chintamaneni §4)
-        thresh = 0.15 if street == 0 else (0.20 if street == 3 else 0.25)
-        total  = sum(strat.values())
-        valid  = {a: p for a, p in strat.items()
-                  if (p / max(total, 1e-9)) >= thresh}
-        if not valid:
-            valid = strat
-
-        # Renormalise
-        vtot = sum(valid.values())
-        r    = random.random()
-        cum  = 0.0
-        chosen = A_CHECK
-        for a, p in valid.items():
-            cum += p / vtot
-            if r < cum:
-                chosen = a
-                break
-
-        return self._abstract_to_action(chosen, legal, pot, min_r, max_r, my_pip)
-
-    def _equity_action(self, eq: float, legal: set, pot: int, call_cost: int,
-                       min_r: int, max_r: int, my_pip: int,
-                       street: int, is_bb: bool, bounty: str):
-        '''Pure equity decision rule — fallback when CFR has no node.'''
-        po = pot_odds(call_cost, pot)
-
-        if call_cost > pot * 0.8 and eq < 0.60:
-            return FoldAction()
-        # Preflop
-        if street == 0:
-            if eq >= self.PRE_RAISE:
-                if RaiseAction in legal:
-                    # size: 2.5x BB normally, bigger with strong hands
-                    size = int(pot * (0.6))
-                    amt  = max(min_r, min(size, max_r))
-                    return RaiseAction(amt)
-                return CallAction() if CallAction in legal else CheckAction()
-
-            elif eq >= self.PRE_CALL:
-                if call_cost == 0:
-                    return CheckAction() if CheckAction in legal else CallAction()
-                return CallAction() if CallAction in legal else CheckAction()
-
-            else:   # weak hand
-                if is_bb and call_cost == 0 and CheckAction in legal:
-                    return CheckAction()   # free look
-                if call_cost == 0:
-                    return CheckAction() if CheckAction in legal else FoldAction()
-                return FoldAction() if FoldAction in legal else CheckAction()
-
-        # Post-flop
-        if eq >= self.RAISE_THRESH:
-            if RaiseAction in legal:
-                # Value bet: 55–80% pot
-                frac = 0.55 + (eq - self.RAISE_THRESH) * 1.5
-                size = int(pot * min(frac, 0.80)) + my_pip
-                amt  = max(min_r, min(size, max_r))
-                return RaiseAction(amt)
-            return CallAction() if CallAction in legal else CheckAction()
-
-        elif eq >= self.CALL_THRESH and eq >= po+0.06:
-            if call_cost == 0:
+        # ── Clock safety: ultra-fast fallback if clock is nearly empty ──────
+        if clk < 2.0:
+            if cost == 0:
                 return CheckAction() if CheckAction in legal else CallAction()
             return CallAction() if CallAction in legal else CheckAction()
 
+        # ── Bounty bonus: bump hand strength if we hold the bounty rank ─────
+        has_bounty = (hole[0][0] == my_bounty or hole[1][0] == my_bounty)
+
+        # ════════════════════════════════════════════════════════════════════
+        #  PREFLOP
+        # ════════════════════════════════════════════════════════════════════
+        if street == 0:
+            hs = hand_strength(hole)
+            if has_bounty:
+                hs = min(0.95, hs + 0.05)   # bounty card makes hand more playable
+
+            eff_bb = min(my_stack, opp_stack) / BIG_BLIND
+
+            # ── Nash push/fold when stacks are short (< 12 BB) ───────────
+            if eff_bb < 12:
+                push_t, call_t = _nash_thresholds(eff_bb)
+                if cost == 0 and RaiseAction in legal:
+                    # Short stack: open-jam or fold
+                    if hs >= push_t:
+                        return RaiseAction(mx)
+                    return CheckAction() if CheckAction in legal else FoldAction()
+                elif cost > 0:
+                    # Facing a raise with short stack: call or fold based on Nash
+                    if hs >= call_t:
+                        return CallAction()
+                    return FoldAction() if FoldAction in legal else CallAction()
+
+            # ── Deep stack preflop ───────────────────────────────────────
+            # Facing a big 3-bet or jam: narrow call/raise range
+            if cost > BIG_BLIND * 10:
+                if hs >= 0.75 and RaiseAction in legal:
+                    return RaiseAction(mx)                   # 4-bet/jam premiums
+                if hs >= 0.65:
+                    return CallAction()                      # call strong hands
+                return FoldAction() if FoldAction in legal else CallAction()
+
+            # Facing a standard 3-bet (4-10 BB)
+            if cost > BIG_BLIND * 4:
+                if hs >= 0.70 and RaiseAction in legal:
+                    return RaiseAction(max(mn, min(mx, int(opp_pip * 3))))
+                if hs >= 0.58:
+                    return CallAction()
+                return FoldAction() if FoldAction in legal else CallAction()
+
+            # Facing an open raise (2-4 BB):
+            # 3-bet with strong hands to exploit player2's ~55% fold-to-3bet rate
+            if cost > 0:
+                if hs >= 0.65 and RaiseAction in legal:
+                    # 3-bet to 3.5x their open
+                    return RaiseAction(max(mn, min(mx, max(14, int(opp_pip * 3.5)))))
+                if hs >= 0.48:
+                    return CallAction()
+                if cost <= BIG_BLIND and hs >= 0.40:
+                    return CallAction()   # cheap defend vs min-raise
+                return FoldAction() if FoldAction in legal else CallAction()
+
+            # First to act: open wide — pressure both opponent types preflop
+            # Baseline folds to any open. Player2 folds tier 4-5 hands.
+            if hs >= 0.38 and RaiseAction in legal:
+                return RaiseAction(max(mn, min(mx, int(BIG_BLIND * 2.5))))
+            return CallAction() if CallAction in legal else CheckAction()
+
+        # ════════════════════════════════════════════════════════════════════
+        #  POSTFLOP: MC equity + opponent-adaptive bet sizing
+        # ════════════════════════════════════════════════════════════════════
+
+        # Budget MC iterations by clock: more time = more accuracy
+        iters = 400 if clk > 20 else (250 if clk > 8 else 120)
+        eq = mc_equity(hole, board, iters=iters)
+
+        # Bounty boosts effective equity (hitting it adds real chip value)
+        bounty_hit = any(c[0] == my_bounty for c in hole) or any(c[0] == my_bounty for c in board)
+        if bounty_hit:
+            eq = min(0.99, eq * 1.10 + 0.05)
+
+        # ── Facing opponent's bet ────────────────────────────────────────────
+        # Both opponents bet for value (neither is a pure bluffer at this stage).
+        # → Tight calling; only continue with meaningful equity.
+        if cost > 0:
+            # Pot odds: the minimum equity needed to break even on a call
+            pot_odds = cost / max(1.0, pot + 2 * cost)
+            bet_frac = cost / max(1.0, pot)
+
+            # Monster re-raise: extract maximum value
+            if eq >= 0.80 and RaiseAction in legal:
+                self._record_bet()
+                return RaiseAction(max(mn, min(mx, int(pot * 0.85) + my_pip)))
+
+            # +EV call: our equity meaningfully exceeds pot odds
+            # Extra margin (0.07) accounts for variance and multi-street risk
+            if eq >= pot_odds + 0.07:
+                return CallAction()
+
+            # Cheap peel: tiny bets are worth calling with any draw (small risk)
+            if bet_frac <= 0.20 and eq >= 0.35:
+                return CallAction()
+
+            # Fold: math says we're not getting the right price
+            return FoldAction() if FoldAction in legal else CallAction()
+
+        # ── Checked to us (no cost to act) ──────────────────────────────────
+        if RaiseAction not in legal:
+            return CheckAction() if CheckAction in legal else CallAction()
+
+        # ── DUAL-MODE BETTING ────────────────────────────────────────────────
+        #
+        # We select bet sizing based on opponent type:
+        #
+        #   cheap = pot//5 + 3:  Triggers baseline's "fold if bet > pot//5" rule.
+        #                        Against player2, pot_odds ≈ 0.15 → they call
+        #                        with equity > 0.18 (i.e., almost always).
+        #
+        #   value = 65% pot:     Against player2, pot_odds ≈ 0.39 → they need
+        #                        equity > 0.42 to call. Extracts value while
+        #                        pricing out their weaker hands.
+        #
+        #   overbet = 130% pot:  Against player2, pot_odds ≈ 0.57 → they fold
+        #                        one-pair hands (their threshold for overbets is
+        #                        "fold unless equity > pot_odds + 0.08 = 0.65").
+        #                        Use this with monsters.
+        #
+        cheap  = max(mn, min(mx, pot // 5 + 3 + my_pip))
+        value  = max(mn, min(mx, int(pot * 0.65) + my_pip))
+        overbet = max(mn, min(mx, int(pot * 1.30) + my_pip))
+
+        fold_heavy = self._is_fold_heavy()
+
+        if fold_heavy:
+            # ── Mode A: Fold-heavy opponent (baseline-like) ──────────────────
+            # Bet frequently with cheap sizing. Their fold rate is ~90% to any
+            # bet, so even weak hands are profitable: 0.9 * pot - 0.1 * eq_loss.
+
+            if eq >= 0.60:
+                # Clear value: bet larger to extract from their rare calls
+                self._record_bet()
+                return RaiseAction(value)
+
+            if eq >= 0.38:
+                # Thin value / bluff: cheap bet, they fold ~90% of the time
+                self._record_bet()
+                return RaiseAction(cheap)
+
+            if self._fold_rate() > 0.70 and random.random() < 0.50:
+                # Pure steal: confirmed very high fold rate → exploitable with trash
+                self._record_bet()
+                return RaiseAction(cheap)
+
+            # Weak hand against a caller — check and see a free card
+            return CheckAction()
+
         else:
-            if call_cost == 0:
-                return CheckAction() if CheckAction in legal else FoldAction()
-            # Occasional bluff (~8% of the time) when equity is close
-            if eq > 0.40 and random.random() < 0.02 and RaiseAction in legal:
-                return RaiseAction(min_r)
-            return FoldAction() if FoldAction in legal else CheckAction()
+            # ── Mode B: Call-station / sophisticated opponent (player2-like) ──
+            # They call too wide for cheap bluffs to be profitable (need equity
+            # > 0.18, i.e., almost never fold). Only bet for value.
 
-    def _abstract_to_action(self, a: str, legal: set, pot: int,
-                             min_r: int, max_r: int, my_pip: int):
-        if a == A_FOLD:
-            return FoldAction() if FoldAction in legal else \
-                   (CheckAction() if CheckAction in legal else CallAction())
-        if a == A_CHECK:
-            if CheckAction in legal: return CheckAction()
-            if CallAction  in legal: return CallAction()
-            return FoldAction()
-        if a == A_CALL:
-            return CallAction() if CallAction in legal else \
-                   (CheckAction() if CheckAction in legal else FoldAction())
-        if a == A_RAISE:
-            if RaiseAction in legal:
-                size = int(pot * 0.60) + my_pip
-                amt  = max(min_r, min(size, max_r))
-                return RaiseAction(amt)
-            return CallAction() if CallAction in legal else CheckAction()
-        if a == A_ALLIN:
-            if RaiseAction in legal:
-                return RaiseAction(max_r)
-            return CallAction() if CallAction in legal else CheckAction()
-        return CheckAction() if CheckAction in legal else CallAction()
+            if eq >= 0.80:
+                # Monster: overbet to exploit their one-pair folding threshold
+                self._record_bet()
+                return RaiseAction(overbet)
 
-    def _to_abstract(self, action, min_r: int, max_r: int) -> str:
-        if isinstance(action, FoldAction):  return A_FOLD
-        if isinstance(action, CheckAction): return A_CHECK
-        if isinstance(action, CallAction):  return A_CALL
-        if isinstance(action, RaiseAction):
-            mid = (min_r + max_r) // 2
-            return A_ALLIN if action.amount >= mid else A_RAISE
-        return A_CHECK
+            if eq >= 0.65:
+                # Strong value: standard 65% pot sizing
+                self._record_bet()
+                return RaiseAction(value)
 
+            if eq >= 0.55:
+                # Thin value: cheap bet — we're ahead of their calling range,
+                # and the small size keeps us profitable even when called
+                self._record_bet()
+                return RaiseAction(cheap)
 
-# ─────────────────────────────────────────────────────────────────────────────
-# CLI  — standalone training
-# ─────────────────────────────────────────────────────────────────────────────
-
-def _train_and_save(iters: int):
-    print(f'Training CFR for {iters} iterations …')
-    cfr = CFR()
-    cfr.train(iters, verbose=True)
-    cfr.save(REGRET_FILE)
-    print(f'Saved to {REGRET_FILE}')
+            # Below 55% equity: check back.
+            # Player2 also checks 35-60% equity hands back (by their own logic),
+            # so we get free cards and avoid losing chips as a bluff.
+            return CheckAction()
 
 
 if __name__ == '__main__':
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--train',  action='store_true', help='Run CFR training then exit')
-    ap.add_argument('--iters',  type=int, default=20000, help='Training iterations')
-    ap.add_argument('--host',   type=str, default='localhost')
-    ap.add_argument('port',     type=int, nargs='?', default=None)
-    args = ap.parse_args()
-
-    if args.train:
-        _train_and_save(args.iters)
-    else:
-        if args.port is None:
-            ap.print_help()
-        else:
-            # Re-parse with skeleton's parser for the actual bot run
-            from skeleton.runner import parse_args as _pa, run_bot as _rb
-            _rb(Player(), _pa())
+    run_bot(Player(), parse_args())

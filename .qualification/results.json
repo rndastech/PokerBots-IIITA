@@ -1,9 +1,0 @@
-{
-  "base_ref": "origin/main",
-  "baseline_path": "baseline_bot",
-  "num_rounds": 300,
-  "min_submission_bankroll": 1,
-  "changed_files": [],
-  "invalid_paths": [],
-  "results": []
-}
