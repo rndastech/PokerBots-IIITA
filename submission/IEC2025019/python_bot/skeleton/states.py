@@ -27,6 +27,7 @@ class RoundState(namedtuple('_RoundState', ['button', 'street', 'pips', 'stacks'
         - The community cards dealt so far
 
         Returns:
+            tuple[bool, bool]: A tuple containing two booleans where:
                 - First boolean indicates if Player 1's bounty was hit
                 - Second boolean indicates if Player 2's bounty was hit
         '''
@@ -84,7 +85,7 @@ class RoundState(namedtuple('_RoundState', ['button', 'street', 'pips', 'stacks'
             delta = self.stacks[0] - STARTING_STACK if active == 0 else STARTING_STACK - self.stacks[1]
             return TerminalState([delta, -delta], self.get_bounty_hits(), self)
         if isinstance(action, CallAction):
-# sb calls bb
+            if self.button == 0:  # sb calls bb
                 return RoundState(1, 0, [BIG_BLIND] * 2, [STARTING_STACK - BIG_BLIND] * 2, self.hands, self.bounties, self.deck, self)
             # both players acted
             new_pips = list(self.pips)
@@ -95,7 +96,7 @@ class RoundState(namedtuple('_RoundState', ['button', 'street', 'pips', 'stacks'
             state = RoundState(self.button + 1, self.street, new_pips, new_stacks, self.hands, self.bounties, self.deck, self)
             return state.proceed_street()
         if isinstance(action, CheckAction):
-# both players acted
+            if (self.street == 0 and self.button > 0) or self.button > 1:  # both players acted
                 return self.proceed_street()
             # let opponent act
             return RoundState(self.button + 1, self.street, self.pips, self.stacks, self.hands, self.bounties, self.deck, self)

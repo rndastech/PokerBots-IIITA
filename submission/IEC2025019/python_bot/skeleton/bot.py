@@ -13,6 +13,9 @@ class Bot():
         Called when a new round starts. Called NUM_ROUNDS times.
 
         Arguments:
+        game_state: the GameState object.
+        round_state: the RoundState object.
+        active: your player's index.
 
         Returns:
         Nothing.
@@ -24,6 +27,9 @@ class Bot():
         Called when a round ends. Called NUM_ROUNDS times.
 
         Arguments:
+        game_state: the GameState object.
+        terminal_state: the TerminalState object.
+        active: your player's index.
 
         Returns:
         Nothing.
@@ -36,6 +42,9 @@ class Bot():
         Called any time the engine needs an action from your bot.
 
         Arguments:
+        game_state: the GameState object.
+        round_state: the RoundState object.
+        active: your player's index.
 
         Returns:
         Your action.

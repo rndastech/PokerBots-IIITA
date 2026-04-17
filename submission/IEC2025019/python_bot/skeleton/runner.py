@@ -38,7 +38,7 @@ class Runner():
             code = 'C'
         elif isinstance(action, CheckAction):
             code = 'K'
-# isinstance(action, RaiseAction)
+        else:  # isinstance(action, RaiseAction)
             code = 'R' + str(action.amount)
         self.socketfile.write(code + '\n')
         self.socketfile.flush()
@@ -110,7 +110,7 @@ class Runner():
                     round_flag = True
                 elif clause[0] == 'Q':
                     return
-# ack the engine
+            if round_flag:  # ack the engine
                 self.send(CheckAction())
             else:
                 assert active == round_state.button % 2
