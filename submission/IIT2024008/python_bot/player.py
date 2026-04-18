@@ -1,320 +1,280 @@
-import random
-import eval7
-from collections import Counter
+"""Exploit-oriented Bounty Hold'em bot for `submission/IIT2024008/python_bot`.
+
+This module keeps all static tuning data in one place, estimates equity with
+Monte Carlo sampling, and updates lightweight in-memory opponent statistics
+during the match. The strategy is still the same as before; this file is just
+structured so the fixed parameters are easier to find and maintain.
+"""
+
+
+
+from __future__ import annotations
 from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
-from skeleton.states import STARTING_STACK, BIG_BLIND
+from skeleton.states import STARTING_STACK , BIG_BLIND
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
-from __future__ import annotations
+import random
 from dataclasses import dataclass
+import eval7 , typing_extensions
 
 
-class Test_1(Bot):
-    def __init__(self):
-        self.rank_map = {
-            '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
-            'T': 10, 'J': 11, 'Q': 12, 'K': 13, 'A': 14
-        }
-        self.range_cache = {}
-        self.opp = {
-            'showdowns': 0,
-            'fold_seen': 0,
-            'big_bets_seen': 0,
-            'small_bets_seen': 0,
-            'recent_deltas': []
-        }
-        self.round_id = 0
-        self.decision_points = 0
-        self.opp_bet_raise_events = 0
-        self.opp_check_events = 0
-        self.hand_opp_checks = 0
-        self.we_bet_or_raised_this_hand = False
-        self.our_bet_attempts = 0
-
-# --- Core Constants & Mappings ---
-CARD_RANKS = '23456789TJQKA'
-RANK_MAPPING = {c: i + 2 for i, c in enumerate(CARD_RANKS)}
-MULTIPLIER_RATIO = 1.5
-MULTIPLIER_BASE = 10
-
-# Baseline tactical weights (adaptive, no external runtime training)
-BASE_TACTICAL_WEIGHTS = {
-    'seed': 199441360,
-    'preflop_samples': 1711,
-    'mc_scale': 1.1960216944729805,
-    'haircut_scale': 0.6162629155139829,
-    'aggro_up_threshold': 0.547331376895446,
-    'aggro_down_threshold': 0.45,
-    'aggro_step': 0.16365262733737607,
-    'bounty_bump_scale': 1.1862543175502915,
-    'preflop_call_margin': 0.04052781931372232,
-    'river_probe_raise_prob': 0.5376180747833821,
-    'low_equity_bluff_prob': 0.3449330274551519,
-    'postflop_value_raise_eq': 0.8630728810070052,
-    'semi_raise_eq_low': 0.5576964681334766,
-    'semi_raise_eq_high': 0.767999096314951,
-    'semi_raise_fold_prior': 0.5162509809675553,
-    'postflop_call_margin': 0.09518729724315873,
-}
-
-# Overrides for highly aggressive scenarios
-AGGRESSIVE_TACTICAL_WEIGHTS = {
-    'preflop_call_margin': 0.00,
-    'postflop_call_margin': 0.03,
-    'postflop_value_raise_eq': 0.75,
-    'semi_raise_eq_low': 0.50,
-    'semi_raise_eq_high': 0.73,
-    'semi_raise_fold_prior': 0.58,
-    'river_probe_raise_prob': 0.70,
-    'low_equity_bluff_prob': 0.20,
-    'aggro_up_threshold': 0.60,
-    'aggro_down_threshold': 0.25,
-    'aggro_step': 0.10,
-}
+def load_static_profiles():
+    target_mapping = '23456789TJQKA'
+    ranks_currV = {c: i + 2 for i, c in enumerate(target_mapping)}
+    bounty_ratio = 1.5
+    bit_check = 10
+    default_model = {
+        # Static profile: adaptive but not runtime-trained from any external file.
+        'seed': 199441360,
+        'preflop_samples': 1711,
+        'mc_scale': 1.1960216944729805,
+        'haircut_scale': 0.6162629155139829,
+        'aggro_up_threshold': 0.547331376895446,
+        'aggro_down_threshold': 0.45,
+        'aggro_step': 0.16365262733737607,
+        'bounty_bump_scale': 1.1862543175502915,
+        'preflop_call_margin': 0.04052781931372232,
+        'river_probe_raise_prob': 0.5376180747833821,
+        'low_equity_bluff_prob': 0.3449330274551519,
+        'postflop_value_raise_eq': 0.8630728810070052,
+        'semi_raise_eq_low': 0.5576964681334766,
+        'semi_raise_eq_high': 0.767999096314951,
+        'semi_raise_fold_prior': 0.5162509809675553,
+        'postflop_call_margin': 0.09518729724315873,
+    }
+    attack_profile = {
+        'preflop_call_margin': 0.00,
+        'postflop_call_margin': 0.03,
+        'postflop_value_raise_eq': 0.75,
+        'semi_raise_eq_low': 0.50,
+        'semi_raise_eq_high': 0.73,
+        'semi_raise_fold_prior': 0.58,
+        'river_probe_raise_prob': 0.70,
+        'low_equity_bluff_prob': 0.20,
+        'aggro_up_threshold': 0.60,
+        'aggro_down_threshold': 0.25,
+        'aggro_step': 0.10,
+    }
+    return target_mapping, ranks_currV, bounty_ratio, bit_check, default_model, attack_profile
 
 
-def load_tactical_weights():
-    """Initializes the baseline model dictionary."""
-    return dict(BASE_TACTICAL_WEIGHTS)
+target_mapping, ranks_currV, BOUNTY_RATIO, bit_check, DEFAULT_MODEL, ATTACK_PROFILE = load_static_profiles()
 
 
-def get_normalized_hand_signature(card_strings):
-    """
-    Compresses a 2-card hand into a standardized string signature.
-    Examples: 'AKs' (suited), '77' (pocket pair), 'T9o' (offsuit).
-    """
-    rank1, suit1 = card_strings[0][0], card_strings[0][1]
-    rank2, suit2 = card_strings[1][0], card_strings[1][1]
-    val1, val2 = RANK_MAPPING[rank1], RANK_MAPPING[rank2]
-    
-    # Ensure highest rank is always first
-    if val1 < val2:
-        rank1, rank2, suit1, suit2, val1, val2 = rank2, rank1, suit2, suit1, val2, val1
-        
-    if rank1 == rank2:
-        return rank1 + rank2
-    return rank1 + rank2 + ('s' if suit1 == suit2 else 'o')
+def load_model():
+    return dict(DEFAULT_MODEL)
 
 
-def construct_cards_from_signature(signature):
-    """Parses a signature (e.g., 'AKs') back into eval7 Card objects."""
-    r1 = signature[0]
-    r2 = signature[1]
-    if len(signature) == 2:
+def canonical_hand_key(cards_str):
+    '''Collapse a 2-card hand into a canonical key (e.g. "AKs", "77", "T9o").'''
+    r1, s1 = cards_str[0][0], cards_str[0][1]
+    r2, s2 = cards_str[1][0], cards_str[1][1]
+    v1, v2 = ranks_currV[r1], ranks_currV[r2]
+    if v1 < v2:
+        r1, r2, s1, s2, v1, v2 = r2, r1, s2, s1, v2, v1
+    if r1 == r2:
+        return r1 + r2
+    return r1 + r2 + ('s' if s1 == s2 else 'o')
+
+
+def build_hand_from_key(key):
+    '''Return two eval7.Cards representing a concrete instance of the class.'''
+    r1 = key[0]
+    r2 = key[1]
+    if len(key) == 2:
         return [eval7.Card(r1 + 's'), eval7.Card(r2 + 'h')]
-    if signature[2] == 's':
+    if key[2] == 's':
         return [eval7.Card(r1 + 's'), eval7.Card(r2 + 's')]
     return [eval7.Card(r1 + 's'), eval7.Card(r2 + 'h')]
 
 
-def _calculate_initial_mc_winrates(iterations_per_hand=480):
-    """
-    Executes Monte-Carlo simulations preflop against a random distribution 
-    to populate base equities for all 169 starting hands.
-    """
-    signatures = []
-    for i, r1 in enumerate(CARD_RANKS):
-        for j, r2 in enumerate(CARD_RANKS):
+def _precompute_preflop_equity(samples_per_hand=480):
+    '''Monte-Carlo preflop equity vs a random hand for all 169 hand classes.'''
+    keys = []
+    for i, r1 in enumerate(target_mapping):
+        for j, r2 in enumerate(target_mapping):
             if i == j:
-                signatures.append(r1 + r2)
+                keys.append(r1 + r2)
             elif i < j:
                 hi, lo = r2, r1
-                signatures.append(hi + lo + 's')
-                signatures.append(hi + lo + 'o')
-                
+                keys.append(hi + lo + 's')
+                keys.append(hi + lo + 'o')
     full_deck = list(eval7.Deck().cards)
-    equity_matrix = {}
-    
-    for sig in signatures:
-        hero_hand = construct_cards_from_signature(sig)
-        unavailable_cards = set(str(c) for c in hero_hand)
-        available_deck = [c for c in full_deck if str(c) not in unavailable_cards]
-        
-        victories = ties = 0
-        for _ in range(iterations_per_hand):
-            random.shuffle(available_deck)
-            villain_hand = available_deck[:2]
-            community_cards = available_deck[2:7]
-            
-            hero_score = eval7.evaluate(hero_hand + community_cards)
-            villain_score = eval7.evaluate(villain_hand + community_cards)
-            
-            if hero_score > villain_score:
-                victories += 1
-            elif hero_score == villain_score:
+    table = {}
+    for key in keys:
+        hero = build_hand_from_key(key)
+        dead = set(str(c) for c in hero)
+        remaining = [c for c in full_deck if str(c) not in dead]
+        wins = ties = 0
+        for _ in range(samples_per_hand):
+            random.shuffle(remaining)
+            opp = remaining[:2]
+            board = remaining[2:7]
+            s1 = eval7.evaluate(hero + board)
+            s2 = eval7.evaluate(opp + board)
+            if s1 > s2:
+                wins += 1
+            elif s1 == s2:
                 ties += 1
-                
-        equity_matrix[sig] = (victories + 0.5 * ties) / iterations_per_hand
-    return equity_matrix
+        table[key] = (wins + 0.5 * ties) / samples_per_hand
+    return table
 
 
-def calc_target_appearance_probability(target_rank, known_hole, known_board, upcoming_cards):
-    """
-    Calculates the statistical likelihood of our target bounty rank appearing.
-    Returns 1.0 immediately if the rank is already visible.
-    """
-    revealed_cards = known_hole + known_board
-    if target_rank in {c[0] for c in revealed_cards}:
+def bounty_hit_prob_future(bounty_rank, visible_hole, visible_board, remaining_board_count):
+    '''Probability my bounty rank appears in (hole + full 5-card board),
+    given what we can already see. Returns 1.0 when already hit.'''
+    visible = visible_hole + visible_board
+    if bounty_rank in {c[0] for c in visible}:
         return 1.0
-    if upcoming_cards <= 0:
+    if remaining_board_count <= 0:
         return 0.0
-        
-    hidden_pool = 52 - len(revealed_cards)
-    targets_remaining = 4
-    prob_missing_all = 1.0
-    
-    for i in range(upcoming_cards):
-        prob_missing_all *= max(0, hidden_pool - targets_remaining - i) / (hidden_pool - i)
-        
-    return 1.0 - prob_missing_all
+    unknown = 52 - len(visible)
+    bounty_left = 4
+    p_none = 1.0
+    for i in range(remaining_board_count):
+        p_none *= max(0, unknown - bounty_left - i) / (unknown - i)
+    return 1.0 - p_none
 
 
-def quick_monte_carlo_eval(hero_hand, community_cards, iterations):
-    """Fast Monte Carlo equity estimation against a random opponent hand."""
-    unavailable = {str(c) for c in hero_hand}
-    for c in community_cards:
-        unavailable.add(str(c))
-        
-    available_deck = [c for c in eval7.Deck().cards if str(c) not in unavailable]
-    cards_to_deal = 5 - len(community_cards)
-    victories = ties = 0
-    
-    for _ in range(iterations):
-        random.shuffle(available_deck)
-        villain_hand = available_deck[:2]
-        runout = available_deck[2:2 + cards_to_deal]
-        
-        final_board = community_cards + runout if cards_to_deal else community_cards
-        hero_score = eval7.evaluate(hero_hand + final_board)
-        villain_score = eval7.evaluate(villain_hand + final_board)
-        
-        if hero_score > villain_score:
-            victories += 1
-        elif hero_score == villain_score:
+def fast_equity(hero, board, samples):
+    '''Monte Carlo equity vs a random opponent hand from the remaining deck.'''
+    dead = {str(c) for c in hero}
+    for c in board:
+        dead.add(str(c))
+    remaining = [c for c in eval7.Deck().cards if str(c) not in dead]
+    board_rem = 5 - len(board)
+    wins = ties = 0
+    for _ in range(samples):
+        random.shuffle(remaining)
+        opp = remaining[:2]
+        run = remaining[2:2 + board_rem]
+        full_board = board + run if board_rem else board
+        s1 = eval7.evaluate(hero + full_board)
+        s2 = eval7.evaluate(opp + full_board)
+        if s1 > s2:
+            wins += 1
+        elif s1 == s2:
             ties += 1
-            
-    return (victories + 0.5 * ties) / iterations
+    return (wins + 0.5 * ties) / samples
 
 
-def _get_all_possible_hole_pairs():
-    """Generates all 1326 possible two-card combinations."""
+def _generate_all_combos():
+    '''Return all 1326 two-card combos as tuples of card strings.'''
     ranks = '23456789TJQKA'
     suits = 'cdhs'
-    deck = [r + s for r in ranks for s in suits]
-    pairs = []
+    cards = [r + s for r in ranks for s in suits]
+    combos = []
     for i in range(52):
         for j in range(i + 1, 52):
-            pairs.append((deck[i], deck[j]))
-    return pairs
+            combos.append((cards[i], cards[j]))
+    return combos
 
 
-def _map_winrates_to_percentiles(equity_matrix):
-    """Buckets hole card pairs into top percentile ranges for opponent modeling."""
-    all_pairs = _get_all_possible_hole_pairs()
+def _build_range_combo_lists(preflop_eq_table):
+    '''Return dict {range_pct: [(card1, card2), ...]} of top ranked combos.'''
+    all_combos = _generate_all_combos()
 
-    def get_pair_winrate(pair):
-        sig = get_normalized_hand_signature(list(pair))
-        return equity_matrix.get(sig, 0.5)
+    def combo_eq(combo):
+        k = canonical_hand_key(list(combo))
+        return preflop_eq_table.get(k, 0.5)
 
-    sorted_pairs = sorted(all_pairs, key=lambda c: -get_pair_winrate(c))
-    percentile_map = {}
-    
-    for threshold in (0.05, 0.10, 0.20, 0.40, 1.00):
-        cutoff_idx = max(1, int(round(len(sorted_pairs) * threshold)))
-        percentile_map[threshold] = sorted_pairs[:cutoff_idx]
-        
-    return percentile_map
+    ranked = sorted(all_combos, key=lambda c: -combo_eq(c))
+    out = {}
+    for pct in (0.05, 0.10, 0.20, 0.40, 1.00):
+        n = max(1, int(round(len(ranked) * pct)))
+        out[pct] = ranked[:n]
+    return out
 
 
-def simulate_winrate_against_distribution(hero_hand, community_cards, distribution_pool, iterations):
-    """Monte Carlo simulation targeting a specific range distribution for the opponent."""
-    hero_set = {str(c) for c in hero_hand}
-    board_set = {str(c) for c in community_cards}
-    unavailable = hero_set | board_set
-    
-    valid_villain_pairs = [(a, b) for (a, b) in distribution_pool if a not in unavailable and b not in unavailable]
-    if not valid_villain_pairs:
-        return quick_monte_carlo_eval(hero_hand, community_cards, iterations)
+def mc_equity_vs_range(hero, board, range_combos, samples):
+    '''Monte Carlo equity with opponent sampled from given range combos.'''
+    hero_strs = {str(c) for c in hero}
+    dead_board = {str(c) for c in board}
+    dead = hero_strs | dead_board
+    valid = [(a, b) for (a, b) in range_combos if a not in dead and b not in dead]
+    if not valid:
+        return fast_equity(hero, board, samples)
 
-    full_deck_raw = eval7.Deck().cards
-    clean_deck = [c for c in full_deck_raw if str(c) not in unavailable]
-    cards_to_deal = 5 - len(community_cards)
-    victories = ties = 0
-    
-    for _ in range(iterations):
-        card_a, card_b = random.choice(valid_villain_pairs)
-        villain_hand = [eval7.Card(card_a), eval7.Card(card_b)]
-        villain_set = {card_a, card_b}
-        
-        runout_deck = [c for c in clean_deck if str(c) not in villain_set]
-        random.shuffle(runout_deck)
-        
-        runout = runout_deck[:cards_to_deal] if cards_to_deal else []
-        final_board = community_cards + runout if cards_to_deal else community_cards
-        
-        hero_score = eval7.evaluate(hero_hand + final_board)
-        villain_score = eval7.evaluate(villain_hand + final_board)
-        
-        if hero_score > villain_score:
-            victories += 1
-        elif hero_score == villain_score:
+    all_52 = eval7.Deck().cards
+    remaining_full = [c for c in all_52 if str(c) not in dead]
+    board_rem = 5 - len(board)
+    wins = ties = 0
+    for _ in range(samples):
+        a, b = random.choice(valid)
+        opp = [eval7.Card(a), eval7.Card(b)]
+        opp_strs = {a, b}
+        run_pool = [c for c in remaining_full if str(c) not in opp_strs]
+        random.shuffle(run_pool)
+        run = run_pool[:board_rem] if board_rem else []
+        full_board = board + run if board_rem else board
+        s1 = eval7.evaluate(hero + full_board)
+        s2 = eval7.evaluate(opp + full_board)
+        if s1 > s2:
+            wins += 1
+        elif s1 == s2:
             ties += 1
-            
-    return (victories + 0.5 * ties) / iterations
+    return (wins + 0.5 * ties) / samples
 
 
-def convert_strings_to_cards(card_strings):
-    """Helper to convert raw strings to eval7 Card objects."""
-    return [eval7.Card(s) for s in card_strings]
+def parse_cards(strs):
+    return [eval7.Card(s) for s in strs]
 
 
-def categorize_starting_hand(card_strings):
-    """
-    Evaluates preflop hand strength into distinct strategic buckets:
-    premium | strong | medium | openable | trash
-    """
-    rank1 = card_strings[0][0]
-    rank2 = card_strings[1][0]
-    suit1 = card_strings[0][1]
-    suit2 = card_strings[1][1]
-    
-    val1 = RANK_MAPPING[rank1]
-    val2 = RANK_MAPPING[rank2]
-    
-    if val1 < val2:
-        val1, val2 = val2, val1
-        
-    is_suited = suit1 == suit2
-    is_pair = val1 == val2
-    
-    if is_pair and val1 >= 11: return 'premium'
-    if val1 == 14 and val2 == 13: return 'premium'
-    if val1 == 14 and val2 == 12 and is_suited: return 'premium'
-    
-    if is_pair and val1 >= 9: return 'strong'
-    if val1 == 14 and val2 == 12: return 'strong'
-    if val1 == 14 and val1 == 11 and is_suited: return 'strong'
-    if val1 == 13 and val2 == 12 and is_suited: return 'strong'
-    
-    if is_pair: return 'medium'
-    if val1 == 14: return 'medium'
-    if val1 == 13 and val2 >= 9: return 'medium'
-    if val1 == 13 and is_suited: return 'medium'
-    if val1 == 12 and val2 >= 9: return 'medium'
-    if val1 == 12 and is_suited: return 'medium'
-    if val1 == 11 and val2 >= 9: return 'medium'
-    if val1 == 11 and is_suited: return 'medium'
-    if val1 == 10 and val2 >= 8: return 'medium'
-    if is_suited and (val1 - val2) <= 2 and val1 >= 6: return 'medium'
-    
-    if val1 >= 10: return 'openable'
-    if is_suited and (val1 - val2) <= 3: return 'openable'
-    
+def classify_preflop(cards_str):
+    '''Return one of: premium | strong | medium | openable | trash.'''
+    r1 = cards_str[0][0]
+    r2 = cards_str[1][0]
+    s1 = cards_str[0][1]
+    s2 = cards_str[1][1]
+    v1 = ranks_currV[r1]
+    v2 = ranks_currV[r2]
+    if v1 < v2:
+        v1, v2 = v2, v1
+    suited = s1 == s2
+    pair = v1 == v2
+    if pair and v1 >= 11:
+        return 'premium'
+    if v1 == 14 and v2 == 13:
+        return 'premium'
+    if v1 == 14 and v2 == 12 and suited:
+        return 'premium'
+    if pair and v1 >= 9:
+        return 'strong'
+    if v1 == 14 and v2 == 12:
+        return 'strong'
+    if v1 == 14 and v2 == 11 and suited:
+        return 'strong'
+    if v1 == 13 and v2 == 12 and suited:
+        return 'strong'
+    if pair:
+        return 'medium'
+    if v1 == 14:
+        return 'medium'
+    if v1 == 13 and v2 >= 9:
+        return 'medium'
+    if v1 == 13 and suited:
+        return 'medium'
+    if v1 == 12 and v2 >= 9:
+        return 'medium'
+    if v1 == 12 and suited:
+        return 'medium'
+    if v1 == 11 and v2 >= 9:
+        return 'medium'
+    if v1 == 11 and suited:
+        return 'medium'
+    if v1 == 10 and v2 >= 8:
+        return 'medium'
+    if suited and (v1 - v2) <= 2 and v1 >= 6:
+        return 'medium'
+    if v1 >= 10:
+        return 'openable'
+    if suited and (v1 - v2) <= 3:
+        return 'openable'
     return 'trash'
 
 
-class AdversaryTracker:
-    """Monitors opponent behaviors to detect tilt or highly aggressive patterns."""
+class OpponentModel:
+    '''Track simple aggregate stats on the opponent for exploit tilts.'''
 
     def __init__(self):
         self.preflop_actions = 0
@@ -328,32 +288,31 @@ class AdversaryTracker:
         self.postflop_folds = 0
         self.postflop_calls = 0
         self.vpip_rounds = 0
-        self.rounds_played = 0
+        self.rounds = 0
         self.showdowns_won_at = []
         self.last_action_aggressive = False
         self.bet_fold_freq_num = 0
         self.bet_fold_freq_den = 0
 
-    def calc_fold_prior(self):
-        total = self.preflop_folds + self.preflop_calls + self.preflop_raises
-        return (self.preflop_folds + 3) / (total + 6)
+    def prior_fold_rate(self):
+        n = self.preflop_folds + self.preflop_calls + self.preflop_raises
+        return (self.preflop_folds + 3) / (n + 6)
 
-    def calc_preflop_aggression(self):
-        total = self.preflop_actions
-        return (self.preflop_raises + 1) / (total + 4)
+    def prior_preflop_raise(self):
+        n = self.preflop_actions
+        return (self.preflop_raises + 1) / (n + 4)
 
-    def calc_postflop_aggression(self):
-        total = self.postflop_actions
-        return (self.postflop_bets + self.postflop_raises + 2) / (total + 6)
+    def prior_postflop_bet(self):
+        n = self.postflop_actions
+        return (self.postflop_bets + self.postflop_raises + 2) / (n + 6)
 
-    def calc_fold_to_bet_prior(self):
-        total = self.bet_fold_freq_den
-        return (self.bet_fold_freq_num + 2) / (total + 5)
+    def prior_postflop_fold_to_bet(self):
+        n = self.bet_fold_freq_den
+        return (self.bet_fold_freq_num + 2) / (n + 5)
 
 
 @dataclass(frozen=True)
-class ActionThresholds:
-    """Data container for decision-making bounds and margins."""
+class DecisionProfile:
     preflop_call_margin: float
     postflop_call_margin: float
     value_raise_eq: float
@@ -367,537 +326,552 @@ class ActionThresholds:
     aggro_step: float
 
 
-class SmartPokerBot(Bot):
+class Player(Bot):
     def __init__(self):
-        self.rank_mapping = RANK_MAPPING
-        self.tactics = load_tactical_weights()
-        random.seed(self.tactics['seed'])
-        
+        self.ranks_currV = ranks_currV
+        self.model = load_model()
+        random.seed(self.model['seed'])
         try:
-            self.preflop_winrates = _calculate_initial_mc_winrates(iterations_per_hand=self.tactics['preflop_samples'])
+            self.preflop_equity = _precompute_preflop_equity(samples_per_hand=self.model['preflop_samples'])
         except Exception:
-            self.preflop_winrates = {}
-            
+            self.preflop_equity = {}
         try:
-            self.distribution_ranges = _map_winrates_to_percentiles(self.preflop_winrates)
+            self.range_combos = _build_range_combo_lists(self.preflop_equity)
         except Exception:
-            self.distribution_ranges = {1.00: _get_all_possible_hole_pairs()}
-            
-        self.adversary = AdversaryTracker()
+            self.range_combos = {1.00: _generate_all_combos()}
+        self.opp = OpponentModel()
         self.round_history = []
-        self.last_villain_pip = 0
-        self.last_hero_pip = 0
-        self.last_street_processed = -1
-        self.hero_last_action = None
-        self.current_bankroll = 0
+        self.prev_opp_pip = 0
+        self.prev_my_pip = 0
+        self.last_street_seen = -1
+        self.my_last_action = None
+        self.bankroll_running = 0
 
-    def determine_mc_iterations(self, game_clock, street):
-        """Scales our Monte Carlo sampling based on remaining computation time."""
-        scale_factor = self.tactics['mc_scale']
+    def time_samples(self, game_clock, street):
+        scale = self.model['mc_scale']
         if game_clock < 2.5:
-            return 0 if scale_factor >= 1.0 else int(40 * scale_factor)
+            return 0 if scale >= 1.0 else int(40 * scale)
         if game_clock < 6.0:
-            return int(120 * scale_factor)
+            return int(120 * scale)
         if game_clock < 15.0:
-            return int(240 * scale_factor)
+            return int(240 * scale)
         if game_clock < 30.0:
-            return int(380 * scale_factor)
-        return int(520 * scale_factor)
+            return int(380 * scale)
+        return int(520 * scale)
 
-    def query_preflop_equity(self, card_strings):
-        sig = get_normalized_hand_signature(card_strings)
-        return self.preflop_winrates.get(sig, 0.5)
+    def preflop_lookup(self, cards_str):
+        key = canonical_hand_key(cards_str)
+        return self.preflop_equity.get(key, 0.5)
 
-    def infer_villain_range(self, villain_invested, facing_bet, street):
-        """Deduces the opponent's likely holding percentile based on their investment."""
-        commitment_ratio = villain_invested / STARTING_STACK
+    def estimate_opp_range_pct(self, opp_contribution, facing_bet, street):
+        committed = opp_contribution / STARTING_STACK
         if not facing_bet:
             return 1.00
-            
-        if commitment_ratio >= 0.80: base = 0.05
-        elif commitment_ratio >= 0.40: base = 0.10
-        elif commitment_ratio >= 0.15: base = 0.20
-        elif commitment_ratio >= 0.06: base = 0.40
-        else: base = 1.00
+        elif committed >= 0.80:
+            base = 0.05
+        elif committed >= 0.40:
+            base = 0.10
+        elif committed >= 0.15:
+            base = 0.20
+        elif committed >= 0.06:
+            base = 0.40
+        else:
+            base = 1.00
 
         if facing_bet:
-            aggression_factor = 0.45 * self.adversary.calc_preflop_aggression() + 0.55 * self.adversary.calc_postflop_aggression()
-            if aggression_factor >= 0.56:
+            aggression = 0.45 * self.opp.prior_preflop_raise() + 0.55 * self.opp.prior_postflop_bet()
+            if aggression >= 0.56:
                 base *= 1.45
-            elif aggression_factor <= 0.38:
+            elif aggression <= 0.38:
                 base *= 0.70
 
-            fold_prior = self.adversary.calc_fold_prior()
-            if fold_prior >= 0.55:
+            fold_rate = self.opp.prior_fold_rate()
+            if fold_rate >= 0.55:
                 base *= 0.85
-            elif fold_prior <= 0.35:
+            elif fold_rate <= 0.35:
                 base *= 1.12
 
         base = max(0.05, min(1.00, base))
-        available_buckets = (0.05, 0.10, 0.20, 0.40, 1.00)
-        return min(available_buckets, key=lambda b: abs(b - base))
+        buckets = (0.05, 0.10, 0.20, 0.40, 1.00)
+        return min(buckets, key=lambda b: abs(b - base))
 
-    def evaluate_hand_strength(self, hero_strs, board_strs, iterations, villain_invested=0, facing_bet=False):
-        """Unified entry point for determining current hand strength."""
-        hero_cards = convert_strings_to_cards(hero_strs)
-        board_cards = convert_strings_to_cards(board_strs)
-        
-        if iterations <= 0:
-            if not board_cards:
-                return self.query_preflop_equity(hero_strs)
-            return self._heuristic_board_strength(hero_strs, board_strs)
-            
-        range_percentile = self.infer_villain_range(villain_invested, facing_bet, len(board_strs))
-        valid_combos = self.distribution_ranges.get(range_percentile) or self.distribution_ranges.get(1.00)
-        
-        if valid_combos is None:
-            return quick_monte_carlo_eval(hero_cards, board_cards, iterations)
-        return simulate_winrate_against_distribution(hero_cards, board_cards, valid_combos, iterations)
+    def mc_equity(self, hero_str, board_str, samples, opp_contribution=0, facing_bet=False):
+        hero = parse_cards(hero_str)
+        board = parse_cards(board_str)
+        if samples <= 0:
+            if not board:
+                return self.preflop_lookup(hero_str)
+            return self._rough_made_strength(hero_str, board_str)
+        range_pct = self.estimate_opp_range_pct(opp_contribution, facing_bet, len(board_str))
+        combos = self.range_combos.get(range_pct) or self.range_combos.get(1.00)
+        if combos is None:
+            return fast_equity(hero, board, samples)
+        return mc_equity_vs_range(hero, board, combos, samples)
 
-    def _heuristic_board_strength(self, hero_strs, board_strs):
-        """Fast approximation for hand strength when we run completely out of time."""
-        h_ranks = [c[0] for c in hero_strs]
-        b_ranks = [c[0] for c in board_strs]
-        
-        if h_ranks[0] == h_ranks[1]:
-            val = RANK_MAPPING[h_ranks[0]]
-            return min(0.85, 0.55 + val * 0.015)
-            
-        highest_board = max(RANK_MAPPING[r] for r in b_ranks) if b_ranks else 0
-        has_top_pair = any(RANK_MAPPING[h] == highest_board for h in h_ranks)
-        board_is_paired = len(set(b_ranks)) < len(b_ranks)
-        
-        if has_top_pair: return 0.6
-        if board_is_paired: return 0.45
-        
-        max_hole_val = max(RANK_MAPPING[h] for h in h_ranks)
-        return 0.30 + 0.01 * max_hole_val
+    def _rough_made_strength(self, hero_str, board_str):
+        hero_ranks = [c[0] for c in hero_str]
+        board_ranks = [c[0] for c in board_str]
+        if hero_ranks[0] == hero_ranks[1]:
+            v = ranks_currV[hero_ranks[0]]
+            return min(0.85, 0.55 + v * 0.015)
+        top_board = max(ranks_currV[r] for r in board_ranks) if board_ranks else 0
+        have_tp = any(ranks_currV[h] == top_board for h in hero_ranks)
+        have_board_pair = len(set(board_ranks)) < len(board_ranks)
+        if have_tp:
+            return 0.6
+        if have_board_pair:
+            return 0.45
+        high = max(ranks_currV[h] for h in hero_ranks)
+        return 0.30 + 0.01 * high
 
-    def hero_bounty_impact(self, hero_bounty, hero_strs, board_strs, street):
-        visible_h_ranks = {c[0] for c in hero_strs}
-        visible_b_ranks = {c[0] for c in board_strs}
-        cards_to_come = 5 - len(board_strs)
-        
-        if hero_bounty in visible_h_ranks or hero_bounty in visible_b_ranks:
-            return MULTIPLIER_RATIO, float(MULTIPLIER_BASE)
-            
-        hit_prob = calc_target_appearance_probability(hero_bounty, hero_strs, board_strs, cards_to_come)
-        multiplier = 1.0 + (MULTIPLIER_RATIO - 1.0) * hit_prob
-        addition = MULTIPLIER_BASE * hit_prob
-        return multiplier, addition
+    def bounty_expected_multiplier(self, my_bounty, hero_str, board_str, street):
+        visible_hole_ranks = {c[0] for c in hero_str}
+        visible_board_ranks = {c[0] for c in board_str}
+        remaining = 5 - len(board_str)
+        if my_bounty in visible_hole_ranks or my_bounty in visible_board_ranks:
+            return BOUNTY_RATIO, float(bit_check)
+        p_hit = bounty_hit_prob_future(my_bounty, hero_str, board_str, remaining)
+        mult = 1.0 + (BOUNTY_RATIO - 1.0) * p_hit
+        add = bit_check * p_hit
+        return mult, add
 
-    def villain_bounty_impact(self, hero_strs, board_strs, street):
-        visible_h_ranks = {c[0] for c in hero_strs}
-        visible_b_ranks = {c[0] for c in board_strs}
-        cards_to_come = 5 - len(board_strs)
-        
-        cumulative_prob = 0.0
-        for rank in CARD_RANKS:
-            if rank in visible_b_ranks:
-                hit_prob = 1.0
+    def opp_bounty_expected_multiplier(self, hero_str, board_str, street):
+        visible_hole_ranks = {c[0] for c in hero_str}
+        visible_board_ranks = {c[0] for c in board_str}
+        remaining = 5 - len(board_str)
+        total_p = 0.0
+        for rank in target_mapping:
+            if rank in visible_board_ranks:
+                p_hit = 1.0
             else:
-                cards_removed = 2 + len(board_strs)
-                targets_left = 4 - (1 if rank in visible_h_ranks else 0)
-                hidden_cards = 52 - cards_removed
-                villain_hole_count = 2
-                draws_total = villain_hole_count + cards_to_come
-                
-                prob_missing_all = 1.0
-                for i in range(draws_total):
-                    denominator = hidden_cards - i
-                    if denominator <= 0:
-                        prob_missing_all = 0.0
+                cards_removed = 2 + len(board_str)
+                rank_left = 4 - (1 if rank in visible_hole_ranks else 0)
+                hidden = 52 - cards_removed
+                opp_hole = 2
+                future_board = remaining
+                drawn = opp_hole + future_board
+                p_none = 1.0
+                for i in range(drawn):
+                    denom = hidden - i
+                    if denom <= 0:
+                        p_none = 0.0
                         break
-                    prob_missing_all *= max(0, denominator - targets_left - i) / denominator
-                hit_prob = 1.0 - prob_missing_all
-            cumulative_prob += hit_prob
-            
-        avg_hit_prob = cumulative_prob / 13.0
-        multiplier = 1.0 + (MULTIPLIER_RATIO - 1.0) * avg_hit_prob
-        addition = MULTIPLIER_BASE * avg_hit_prob
-        return multiplier, addition
+                    p_none *= max(0, denom - rank_left - i) / denom
+                p_hit = 1.0 - p_none
+            total_p += p_hit
+        avg_p_hit = total_p / 13.0
+        mult = 1.0 + (BOUNTY_RATIO - 1.0) * avg_p_hit
+        add = bit_check * avg_p_hit
+        return mult, add
 
-    def _calc_marginal_payoffs(self, total_pot, hero_invested, cost_to_play, hero_bm, hero_bb, villain_bm, villain_bb):
-        villain_invested = total_pot - hero_invested
-        win_value = villain_invested * hero_bm + hero_bb + hero_invested
-        lose_value = (hero_invested + cost_to_play) * villain_bm + villain_bb - hero_invested
-        return win_value, lose_value
+    def marginal_payoffs(self, pot, my_contrib, continue_cost, my_bm, my_bb, opp_bm, opp_bb):
+        opp_contrib = pot - my_contrib
+        win_marginal = opp_contrib * my_bm + my_bb + my_contrib
+        lose_marginal = (my_contrib + continue_cost) * opp_bm + opp_bb - my_contrib
+        return win_marginal, lose_marginal
 
-    def determine_pot_odds(self, cost_to_play, total_pot, villain_bm, villain_bb, hero_bm, hero_bb, hero_invested):
-        win_value, lose_value = self._calc_marginal_payoffs(
-            total_pot, hero_invested, cost_to_play, hero_bm, hero_bb, villain_bm, villain_bb
+    def required_equity(self, continue_cost, pot, opp_bm, opp_bb, my_bm, my_bb, my_contrib):
+        win_marginal, lose_marginal = self.marginal_payoffs(
+            pot, my_contrib, continue_cost, my_bm, my_bb, opp_bm, opp_bb
         )
-        total_denom = win_value + lose_value
-        if total_denom <= 0:
+        denom = win_marginal + lose_marginal
+        if denom <= 0:
             return 1.0
-        return max(0.0, lose_value / total_denom)
+        return max(0.0, lose_marginal / denom)
 
-    def formulate_raise_size(self, winrate, total_pot, hero_pip, villain_pip, hero_stack, villain_stack, min_raise, max_raise, street, aggro_modifier):
-        if winrate > 0.85: fraction = 1.1
-        elif winrate > 0.72: fraction = 0.8
-        elif winrate > 0.60: fraction = 0.6
-        else: fraction = 0.5
-        
-        fraction += aggro_modifier
-        fraction = max(0.35, min(1.3, fraction))
-        
-        target_amount = villain_pip + int(max(total_pot, 4) * fraction)
-        target_amount = max(target_amount, min_raise)
-        target_amount = min(target_amount, max_raise)
-        return target_amount
+    def pick_raise_size(self, equity, pot, my_pip, opp_pip, my_stack, opp_stack, min_raise, max_raise, street, aggression_shift):
+        if equity > 0.85:
+            frac = 1.1
+        elif equity > 0.72:
+            frac = 0.8
+        elif equity > 0.60:
+            frac = 0.6
+        else:
+            frac = 0.5
+        frac += aggression_shift
+        frac = max(0.35, min(1.3, frac))
+        target_total_bet = opp_pip + int(max(pot, 4) * frac)
+        target_total_bet = max(target_total_bet, min_raise)
+        target_total_bet = min(target_total_bet, max_raise)
+        return target_total_bet
 
-    def gauge_villain_tightness(self, hero_invested, villain_invested, cost_to_play, street, facing_bet):
+    def estimate_opponent_tightness(self, my_contribution, opp_contribution, continue_cost, street, facing_bet):
         if not facing_bet:
             return 0.01
-        commitment_ratio = villain_invested / STARTING_STACK
+        committed = opp_contribution / STARTING_STACK
         if street == 0:
-            if commitment_ratio >= 0.85: return 0.22
-            if commitment_ratio >= 0.40: return 0.14
-            if commitment_ratio >= 0.15: return 0.08
-            if commitment_ratio >= 0.06: return 0.05
+            if committed >= 0.85:
+                return 0.22
+            if committed >= 0.40:
+                return 0.14
+            if committed >= 0.15:
+                return 0.08
+            if committed >= 0.06:
+                return 0.05
             return 0.02
         else:
-            if commitment_ratio >= 0.80: return 0.18
-            if commitment_ratio >= 0.40: return 0.12
-            if commitment_ratio >= 0.20: return 0.08
-            if commitment_ratio >= 0.08: return 0.04
+            if committed >= 0.80:
+                return 0.18
+            if committed >= 0.40:
+                return 0.12
+            if committed >= 0.20:
+                return 0.08
+            if committed >= 0.08:
+                return 0.04
             return 0.02
 
-    def determine_macro_strategy(self, game_state):
-        """Analyzes overall tournament state to decide if we need to play tight or loose."""
-        horizon_length = 500 if game_state.round_num <= 500 else 1000
-        rounds_remaining = max(0, horizon_length - game_state.round_num)
-        lead_delta = game_state.bankroll
-        
-        if lead_delta >= max(140, int(rounds_remaining * 0.36)):
+    def match_mode(self, game_state):
+        horizon = 500 if game_state.round_num <= 500 else 1000
+        rounds_left = max(0, horizon - game_state.round_num)
+        lead = game_state.bankroll
+        if lead >= max(140, int(rounds_left * 0.36)):
             return 'protect'
-        if lead_delta <= -max(200, int(rounds_remaining * 0.42)):
+        if lead <= -max(200, int(rounds_left * 0.42)):
             return 'chase'
         return 'neutral'
 
-    def construct_action_thresholds(self, game_state, street):
-        preflop_aggro = self.adversary.calc_preflop_aggression()
-        if self.adversary.preflop_actions < 12:
-            passivity = 0.35
+    def build_decision_profile(self, game_state, street):
+        pre_raise = self.opp.prior_preflop_raise()
+        if self.opp.preflop_actions < 12:
+            passive_weight = 0.35
         else:
-            if preflop_aggro <= 0.34: passivity = 0.95
-            elif preflop_aggro >= 0.50: passivity = 0.0
-            else: passivity = max(0.0, min(0.95, (0.50 - preflop_aggro) / 0.16))
+            if pre_raise <= 0.34:
+                passive_weight = 0.95
+            elif pre_raise >= 0.50:
+                passive_weight = 0.0
+            else:
+                passive_weight = max(0.0, min(0.95, (0.50 - pre_raise) / 0.16))
 
-        def blend_metrics(base_key, attack_key):
-            base_val = self.tactics[base_key]
-            attack_val = AGGRESSIVE_TACTICAL_WEIGHTS[attack_key]
-            return base_val + (attack_val - base_val) * passivity
+        def blend(def_key, attack_key):
+            base = self.model[def_key]
+            attack = ATTACK_PROFILE[attack_key]
+            return base + (attack - base) * passive_weight
 
-        bounds = ActionThresholds(
-            preflop_call_margin=blend_metrics('preflop_call_margin', 'preflop_call_margin'),
-            postflop_call_margin=blend_metrics('postflop_call_margin', 'postflop_call_margin'),
-            value_raise_eq=blend_metrics('postflop_value_raise_eq', 'postflop_value_raise_eq'),
-            semi_raise_eq_low=blend_metrics('semi_raise_eq_low', 'semi_raise_eq_low'),
-            semi_raise_eq_high=blend_metrics('semi_raise_eq_high', 'semi_raise_eq_high'),
-            semi_raise_fold_prior=blend_metrics('semi_raise_fold_prior', 'semi_raise_fold_prior'),
-            river_probe_raise_prob=blend_metrics('river_probe_raise_prob', 'river_probe_raise_prob'),
-            low_equity_bluff_prob=blend_metrics('low_equity_bluff_prob', 'low_equity_bluff_prob'),
-            aggro_up_threshold=blend_metrics('aggro_up_threshold', 'aggro_up_threshold'),
-            aggro_down_threshold=blend_metrics('aggro_down_threshold', 'aggro_down_threshold'),
-            aggro_step=blend_metrics('aggro_step', 'aggro_step'),
+        profile = DecisionProfile(
+            preflop_call_margin=blend('preflop_call_margin', 'preflop_call_margin'),
+            postflop_call_margin=blend('postflop_call_margin', 'postflop_call_margin'),
+            value_raise_eq=blend('postflop_value_raise_eq', 'postflop_value_raise_eq'),
+            semi_raise_eq_low=blend('semi_raise_eq_low', 'semi_raise_eq_low'),
+            semi_raise_eq_high=blend('semi_raise_eq_high', 'semi_raise_eq_high'),
+            semi_raise_fold_prior=blend('semi_raise_fold_prior', 'semi_raise_fold_prior'),
+            river_probe_raise_prob=blend('river_probe_raise_prob', 'river_probe_raise_prob'),
+            low_equity_bluff_prob=blend('low_equity_bluff_prob', 'low_equity_bluff_prob'),
+            aggro_up_threshold=blend('aggro_up_threshold', 'aggro_up_threshold'),
+            aggro_down_threshold=blend('aggro_down_threshold', 'aggro_down_threshold'),
+            aggro_step=blend('aggro_step', 'aggro_step'),
         )
 
-        macro_mode = self.determine_macro_strategy(game_state)
-        if macro_mode == 'protect':
-            bounds = ActionThresholds(
-                preflop_call_margin=bounds.preflop_call_margin + 0.012,
-                postflop_call_margin=bounds.postflop_call_margin + 0.016,
-                value_raise_eq=min(0.92, bounds.value_raise_eq + 0.014),
-                semi_raise_eq_low=min(0.85, bounds.semi_raise_eq_low + 0.014),
-                semi_raise_eq_high=min(0.92, bounds.semi_raise_eq_high + 0.01),
-                semi_raise_fold_prior=min(0.90, bounds.semi_raise_fold_prior + 0.02),
-                river_probe_raise_prob=max(0.0, bounds.river_probe_raise_prob * 0.80),
-                low_equity_bluff_prob=max(0.0, bounds.low_equity_bluff_prob * 0.70),
-                aggro_up_threshold=bounds.aggro_up_threshold + 0.02,
-                aggro_down_threshold=min(0.65, bounds.aggro_down_threshold + 0.02),
-                aggro_step=bounds.aggro_step * 0.90,
+        mode = self.match_mode(game_state)
+        if mode == 'protect':
+            profile = DecisionProfile(
+                preflop_call_margin=profile.preflop_call_margin + 0.012,
+                postflop_call_margin=profile.postflop_call_margin + 0.016,
+                value_raise_eq=min(0.92, profile.value_raise_eq + 0.014),
+                semi_raise_eq_low=min(0.85, profile.semi_raise_eq_low + 0.014),
+                semi_raise_eq_high=min(0.92, profile.semi_raise_eq_high + 0.01),
+                semi_raise_fold_prior=min(0.90, profile.semi_raise_fold_prior + 0.02),
+                river_probe_raise_prob=max(0.0, profile.river_probe_raise_prob * 0.80),
+                low_equity_bluff_prob=max(0.0, profile.low_equity_bluff_prob * 0.70),
+                aggro_up_threshold=profile.aggro_up_threshold + 0.02,
+                aggro_down_threshold=min(0.65, profile.aggro_down_threshold + 0.02),
+                aggro_step=profile.aggro_step * 0.90,
             )
-        elif macro_mode == 'chase':
-            bounds = ActionThresholds(
-                preflop_call_margin=bounds.preflop_call_margin - 0.003,
-                postflop_call_margin=bounds.postflop_call_margin - 0.003,
-                value_raise_eq=max(0.55, bounds.value_raise_eq - 0.003),
-                semi_raise_eq_low=max(0.30, bounds.semi_raise_eq_low - 0.006),
-                semi_raise_eq_high=min(0.92, bounds.semi_raise_eq_high + 0.006),
-                semi_raise_fold_prior=max(0.25, bounds.semi_raise_fold_prior - 0.006),
-                river_probe_raise_prob=min(0.95, bounds.river_probe_raise_prob * 1.02),
-                low_equity_bluff_prob=min(0.50, bounds.low_equity_bluff_prob * 1.03),
-                aggro_up_threshold=max(0.30, bounds.aggro_up_threshold - 0.01),
-                aggro_down_threshold=max(0.08, bounds.aggro_down_threshold - 0.01),
-                aggro_step=min(0.30, bounds.aggro_step * 1.02),
+        elif mode == 'chase':
+            profile = DecisionProfile(
+                preflop_call_margin=profile.preflop_call_margin - 0.003,
+                postflop_call_margin=profile.postflop_call_margin - 0.003,
+                value_raise_eq=max(0.55, profile.value_raise_eq - 0.003),
+                semi_raise_eq_low=max(0.30, profile.semi_raise_eq_low - 0.006),
+                semi_raise_eq_high=min(0.92, profile.semi_raise_eq_high + 0.006),
+                semi_raise_fold_prior=max(0.25, profile.semi_raise_fold_prior - 0.006),
+                river_probe_raise_prob=min(0.95, profile.river_probe_raise_prob * 1.02),
+                low_equity_bluff_prob=min(0.50, profile.low_equity_bluff_prob * 1.03),
+                aggro_up_threshold=max(0.30, profile.aggro_up_threshold - 0.01),
+                aggro_down_threshold=max(0.08, profile.aggro_down_threshold - 0.01),
+                aggro_step=min(0.30, profile.aggro_step * 1.02),
             )
 
         if street == 5:
-            bounds = ActionThresholds(
-                preflop_call_margin=bounds.preflop_call_margin,
-                postflop_call_margin=bounds.postflop_call_margin,
-                value_raise_eq=max(0.55, bounds.value_raise_eq - 0.01),
-                semi_raise_eq_low=max(0.30, bounds.semi_raise_eq_low - 0.01),
-                semi_raise_eq_high=bounds.semi_raise_eq_high,
-                semi_raise_fold_prior=bounds.semi_raise_fold_prior,
-                river_probe_raise_prob=bounds.river_probe_raise_prob,
-                low_equity_bluff_prob=bounds.low_equity_bluff_prob,
-                aggro_up_threshold=bounds.aggro_up_threshold,
-                aggro_down_threshold=bounds.aggro_down_threshold,
-                aggro_step=bounds.aggro_step,
+            profile = DecisionProfile(
+                preflop_call_margin=profile.preflop_call_margin,
+                postflop_call_margin=profile.postflop_call_margin,
+                value_raise_eq=max(0.55, profile.value_raise_eq - 0.01),
+                semi_raise_eq_low=max(0.30, profile.semi_raise_eq_low - 0.01),
+                semi_raise_eq_high=profile.semi_raise_eq_high,
+                semi_raise_fold_prior=profile.semi_raise_fold_prior,
+                river_probe_raise_prob=profile.river_probe_raise_prob,
+                low_equity_bluff_prob=profile.low_equity_bluff_prob,
+                aggro_up_threshold=profile.aggro_up_threshold,
+                aggro_down_threshold=profile.aggro_down_threshold,
+                aggro_step=profile.aggro_step,
             )
 
-        return bounds
+        return profile
 
     def handle_new_round(self, game_state, round_state, active):
-        self.hero_last_action = None
-        self.last_street_processed = 0
-        self.last_hero_pip = 0
-        self.last_villain_pip = 0
-        self.adversary.rounds_played += 1
+        self.my_last_action = None
+        self.last_street_seen = 0
+        self.prev_my_pip = 0
+        self.prev_opp_pip = 0
+        self.opp.rounds += 1
 
     def handle_round_over(self, game_state, terminal_state, active):
-        hero_net = terminal_state.deltas[active]
-        self.current_bankroll += hero_net
+        my_delta = terminal_state.deltas[active]
+        self.bankroll_running += my_delta
 
     def get_action(self, game_state, round_state, active):
-        available_actions = round_state.legal_actions()
-        current_street = round_state.street
-        hero_cards = round_state.hands[active]
-        board_cards = round_state.deck[:current_street] if current_street > 0 else []
-        
-        hero_pip = round_state.pips[active]
-        villain_pip = round_state.pips[1 - active]
-        hero_stack = round_state.stacks[active]
-        villain_stack = round_state.stacks[1 - active]
-        
-        cost_to_play = villain_pip - hero_pip
-        hero_bounty = round_state.bounties[active]
-        hero_invested = STARTING_STACK - hero_stack
-        villain_invested = STARTING_STACK - villain_stack
-        total_pot = hero_invested + villain_invested
+        legal_actions = round_state.legal_actions()
+        street = round_state.street
+        my_cards = round_state.hands[active]
+        board_cards = round_state.deck[:street] if street > 0 else []
+        my_pip = round_state.pips[active]
+        opp_pip = round_state.pips[1 - active]
+        my_stack = round_state.stacks[active]
+        opp_stack = round_state.stacks[1 - active]
+        continue_cost = opp_pip - my_pip
+        my_bounty = round_state.bounties[active]
+        my_contribution = STARTING_STACK - my_stack
+        opp_contribution = STARTING_STACK - opp_stack
+        pot = my_contribution + opp_contribution
         game_clock = game_state.game_clock
 
-        self._record_villain_tendencies(round_state, active, current_street)
-        facing_bet = cost_to_play > 0
-        min_raise = max_raise = 0
-        
-        if RaiseAction in available_actions:
-            min_raise, max_raise = round_state.raise_bounds()
+        self._track_opponent(round_state, active, street)
+        facing_bet = continue_cost > 0
+        min_raise_total = max_raise_total = 0
+        if RaiseAction in legal_actions:
+            min_raise_total, max_raise_total = round_state.raise_bounds()
 
-        # Emergency escape hatch for clock preservation
         if game_clock < 1.2:
-            if CheckAction in available_actions: return CheckAction()
-            if cost_to_play <= 2 and CallAction in available_actions: return CallAction()
-            if FoldAction in available_actions: return FoldAction()
+            if CheckAction in legal_actions:
+                return CheckAction()
+            if continue_cost <= 2 and CallAction in legal_actions:
+                return CallAction()
+            if FoldAction in legal_actions:
+                return FoldAction()
             return CallAction()
 
-        sim_iterations = self.determine_mc_iterations(game_clock, current_street)
-        
-        if current_street == 0:
-            raw_winrate = self.query_preflop_equity(hero_cards)
+        samples = self.time_samples(game_clock, street)
+        if street == 0:
+            base_equity = self.preflop_lookup(my_cards)
         else:
-            raw_winrate = self.evaluate_hand_strength(
-                hero_cards, board_cards, sim_iterations,
-                villain_invested=villain_invested,
+            base_equity = self.mc_equity(
+                my_cards, board_cards, samples,
+                opp_contribution=opp_contribution,
                 facing_bet=facing_bet,
             )
 
-        hero_bm, hero_bb = self.hero_bounty_impact(hero_bounty, hero_cards, board_cards, current_street)
-        villain_bm, villain_bb = self.villain_bounty_impact(hero_cards, board_cards, current_street)
+        my_bm, my_bb = self.bounty_expected_multiplier(my_bounty, my_cards, board_cards, street)
+        opp_bm, opp_bb = self.opp_bounty_expected_multiplier(my_cards, board_cards, street)
 
-        if current_street == 0:
-            tight_modifier = self.gauge_villain_tightness(
-                hero_invested, villain_invested, cost_to_play, current_street, facing_bet
+        if street == 0:
+            haircut = self.estimate_opponent_tightness(
+                my_contribution, opp_contribution, continue_cost, street, facing_bet
             )
-            tight_modifier *= self.tactics['haircut_scale']
+            haircut *= self.model['haircut_scale']
         else:
-            tight_modifier = 0.0
+            haircut = 0.0
 
-        bounds = self.construct_action_thresholds(game_state, current_street)
-        fold_likelihood = self.adversary.calc_fold_to_bet_prior()
-        aggression_shift = 0.0
-        
-        if fold_likelihood > bounds.aggro_up_threshold:
-            aggression_shift += bounds.aggro_step
-        elif fold_likelihood < bounds.aggro_down_threshold:
-            aggression_shift -= bounds.aggro_step
+        profile = self.build_decision_profile(game_state, street)
+        fold_prior = self.opp.prior_postflop_fold_to_bet()
+        aggro_shift = 0.0
+        if fold_prior > profile.aggro_up_threshold:
+            aggro_shift += profile.aggro_step
+        elif fold_prior < profile.aggro_down_threshold:
+            aggro_shift -= profile.aggro_step
 
-        bounty_inflation = self.tactics['bounty_bump_scale'] * (0.02 * (hero_bm - 1.0) + (hero_bb / 450.0))
+        bounty_bump = self.model['bounty_bump_scale'] * (0.02 * (my_bm - 1.0) + (my_bb / 450.0))
 
-        # --- PREFLOP LOGIC ---
-        if current_street == 0:
-            h_ranks = [c[0] for c in hero_cards]
-            holds_bounty = hero_bounty in h_ranks
-            winrate_vs_range = max(0.05, raw_winrate - tight_modifier)
-            effective_winrate = winrate_vs_range + bounty_inflation
-            
-            hand_category = categorize_starting_hand(hero_cards)
-            villain_commitment_ratio = villain_invested / STARTING_STACK
-            req_odds = self.determine_pot_odds(cost_to_play, total_pot, villain_bm, villain_bb, hero_bm, hero_bb, hero_invested)
+        if street == 0:
+            hero_ranks = [c[0] for c in my_cards]
+            has_bounty_rank = my_bounty in hero_ranks
+            eq_raw = base_equity
+            eq_vs_opp = max(0.05, eq_raw - haircut)
+            eq_eff = eq_vs_opp + bounty_bump
+            klass = classify_preflop(my_cards)
+            opp_committed = opp_contribution / STARTING_STACK
+            req = self.required_equity(continue_cost, pot, opp_bm, opp_bb, my_bm, my_bb, my_contribution)
 
             if not facing_bet:
-                if RaiseAction in available_actions:
-                    if hand_category == 'premium': target_amt = villain_pip + max(6, int(total_pot * 1.6))
-                    elif hand_category == 'strong': target_amt = villain_pip + max(5, int(total_pot * 1.2))
-                    elif hand_category in ('medium', 'openable'): target_amt = villain_pip + max(4, int(total_pot * 0.9))
-                    elif holds_bounty: target_amt = villain_pip + max(4, int(total_pot * 0.8))
-                    else: target_amt = None
-                    
-                    if target_amt is not None:
-                        return RaiseAction(min(max(target_amt, min_raise), max_raise))
-                if CheckAction in available_actions: return CheckAction()
-                if CallAction in available_actions: return CallAction()
+                if RaiseAction in legal_actions:
+                    if klass == 'premium':
+                        target = opp_pip + max(6, int(pot * 1.6))
+                    elif klass == 'strong':
+                        target = opp_pip + max(5, int(pot * 1.2))
+                    elif klass in ('medium', 'openable'):
+                        target = opp_pip + max(4, int(pot * 0.9))
+                    elif has_bounty_rank:
+                        target = opp_pip + max(4, int(pot * 0.8))
+                    else:
+                        target = None
+                    if target is not None:
+                        return RaiseAction(min(max(target, min_raise_total), max_raise_total))
+                if CheckAction in legal_actions:
+                    return CheckAction()
+                if CallAction in legal_actions:
+                    return CallAction()
 
-            if villain_commitment_ratio >= 0.65 or cost_to_play >= hero_stack * 0.55:
-                if hand_category == 'premium' and CallAction in available_actions: return CallAction()
-                if FoldAction in available_actions: return FoldAction()
-                if CheckAction in available_actions: return CheckAction()
+            if opp_committed >= 0.65 or continue_cost >= my_stack * 0.55:
+                if klass == 'premium' and CallAction in legal_actions:
+                    return CallAction()
+                if FoldAction in legal_actions:
+                    return FoldAction()
+                if CheckAction in legal_actions:
+                    return CheckAction()
                 return CallAction()
 
-            if villain_pip >= 25 or villain_commitment_ratio >= 0.12:
-                if RaiseAction in available_actions and hand_category == 'premium':
-                    _, top_raise = round_state.raise_bounds()
-                    shove_amt = min(villain_pip + int((total_pot + cost_to_play) * 2.2), top_raise)
-                    return RaiseAction(max(shove_amt, min_raise))
-                if CallAction in available_actions and hand_category in ('premium', 'strong'): return CallAction()
-                if CallAction in available_actions and hand_category == 'medium' and cost_to_play <= total_pot * 0.55: return CallAction()
-                if FoldAction in available_actions: return FoldAction()
-                if CallAction in available_actions: return CallAction()
-                return CheckAction() if CheckAction in available_actions else CallAction()
+            if opp_pip >= 25 or opp_committed >= 0.12:
+                if RaiseAction in legal_actions and klass == 'premium':
+                    _, max_rr = round_state.raise_bounds()
+                    jam_target = min(opp_pip + int((pot + continue_cost) * 2.2), max_rr)
+                    return RaiseAction(max(jam_target, min_raise_total))
+                if CallAction in legal_actions and klass in ('premium', 'strong'):
+                    return CallAction()
+                if CallAction in legal_actions and klass == 'medium' and continue_cost <= pot * 0.55:
+                    return CallAction()
+                if FoldAction in legal_actions:
+                    return FoldAction()
+                if CallAction in legal_actions:
+                    return CallAction()
+                return CheckAction() if CheckAction in legal_actions else CallAction()
 
-            if villain_pip >= 5:
-                if RaiseAction in available_actions and hand_category == 'premium':
-                    target_amt = villain_pip + max(min_raise - villain_pip, int(cost_to_play * 3.0))
-                    return RaiseAction(min(max(target_amt, min_raise), max_raise))
-                if RaiseAction in available_actions and hand_category == 'strong':
-                    target_amt = villain_pip + max(min_raise - villain_pip, int(cost_to_play * 2.6))
-                    return RaiseAction(min(max(target_amt, min_raise), max_raise))
-                if CallAction in available_actions and hand_category in ('premium', 'strong', 'medium'): return CallAction()
-                if CallAction in available_actions and holds_bounty and hand_category == 'openable' and cost_to_play <= 8: return CallAction()
-                if FoldAction in available_actions: return FoldAction()
-                if CheckAction in available_actions: return CheckAction()
+            if opp_pip >= 5:
+                if RaiseAction in legal_actions and klass == 'premium':
+                    target = opp_pip + max(min_raise_total - opp_pip, int(continue_cost * 3.0))
+                    return RaiseAction(min(max(target, min_raise_total), max_raise_total))
+                if RaiseAction in legal_actions and klass == 'strong':
+                    target = opp_pip + max(min_raise_total - opp_pip, int(continue_cost * 2.6))
+                    return RaiseAction(min(max(target, min_raise_total), max_raise_total))
+                if CallAction in legal_actions and klass in ('premium', 'strong', 'medium'):
+                    return CallAction()
+                if CallAction in legal_actions and has_bounty_rank and klass == 'openable' and continue_cost <= 8:
+                    return CallAction()
+                if FoldAction in legal_actions:
+                    return FoldAction()
+                if CheckAction in legal_actions:
+                    return CheckAction()
                 return CallAction()
 
-            if cost_to_play <= 2:
-                if RaiseAction in available_actions and hand_category == 'premium':
-                    target_amt = villain_pip + max(min_raise - villain_pip, 6)
-                    return RaiseAction(min(max(target_amt, min_raise), max_raise))
-                if CallAction in available_actions and hand_category != 'trash': return CallAction()
-                if CallAction in available_actions and holds_bounty: return CallAction()
-                if FoldAction in available_actions: return FoldAction()
-                return CallAction() if CallAction in available_actions else CheckAction()
+            if continue_cost <= 2:
+                if RaiseAction in legal_actions and klass == 'premium':
+                    target = opp_pip + max(min_raise_total - opp_pip, 6)
+                    return RaiseAction(min(max(target, min_raise_total), max_raise_total))
+                if CallAction in legal_actions and klass != 'trash':
+                    return CallAction()
+                if CallAction in legal_actions and has_bounty_rank:
+                    return CallAction()
+                if FoldAction in legal_actions:
+                    return FoldAction()
+                return CallAction() if CallAction in legal_actions else CheckAction()
 
-            if CallAction in available_actions and effective_winrate >= req_odds + bounds.preflop_call_margin and hand_category != 'trash':
+            if CallAction in legal_actions and eq_eff >= req + profile.preflop_call_margin and klass != 'trash':
                 return CallAction()
-            if FoldAction in available_actions: return FoldAction()
-            if CheckAction in available_actions: return CheckAction()
-            return CallAction() if CallAction in available_actions else CheckAction()
+            if FoldAction in legal_actions:
+                return FoldAction()
+            if CheckAction in legal_actions:
+                return CheckAction()
+            return CallAction() if CallAction in legal_actions else CheckAction()
 
-        # --- POSTFLOP LOGIC ---
-        winrate_vs_range = max(0.02, raw_winrate - tight_modifier)
-        effective_winrate = winrate_vs_range + bounty_inflation
-        req_odds = self.determine_pot_odds(cost_to_play, total_pot, villain_bm, villain_bb, hero_bm, hero_bb, hero_invested)
-        villain_commitment_ratio = villain_invested / STARTING_STACK
+        eq_raw = base_equity
+        eq_vs_opp = max(0.02, eq_raw - haircut)
+        eq_eff = eq_vs_opp + bounty_bump
+        req = self.required_equity(continue_cost, pot, opp_bm, opp_bb, my_bm, my_bb, my_contribution)
+        opp_committed = opp_contribution / STARTING_STACK
 
         if not facing_bet:
-            if RaiseAction in available_actions and total_pot >= 4:
-                if raw_winrate >= 0.68:
-                    target_amt = self.formulate_raise_size(raw_winrate, total_pot, hero_pip, villain_pip, hero_stack, villain_stack, min_raise, max_raise, current_street, aggression_shift)
-                    return RaiseAction(target_amt)
-                if raw_winrate >= 0.52:
-                    raise_frac = 0.55 + aggression_shift
-                    raise_frac = max(0.4, min(0.8, raise_frac))
-                    target_amt = villain_pip + max(min_raise - villain_pip, int(max(total_pot, 4) * raise_frac))
-                    return RaiseAction(min(max(target_amt, min_raise), max_raise))
-                if raw_winrate >= 0.38 and current_street == 3:
-                    if random.random() < bounds.river_probe_raise_prob:
-                        target_amt = villain_pip + max(min_raise - villain_pip, int(max(total_pot, 4) * 0.45))
-                        return RaiseAction(min(max(target_amt, min_raise), max_raise))
-                if raw_winrate < 0.30 and total_pot >= 10 and random.random() < bounds.low_equity_bluff_prob:
-                    target_amt = villain_pip + max(min_raise - villain_pip, int(max(total_pot, 4) * 0.45))
-                    return RaiseAction(min(max(target_amt, min_raise), max_raise))
-            if CheckAction in available_actions:
+            if RaiseAction in legal_actions and pot >= 4:
+                if eq_raw >= 0.68:
+                    target = self.pick_raise_size(eq_raw, pot, my_pip, opp_pip, my_stack, opp_stack, min_raise_total, max_raise_total, street, aggro_shift)
+                    return RaiseAction(target)
+                if eq_raw >= 0.52:
+                    frac = 0.55 + aggro_shift
+                    frac = max(0.4, min(0.8, frac))
+                    target = opp_pip + max(min_raise_total - opp_pip, int(max(pot, 4) * frac))
+                    return RaiseAction(min(max(target, min_raise_total), max_raise_total))
+                if eq_raw >= 0.38 and street == 3:
+                    if random.random() < profile.river_probe_raise_prob:
+                        frac = 0.45
+                        target = opp_pip + max(min_raise_total - opp_pip, int(max(pot, 4) * frac))
+                        return RaiseAction(min(max(target, min_raise_total), max_raise_total))
+                if eq_raw < 0.30 and pot >= 10 and random.random() < profile.low_equity_bluff_prob:
+                    target = opp_pip + max(min_raise_total - opp_pip, int(max(pot, 4) * 0.45))
+                    return RaiseAction(min(max(target, min_raise_total), max_raise_total))
+            if CheckAction in legal_actions:
                 return CheckAction()
 
-        if RaiseAction in available_actions and effective_winrate >= bounds.value_raise_eq and villain_commitment_ratio < 0.55:
-            target_amt = self.formulate_raise_size(raw_winrate, total_pot + cost_to_play, hero_pip, villain_pip, hero_stack, villain_stack, min_raise, max_raise, current_street, aggression_shift)
-            return RaiseAction(target_amt)
+        if RaiseAction in legal_actions and eq_eff >= profile.value_raise_eq and opp_committed < 0.55:
+            target = self.pick_raise_size(eq_raw, pot + continue_cost, my_pip, opp_pip, my_stack, opp_stack, min_raise_total, max_raise_total, street, aggro_shift)
+            return RaiseAction(target)
 
-        if (RaiseAction in available_actions and bounds.semi_raise_eq_low <= effective_winrate < bounds.semi_raise_eq_high and fold_likelihood > bounds.semi_raise_fold_prior and cost_to_play <= total_pot * 0.6 and villain_commitment_ratio < 0.35):
-            target_amt = villain_pip + max(min_raise - villain_pip, int((total_pot + cost_to_play) * 0.75))
-            return RaiseAction(min(max(target_amt, min_raise), max_raise))
+        if (RaiseAction in legal_actions and profile.semi_raise_eq_low <= eq_eff < profile.semi_raise_eq_high and fold_prior > profile.semi_raise_fold_prior and continue_cost <= pot * 0.6 and opp_committed < 0.35):
+            target = opp_pip + max(min_raise_total - opp_pip, int((pot + continue_cost) * 0.75))
+            return RaiseAction(min(max(target, min_raise_total), max_raise_total))
 
-        pot_odds = cost_to_play / max(1, (total_pot + cost_to_play))
-        hit_pair_plus = self._check_pair_plus_made_hand(hero_cards, board_cards)
-        heavy_bet = cost_to_play >= total_pot * 0.55
-        
-        if CallAction in available_actions:
-            if effective_winrate >= req_odds + bounds.postflop_call_margin:
-                if heavy_bet and not hit_pair_plus and raw_winrate < 0.58:
-                    pass # Fold heavily against large aggression if we purely missed the board
+        pot_odds = continue_cost / max(1, (pot + continue_cost))
+        has_pair_or_better = self._has_pair_or_better(my_cards, board_cards)
+        big_bet = continue_cost >= pot * 0.55
+        if CallAction in legal_actions:
+            if eq_eff >= req + profile.postflop_call_margin:
+                if big_bet and not has_pair_or_better and eq_raw < 0.58:
+                    pass
                 else:
                     return CallAction()
-            if cost_to_play <= max(3, total_pot * 0.15) and raw_winrate >= 0.32:
+            if continue_cost <= max(3, pot * 0.15) and eq_raw >= 0.32:
                 return CallAction()
-            if current_street == 5 and fold_likelihood < 0.25 and effective_winrate >= pot_odds and hit_pair_plus:
+            if street == 5 and fold_prior < 0.25 and eq_eff >= pot_odds and has_pair_or_better:
                 return CallAction()
 
-        if FoldAction in available_actions: return FoldAction()
-        if CheckAction in available_actions: return CheckAction()
+        if FoldAction in legal_actions:
+            return FoldAction()
+        if CheckAction in legal_actions:
+            return CheckAction()
         return CallAction()
 
-    def _check_pair_plus_made_hand(self, hero_strs, board_strs):
-        if not board_strs:
-            return hero_strs[0][0] == hero_strs[1][0]
-        h_ranks = [c[0] for c in hero_strs]
-        b_ranks = [c[0] for c in board_strs]
-        
-        if h_ranks[0] == h_ranks[1]: return True
-        if h_ranks[0] in b_ranks or h_ranks[1] in b_ranks: return True
-        
-        h_suits = [c[1] for c in hero_strs]
-        b_suits = [c[1] for c in board_strs]
-        for s in set(h_suits):
-            if h_suits.count(s) + b_suits.count(s) >= 4:
+    def _has_pair_or_better(self, hero_str, board_str):
+        if not board_str:
+            return hero_str[0][0] == hero_str[1][0]
+        hr = [c[0] for c in hero_str]
+        br = [c[0] for c in board_str]
+        if hr[0] == hr[1]:
+            return True
+        if hr[0] in br or hr[1] in br:
+            return True
+        hs = [c[1] for c in hero_str]
+        bs = [c[1] for c in board_str]
+        for suit in set(hs):
+            if hs.count(suit) + bs.count(suit) >= 4:
                 return True
-                
         try:
-            combined_ranks = sorted(set(RANK_MAPPING[r] for r in h_ranks + b_ranks))
+            ranks = sorted(set(ranks_currV[r] for r in hr + br))
             for start in range(2, 11):
-                straight_window = set(range(start, start + 5))
-                if len(straight_window & set(combined_ranks)) >= 4:
+                window = set(range(start, start + 5))
+                if len(window & set(ranks)) >= 4:
                     return True
         except Exception:
             pass
         return False
 
-    def _record_villain_tendencies(self, round_state, active, street):
-        villain_pip = round_state.pips[1 - active]
-        hero_pip = round_state.pips[active]
-        
-        if street != self.last_street_processed:
-            self.last_street_processed = street
-            self.last_villain_pip = villain_pip
-            self.last_hero_pip = hero_pip
+    def _track_opponent(self, round_state, active, street):
+        opp_pip = round_state.pips[1 - active]
+        my_pip = round_state.pips[active]
+        if street != self.last_street_seen:
+            self.last_street_seen = street
+            self.prev_opp_pip = opp_pip
+            self.prev_my_pip = my_pip
             return
-            
-        if villain_pip > self.last_villain_pip:
+        if opp_pip > self.prev_opp_pip:
             if street == 0:
-                self.adversary.preflop_actions += 1
-                self.adversary.preflop_raises += 1
+                self.opp.preflop_actions += 1
+                self.opp.preflop_raises += 1
             else:
-                self.adversary.postflop_actions += 1
-                if self.last_hero_pip > self.last_villain_pip:
-                    self.adversary.postflop_raises += 1
+                self.opp.postflop_actions += 1
+                if self.prev_my_pip > self.prev_opp_pip:
+                    self.opp.postflop_raises += 1
                 else:
-                    self.adversary.postflop_bets += 1
-            self.adversary.last_action_aggressive = True
-            
-        self.last_villain_pip = villain_pip
-        self.last_hero_pip = hero_pip
+                    self.opp.postflop_bets += 1
+            self.opp.last_action_aggressive = True
+        self.prev_opp_pip = opp_pip
+        self.prev_my_pip = my_pip
 
 
 if __name__ == '__main__':
-    run_bot(SmartPokerBot(), parse_args())
+    run_bot(Player(), parse_args())
