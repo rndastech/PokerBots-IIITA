@@ -65,42 +65,48 @@ CARD_RANKS = '23456789TJQKA'
 RANK_TO_VALUE = {c: i + 2 for i, c in enumerate(CARD_RANKS)}
 CFG_BOUNTY_RATIO = 1.5
 CFG_BOUNTY_CONSTANT = 10
+# Tuned baseline profile: minor adjustments for slightly better stability vs variance.
 CFG_DEFAULT_MODEL = {
     # Static profile: adaptive but not runtime-trained from any external file.
     'seed': 199441360,
-    'preflop_samples': 1711,
-    'mc_scale': 1.1960216944729805,
-    'haircut_scale': 0.6162629155139829,
-    'aggro_up_threshold': 0.547331376895446,
-    'aggro_down_threshold': 0.45,
-    'aggro_step': 0.16365262733737607,
-    'bounty_bump_scale': 1.1862543175502915,
-    'preflop_call_margin': 0.04052781931372232,
-    'river_probe_raise_prob': 0.5376180747833821,
-    'low_equity_bluff_prob': 0.3449330274551519,
-    'postflop_value_raise_eq': 0.8630728810070052,
-    'semi_raise_eq_low': 0.5576964681334766,
-    'semi_raise_eq_high': 0.767999096314951,
-    'semi_raise_fold_prior': 0.5162509809675553,
-    'postflop_call_margin': 0.09518729724315873,
+    'preflop_samples': 1760,
+    'mc_scale': 1.22,
+    'haircut_scale': 0.60,
+    'aggro_up_threshold': 0.55,
+    'aggro_down_threshold': 0.46,
+    'aggro_step': 0.155,
+    'bounty_bump_scale': 1.21,
+    'preflop_call_margin': 0.038,
+    'river_probe_raise_prob': 0.56,
+    'low_equity_bluff_prob': 0.31,
+    'postflop_value_raise_eq': 0.855,
+    'semi_raise_eq_low': 0.552,
+    'semi_raise_eq_high': 0.772,
+    'semi_raise_fold_prior': 0.525,
+    'postflop_call_margin': 0.091,
 }
+# Tuned attack profile: keeps pressure but trims low-EV spew.
 CFG_ATTACK_MODEL = {
-    'preflop_call_margin': 0.00,
-    'postflop_call_margin': 0.03,
-    'postflop_value_raise_eq': 0.75,
-    'semi_raise_eq_low': 0.50,
-    'semi_raise_eq_high': 0.73,
-    'semi_raise_fold_prior': 0.58,
-    'river_probe_raise_prob': 0.70,
-    'low_equity_bluff_prob': 0.20,
-    'aggro_up_threshold': 0.60,
-    'aggro_down_threshold': 0.25,
-    'aggro_step': 0.10,
+    'preflop_call_margin': 0.005,
+    'postflop_call_margin': 0.028,
+    'postflop_value_raise_eq': 0.74,
+    'semi_raise_eq_low': 0.49,
+    'semi_raise_eq_high': 0.74,
+    'semi_raise_fold_prior': 0.56,
+    'river_probe_raise_prob': 0.68,
+    'low_equity_bluff_prob': 0.18,
+    'aggro_up_threshold': 0.59,
+    'aggro_down_threshold': 0.27,
+    'aggro_step': 0.095,
 }
 
 
 def copy_default_model():
     return dict(CFG_DEFAULT_MODEL)
+
+
+def copy_attack_model():
+    return dict(CFG_ATTACK_MODEL)
 
 
 def to_canonical_hand_key(cards_str):
@@ -570,6 +576,7 @@ class Player(Bot):
 
     def build_decision_profile(self, game_state, street):
         pre_raise = self.opp.prior_preflop_raise()
+        attack_model = copy_attack_model()
         if self.opp.preflop_actions < 12:
             passive_weight = 0.35
         else:
@@ -582,7 +589,7 @@ class Player(Bot):
 
         def blend(def_key, attack_key):
             base = self.model[def_key]
-            attack = CFG_ATTACK_MODEL[attack_key]
+            attack = attack_model[attack_key]
             return base + (attack - base) * passive_weight
 
         profile = DecisionProfile(
