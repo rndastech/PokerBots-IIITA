@@ -1,75 +1,113 @@
 """Exploit-oriented Bounty Hold'em bot for `submission/IIT2024008/python_bot`.
 
-This module keeps all static tuning data in one place, estimates equity with
-Monte Carlo sampling, and updates lightweight in-memory opponent statistics
-during the match. The strategy is still the same as before; this file is just
-structured so the fixed parameters are easier to find and maintain.
+High-level purpose
+------------------
+This bot is designed for practical match EV against fixed or semi-predictable
+opponents in heads-up Bounty Hold'em. It mixes:
+1. Preflop hand-class heuristics,
+2. Postflop Monte Carlo equity sampling via `eval7`,
+3. Lightweight opponent tendency tracking,
+4. Bounty-aware payoff adjustment,
+5. Dynamic aggression/risk tuning based on match state.
+
+How to read this file
+---------------------
+The module is intentionally split into three layers:
+- Static config/constants:
+  Shared knobs and calibrated profile values that shape behavior.
+- Utility functions:
+  Canonical hand mapping, equity helpers, combo/range builders, and
+  bounty probability helpers.
+- Player logic:
+  Runtime state, opponent model updates, equity + threshold computations,
+  and final action selection.
+
+Important behavior notes
+------------------------
+- Equity model:
+  The bot uses fast stochastic estimates. It does NOT attempt full game-theory
+  solving during runtime; it prioritizes speed and stable decisions under clock.
+- Opponent model:
+  Statistics are intentionally simple (action frequencies and fold tendencies).
+  They are used to tilt thresholds, not to do deep sequence modeling.
+- Bounty handling:
+  Decisions incorporate expected bounty value (both own and opponent-side
+  effects) so raw chip EV and bounty EV are combined before action selection.
+- Risk controls:
+  Thresholds are adjusted by street, pot pressure, aggression priors, and
+  match mode (protect/neutral/chase) to avoid one-size-fits-all calling/raising.
+
+Maintenance guidance
+--------------------
+- If tuning parameters, prefer changing config/profile values first before
+  altering decision flow.
+- Keep helper functions deterministic given RNG state and inputs.
+- Avoid expensive per-action computations that can cause timeout risk.
+- Any rename/refactor should preserve call-site wiring to avoid silent strategy
+  drift from accidental fallback paths.
+
+This header is intentionally verbose for future maintenance clarity; gameplay
+logic below is unchanged by documentation edits.
 """
 
 
-
 from __future__ import annotations
-from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
-from skeleton.states import STARTING_STACK , BIG_BLIND
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
 import random
 from dataclasses import dataclass
-import eval7 , typing_extensions
+import eval7
+from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
+from skeleton.states import STARTING_STACK
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot
 
 
-def load_static_profiles():
-    target_mapping = '23456789TJQKA'
-    ranks_currV = {c: i + 2 for i, c in enumerate(target_mapping)}
-    bounty_ratio = 1.5
-    bit_check = 10
-    default_model = {
-        # Static profile: adaptive but not runtime-trained from any external file.
-        'seed': 199441360,
-        'preflop_samples': 1711,
-        'mc_scale': 1.1960216944729805,
-        'haircut_scale': 0.6162629155139829,
-        'aggro_up_threshold': 0.547331376895446,
-        'aggro_down_threshold': 0.45,
-        'aggro_step': 0.16365262733737607,
-        'bounty_bump_scale': 1.1862543175502915,
-        'preflop_call_margin': 0.04052781931372232,
-        'river_probe_raise_prob': 0.5376180747833821,
-        'low_equity_bluff_prob': 0.3449330274551519,
-        'postflop_value_raise_eq': 0.8630728810070052,
-        'semi_raise_eq_low': 0.5576964681334766,
-        'semi_raise_eq_high': 0.767999096314951,
-        'semi_raise_fold_prior': 0.5162509809675553,
-        'postflop_call_margin': 0.09518729724315873,
-    }
-    attack_profile = {
-        'preflop_call_margin': 0.00,
-        'postflop_call_margin': 0.03,
-        'postflop_value_raise_eq': 0.75,
-        'semi_raise_eq_low': 0.50,
-        'semi_raise_eq_high': 0.73,
-        'semi_raise_fold_prior': 0.58,
-        'river_probe_raise_prob': 0.70,
-        'low_equity_bluff_prob': 0.20,
-        'aggro_up_threshold': 0.60,
-        'aggro_down_threshold': 0.25,
-        'aggro_step': 0.10,
-    }
-    return target_mapping, ranks_currV, bounty_ratio, bit_check, default_model, attack_profile
+CARD_RANKS = '23456789TJQKA'
+RANK_TO_VALUE = {c: i + 2 for i, c in enumerate(CARD_RANKS)}
+CFG_BOUNTY_RATIO = 1.5
+CFG_BOUNTY_CONSTANT = 10
+CFG_DEFAULT_MODEL = {
+    # Static profile: adaptive but not runtime-trained from any external file.
+    'seed': 199441360,
+    'preflop_samples': 1711,
+    'mc_scale': 1.1960216944729805,
+    'haircut_scale': 0.6162629155139829,
+    'aggro_up_threshold': 0.547331376895446,
+    'aggro_down_threshold': 0.45,
+    'aggro_step': 0.16365262733737607,
+    'bounty_bump_scale': 1.1862543175502915,
+    'preflop_call_margin': 0.04052781931372232,
+    'river_probe_raise_prob': 0.5376180747833821,
+    'low_equity_bluff_prob': 0.3449330274551519,
+    'postflop_value_raise_eq': 0.8630728810070052,
+    'semi_raise_eq_low': 0.5576964681334766,
+    'semi_raise_eq_high': 0.767999096314951,
+    'semi_raise_fold_prior': 0.5162509809675553,
+    'postflop_call_margin': 0.09518729724315873,
+}
+CFG_ATTACK_MODEL = {
+    'preflop_call_margin': 0.00,
+    'postflop_call_margin': 0.03,
+    'postflop_value_raise_eq': 0.75,
+    'semi_raise_eq_low': 0.50,
+    'semi_raise_eq_high': 0.73,
+    'semi_raise_fold_prior': 0.58,
+    'river_probe_raise_prob': 0.70,
+    'low_equity_bluff_prob': 0.20,
+    'aggro_up_threshold': 0.60,
+    'aggro_down_threshold': 0.25,
+    'aggro_step': 0.10,
+}
 
 
-target_mapping, ranks_currV, BOUNTY_RATIO, bit_check, DEFAULT_MODEL, ATTACK_PROFILE = load_static_profiles()
+def copy_default_model():
+    return dict(CFG_DEFAULT_MODEL)
 
 
-def load_model():
-    return dict(DEFAULT_MODEL)
-
-
-def canonical_hand_key(cards_str):
+def to_canonical_hand_key(cards_str):
     '''Collapse a 2-card hand into a canonical key (e.g. "AKs", "77", "T9o").'''
     r1, s1 = cards_str[0][0], cards_str[0][1]
     r2, s2 = cards_str[1][0], cards_str[1][1]
-    v1, v2 = ranks_currV[r1], ranks_currV[r2]
+    v1, v2 = RANK_TO_VALUE[r1], RANK_TO_VALUE[r2]
     if v1 < v2:
         r1, r2, s1, s2, v1, v2 = r2, r1, s2, s1, v2, v1
     if r1 == r2:
@@ -77,7 +115,7 @@ def canonical_hand_key(cards_str):
     return r1 + r2 + ('s' if s1 == s2 else 'o')
 
 
-def build_hand_from_key(key):
+def cards_from_canonical_key(key):
     '''Return two eval7.Cards representing a concrete instance of the class.'''
     r1 = key[0]
     r2 = key[1]
@@ -88,11 +126,11 @@ def build_hand_from_key(key):
     return [eval7.Card(r1 + 's'), eval7.Card(r2 + 'h')]
 
 
-def _precompute_preflop_equity(samples_per_hand=480):
+def build_preflop_equity_table(samples_per_hand=480):
     '''Monte-Carlo preflop equity vs a random hand for all 169 hand classes.'''
     keys = []
-    for i, r1 in enumerate(target_mapping):
-        for j, r2 in enumerate(target_mapping):
+    for i, r1 in enumerate(CARD_RANKS):
+        for j, r2 in enumerate(CARD_RANKS):
             if i == j:
                 keys.append(r1 + r2)
             elif i < j:
@@ -102,7 +140,7 @@ def _precompute_preflop_equity(samples_per_hand=480):
     full_deck = list(eval7.Deck().cards)
     table = {}
     for key in keys:
-        hero = build_hand_from_key(key)
+        hero = cards_from_canonical_key(key)
         dead = set(str(c) for c in hero)
         remaining = [c for c in full_deck if str(c) not in dead]
         wins = ties = 0
@@ -120,7 +158,7 @@ def _precompute_preflop_equity(samples_per_hand=480):
     return table
 
 
-def bounty_hit_prob_future(bounty_rank, visible_hole, visible_board, remaining_board_count):
+def estimate_future_bounty_hit_prob(bounty_rank, visible_hole, visible_board, remaining_board_count):
     '''Probability my bounty rank appears in (hole + full 5-card board),
     given what we can already see. Returns 1.0 when already hit.'''
     visible = visible_hole + visible_board
@@ -136,7 +174,7 @@ def bounty_hit_prob_future(bounty_rank, visible_hole, visible_board, remaining_b
     return 1.0 - p_none
 
 
-def fast_equity(hero, board, samples):
+def estimate_fast_equity(hero, board, samples):
     '''Monte Carlo equity vs a random opponent hand from the remaining deck.'''
     dead = {str(c) for c in hero}
     for c in board:
@@ -158,7 +196,7 @@ def fast_equity(hero, board, samples):
     return (wins + 0.5 * ties) / samples
 
 
-def _generate_all_combos():
+def generate_all_combos():
     '''Return all 1326 two-card combos as tuples of card strings.'''
     ranks = '23456789TJQKA'
     suits = 'cdhs'
@@ -170,12 +208,12 @@ def _generate_all_combos():
     return combos
 
 
-def _build_range_combo_lists(preflop_eq_table):
+def build_range_combo_table(preflop_eq_table):
     '''Return dict {range_pct: [(card1, card2), ...]} of top ranked combos.'''
-    all_combos = _generate_all_combos()
+    all_combos = generate_all_combos()
 
     def combo_eq(combo):
-        k = canonical_hand_key(list(combo))
+        k = to_canonical_hand_key(list(combo))
         return preflop_eq_table.get(k, 0.5)
 
     ranked = sorted(all_combos, key=lambda c: -combo_eq(c))
@@ -186,14 +224,14 @@ def _build_range_combo_lists(preflop_eq_table):
     return out
 
 
-def mc_equity_vs_range(hero, board, range_combos, samples):
+def estimate_range_equity_mc(hero, board, range_combos, samples):
     '''Monte Carlo equity with opponent sampled from given range combos.'''
     hero_strs = {str(c) for c in hero}
     dead_board = {str(c) for c in board}
     dead = hero_strs | dead_board
     valid = [(a, b) for (a, b) in range_combos if a not in dead and b not in dead]
     if not valid:
-        return fast_equity(hero, board, samples)
+        return estimate_fast_equity(hero, board, samples)
 
     all_52 = eval7.Deck().cards
     remaining_full = [c for c in all_52 if str(c) not in dead]
@@ -216,18 +254,18 @@ def mc_equity_vs_range(hero, board, range_combos, samples):
     return (wins + 0.5 * ties) / samples
 
 
-def parse_cards(strs):
+def to_eval7_cards(strs):
     return [eval7.Card(s) for s in strs]
 
 
-def classify_preflop(cards_str):
+def bucket_preflop_hand(cards_str):
     '''Return one of: premium | strong | medium | openable | trash.'''
     r1 = cards_str[0][0]
     r2 = cards_str[1][0]
     s1 = cards_str[0][1]
     s2 = cards_str[1][1]
-    v1 = ranks_currV[r1]
-    v2 = ranks_currV[r2]
+    v1 = RANK_TO_VALUE[r1]
+    v2 = RANK_TO_VALUE[r2]
     if v1 < v2:
         v1, v2 = v2, v1
     suited = s1 == s2
@@ -328,17 +366,17 @@ class DecisionProfile:
 
 class Player(Bot):
     def __init__(self):
-        self.ranks_currV = ranks_currV
-        self.model = load_model()
+        self.rank_value = RANK_TO_VALUE
+        self.model = copy_default_model()
         random.seed(self.model['seed'])
         try:
-            self.preflop_equity = _precompute_preflop_equity(samples_per_hand=self.model['preflop_samples'])
+            self.preflop_equity = build_preflop_equity_table(samples_per_hand=self.model['preflop_samples'])
         except Exception:
             self.preflop_equity = {}
         try:
-            self.range_combos = _build_range_combo_lists(self.preflop_equity)
+            self.range_combos = build_range_combo_table(self.preflop_equity)
         except Exception:
-            self.range_combos = {1.00: _generate_all_combos()}
+            self.range_combos = {1.00: generate_all_combos()}
         self.opp = OpponentModel()
         self.round_history = []
         self.prev_opp_pip = 0
@@ -360,7 +398,7 @@ class Player(Bot):
         return int(520 * scale)
 
     def preflop_lookup(self, cards_str):
-        key = canonical_hand_key(cards_str)
+        key = to_canonical_hand_key(cards_str)
         return self.preflop_equity.get(key, 0.5)
 
     def estimate_opp_range_pct(self, opp_contribution, facing_bet, street):
@@ -396,8 +434,8 @@ class Player(Bot):
         return min(buckets, key=lambda b: abs(b - base))
 
     def mc_equity(self, hero_str, board_str, samples, opp_contribution=0, facing_bet=False):
-        hero = parse_cards(hero_str)
-        board = parse_cards(board_str)
+        hero = to_eval7_cards(hero_str)
+        board = to_eval7_cards(board_str)
         if samples <= 0:
             if not board:
                 return self.preflop_lookup(hero_str)
@@ -405,23 +443,23 @@ class Player(Bot):
         range_pct = self.estimate_opp_range_pct(opp_contribution, facing_bet, len(board_str))
         combos = self.range_combos.get(range_pct) or self.range_combos.get(1.00)
         if combos is None:
-            return fast_equity(hero, board, samples)
-        return mc_equity_vs_range(hero, board, combos, samples)
+            return estimate_fast_equity(hero, board, samples)
+        return estimate_range_equity_mc(hero, board, combos, samples)
 
     def _rough_made_strength(self, hero_str, board_str):
         hero_ranks = [c[0] for c in hero_str]
         board_ranks = [c[0] for c in board_str]
         if hero_ranks[0] == hero_ranks[1]:
-            v = ranks_currV[hero_ranks[0]]
+            v = RANK_TO_VALUE[hero_ranks[0]]
             return min(0.85, 0.55 + v * 0.015)
-        top_board = max(ranks_currV[r] for r in board_ranks) if board_ranks else 0
-        have_tp = any(ranks_currV[h] == top_board for h in hero_ranks)
+        top_board = max(RANK_TO_VALUE[r] for r in board_ranks) if board_ranks else 0
+        have_tp = any(RANK_TO_VALUE[h] == top_board for h in hero_ranks)
         have_board_pair = len(set(board_ranks)) < len(board_ranks)
         if have_tp:
             return 0.6
         if have_board_pair:
             return 0.45
-        high = max(ranks_currV[h] for h in hero_ranks)
+        high = max(RANK_TO_VALUE[h] for h in hero_ranks)
         return 0.30 + 0.01 * high
 
     def bounty_expected_multiplier(self, my_bounty, hero_str, board_str, street):
@@ -429,10 +467,10 @@ class Player(Bot):
         visible_board_ranks = {c[0] for c in board_str}
         remaining = 5 - len(board_str)
         if my_bounty in visible_hole_ranks or my_bounty in visible_board_ranks:
-            return BOUNTY_RATIO, float(bit_check)
-        p_hit = bounty_hit_prob_future(my_bounty, hero_str, board_str, remaining)
-        mult = 1.0 + (BOUNTY_RATIO - 1.0) * p_hit
-        add = bit_check * p_hit
+            return CFG_BOUNTY_RATIO, float(CFG_BOUNTY_CONSTANT)
+        p_hit = estimate_future_bounty_hit_prob(my_bounty, hero_str, board_str, remaining)
+        mult = 1.0 + (CFG_BOUNTY_RATIO - 1.0) * p_hit
+        add = CFG_BOUNTY_CONSTANT * p_hit
         return mult, add
 
     def opp_bounty_expected_multiplier(self, hero_str, board_str, street):
@@ -440,7 +478,7 @@ class Player(Bot):
         visible_board_ranks = {c[0] for c in board_str}
         remaining = 5 - len(board_str)
         total_p = 0.0
-        for rank in target_mapping:
+        for rank in CARD_RANKS:
             if rank in visible_board_ranks:
                 p_hit = 1.0
             else:
@@ -460,8 +498,8 @@ class Player(Bot):
                 p_hit = 1.0 - p_none
             total_p += p_hit
         avg_p_hit = total_p / 13.0
-        mult = 1.0 + (BOUNTY_RATIO - 1.0) * avg_p_hit
-        add = bit_check * avg_p_hit
+        mult = 1.0 + (CFG_BOUNTY_RATIO - 1.0) * avg_p_hit
+        add = CFG_BOUNTY_CONSTANT * avg_p_hit
         return mult, add
 
     def marginal_payoffs(self, pot, my_contrib, continue_cost, my_bm, my_bb, opp_bm, opp_bb):
@@ -544,7 +582,7 @@ class Player(Bot):
 
         def blend(def_key, attack_key):
             base = self.model[def_key]
-            attack = ATTACK_PROFILE[attack_key]
+            attack = CFG_ATTACK_MODEL[attack_key]
             return base + (attack - base) * passive_weight
 
         profile = DecisionProfile(
@@ -687,7 +725,7 @@ class Player(Bot):
             eq_raw = base_equity
             eq_vs_opp = max(0.05, eq_raw - haircut)
             eq_eff = eq_vs_opp + bounty_bump
-            klass = classify_preflop(my_cards)
+            klass = bucket_preflop_hand(my_cards)
             opp_committed = opp_contribution / STARTING_STACK
             req = self.required_equity(continue_cost, pot, opp_bm, opp_bb, my_bm, my_bb, my_contribution)
 
@@ -841,7 +879,7 @@ class Player(Bot):
             if hs.count(suit) + bs.count(suit) >= 4:
                 return True
         try:
-            ranks = sorted(set(ranks_currV[r] for r in hr + br))
+            ranks = sorted(set(RANK_TO_VALUE[r] for r in hr + br))
             for start in range(2, 11):
                 window = set(range(start, start + 5))
                 if len(window & set(ranks)) >= 4:
