@@ -1,0 +1,22 @@
+{
+  "submissions_root": "submission",
+  "baseline_path": "baseline_bot",
+  "hands_per_match": 500,
+  "qualification_rounds": 100,
+  "min_win_rate": 0.6,
+  "results": [
+    {
+      "bot_id": "BASELINE_MISSING",
+      "submission_path": "baseline_bot",
+      "validation_ok": false,
+      "matches_attempted": 0,
+      "matches_ok": 0,
+      "wins": 0,
+      "losses": 0,
+      "draws": 0,
+      "win_rate": 0.0,
+      "qualified": false,
+      "notes": "Baseline directory not found: baseline_bot"
+    }
+  ]
+}

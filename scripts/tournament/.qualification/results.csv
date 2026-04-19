@@ -1,0 +1,2 @@
+bot_id,submission_path,validation_ok,matches_attempted,matches_ok,wins,losses,draws,win_rate,qualified,notes
+BASELINE_MISSING,baseline_bot,False,0,0,0,0,0,0.0,False,Baseline directory not found: baseline_bot
