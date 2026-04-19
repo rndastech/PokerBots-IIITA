@@ -1,0 +1,5170 @@
+6.9630 MIT Pokerbots - BASELINE vs IEC2024004_python_bot_r20
+
+Round #1, BASELINE (0), IEC2024004_python_bot_r20 (0)
+Bounties reset to K for player BASELINE and K for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3h 5c]
+IEC2024004_python_bot_r20 dealt [Tc Kh]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (-12), IEC2024004_python_bot_r20 (12)
+
+Round #2, IEC2024004_python_bot_r20 (12), BASELINE (-12)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qs 8s]
+BASELINE dealt [3d 4h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (11), BASELINE (-11)
+
+Round #3, BASELINE (-11), IEC2024004_python_bot_r20 (11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7d Tc]
+IEC2024004_python_bot_r20 dealt [Ah Ac]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-12), IEC2024004_python_bot_r20 (12)
+
+Round #4, IEC2024004_python_bot_r20 (12), BASELINE (-12)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Th Td]
+BASELINE dealt [Ac 4h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (11), BASELINE (-11)
+
+Round #5, BASELINE (-11), IEC2024004_python_bot_r20 (11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9s 2s]
+IEC2024004_python_bot_r20 dealt [Jd Td]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-12), IEC2024004_python_bot_r20 (12)
+
+Round #6, IEC2024004_python_bot_r20 (12), BASELINE (-12)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2h 9h]
+BASELINE dealt [4s Kh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #7, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d 6s]
+IEC2024004_python_bot_r20 dealt [Tc Th]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #8, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [As 5h]
+BASELINE dealt [6c 4h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #9, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6d 5d]
+IEC2024004_python_bot_r20 dealt [8d 5c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #10, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qd Ad]
+BASELINE dealt [Ts 3d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #11, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kh 6c]
+IEC2024004_python_bot_r20 dealt [5s Jd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #12, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7h 7c]
+BASELINE dealt [9d Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #13, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7h Jc]
+IEC2024004_python_bot_r20 dealt [Kd Jd]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (-12), IEC2024004_python_bot_r20 (12)
+
+Round #14, IEC2024004_python_bot_r20 (12), BASELINE (-12)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3d Ah]
+BASELINE dealt [Tc 9c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (11), BASELINE (-11)
+
+Round #15, BASELINE (-11), IEC2024004_python_bot_r20 (11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d Qh]
+IEC2024004_python_bot_r20 dealt [Js Jd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-12), IEC2024004_python_bot_r20 (12)
+
+Round #16, IEC2024004_python_bot_r20 (12), BASELINE (-12)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 9h]
+BASELINE dealt [8h 6d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (11), BASELINE (-11)
+
+Round #17, BASELINE (-11), IEC2024004_python_bot_r20 (11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7d 6h]
+IEC2024004_python_bot_r20 dealt [8d 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-12), IEC2024004_python_bot_r20 (12)
+
+Round #18, IEC2024004_python_bot_r20 (12), BASELINE (-12)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 7d]
+BASELINE dealt [As Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #19, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6h Ah]
+IEC2024004_python_bot_r20 dealt [4s 7s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #20, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4s 6s]
+BASELINE dealt [Th 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #21, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3d Kh]
+IEC2024004_python_bot_r20 dealt [Jh 3h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #22, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8d Ks]
+BASELINE dealt [3s 6s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #23, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s Js]
+IEC2024004_python_bot_r20 dealt [As 3d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #24, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 6s]
+BASELINE dealt [6c 4d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #25, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8h Qh]
+IEC2024004_python_bot_r20 dealt [Jc 4s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #26, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+Bounties reset to A for player IEC2024004_python_bot_r20 and K for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6d 9s]
+BASELINE dealt [8s 5d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #27, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3d Ad]
+IEC2024004_python_bot_r20 dealt [4c 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #28, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6c 5h]
+BASELINE dealt [4s 8s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #29, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Js 7s]
+IEC2024004_python_bot_r20 dealt [Ts 3d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #30, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9h Jc]
+BASELINE dealt [5d Ad]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #31, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5c 2h]
+IEC2024004_python_bot_r20 dealt [4d Kd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #32, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3d 4d]
+BASELINE dealt [Th Tc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #33, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ac Qd]
+IEC2024004_python_bot_r20 dealt [8s 3h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #34, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3d 6s]
+BASELINE dealt [Th Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (0), BASELINE (0)
+
+Round #35, BASELINE (0), IEC2024004_python_bot_r20 (0)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5d 9c]
+IEC2024004_python_bot_r20 dealt [6h Ks]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (-1), IEC2024004_python_bot_r20 (1)
+
+Round #36, IEC2024004_python_bot_r20 (1), BASELINE (-1)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh 8c]
+BASELINE dealt [2h Kd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-11), BASELINE (11)
+
+Round #37, BASELINE (11), IEC2024004_python_bot_r20 (-11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jd 9s]
+IEC2024004_python_bot_r20 dealt [Kh 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (10), IEC2024004_python_bot_r20 (-10)
+
+Round #38, IEC2024004_python_bot_r20 (-10), BASELINE (10)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qc Kh]
+BASELINE dealt [Jh 7h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-11), BASELINE (11)
+
+Round #39, BASELINE (11), IEC2024004_python_bot_r20 (-11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ts Td]
+IEC2024004_python_bot_r20 dealt [6d 9s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (10), IEC2024004_python_bot_r20 (-10)
+
+Round #40, IEC2024004_python_bot_r20 (-10), BASELINE (10)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2d 9d]
+BASELINE dealt [Ks 5c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #41, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7h 2d]
+IEC2024004_python_bot_r20 dealt [4c 8d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #42, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 8d]
+BASELINE dealt [Kd 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-33), BASELINE (33)
+
+Round #43, BASELINE (33), IEC2024004_python_bot_r20 (-33)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d 9h]
+IEC2024004_python_bot_r20 dealt [Ks 3s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (32), IEC2024004_python_bot_r20 (-32)
+
+Round #44, IEC2024004_python_bot_r20 (-32), BASELINE (32)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s As]
+BASELINE dealt [Qs 2s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-33), BASELINE (33)
+
+Round #45, BASELINE (33), IEC2024004_python_bot_r20 (-33)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ac Jc]
+IEC2024004_python_bot_r20 dealt [Ad 5c]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #46, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh Ah]
+BASELINE dealt [7c Js]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #47, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc 7c]
+IEC2024004_python_bot_r20 dealt [4d 5c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #48, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ts Td]
+BASELINE dealt [Ad 7c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #49, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3d Ah]
+IEC2024004_python_bot_r20 dealt [Jd Qs]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #50, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [As Ac]
+BASELINE dealt [9h 5d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #51, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+Bounties reset to A for player BASELINE and Q for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c Kd]
+IEC2024004_python_bot_r20 dealt [Ks Ts]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #52, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7h Ah]
+BASELINE dealt [2d Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #53, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4h 2s]
+IEC2024004_python_bot_r20 dealt [2d Ac]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #54, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9s 7c]
+BASELINE dealt [Qc 7s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #55, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6c Ac]
+IEC2024004_python_bot_r20 dealt [7s As]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #56, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Js 3d]
+BASELINE dealt [7d Kc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #57, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Th 9h]
+IEC2024004_python_bot_r20 dealt [Ts 8d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #58, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8h 3h]
+BASELINE dealt [5d 5c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #59, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9s Ah]
+IEC2024004_python_bot_r20 dealt [Kh 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #60, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8d 8h]
+BASELINE dealt [2d 4c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #61, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qd Jc]
+IEC2024004_python_bot_r20 dealt [Jd 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #62, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ah Kh]
+BASELINE dealt [3c 5c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #63, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4c 7h]
+IEC2024004_python_bot_r20 dealt [4d 8d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #64, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kh 6s]
+BASELINE dealt [6c 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #65, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9s 5s]
+IEC2024004_python_bot_r20 dealt [5c Ks]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #66, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Td Ks]
+BASELINE dealt [Ac 2d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-33), BASELINE (33)
+
+Round #67, BASELINE (33), IEC2024004_python_bot_r20 (-33)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc Kh]
+IEC2024004_python_bot_r20 dealt [Qd 8s]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #68, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ts Qc]
+BASELINE dealt [7d 6s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #69, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3h 2s]
+IEC2024004_python_bot_r20 dealt [Jd 3s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #70, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jd Jh]
+BASELINE dealt [9s 5s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #71, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qc 7h]
+IEC2024004_python_bot_r20 dealt [3c 5h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #72, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6d 2c]
+BASELINE dealt [4s 5c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #73, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8c 4c]
+IEC2024004_python_bot_r20 dealt [3d 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #74, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3c Td]
+BASELINE dealt [9s 5s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #75, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4d Th]
+IEC2024004_python_bot_r20 dealt [Jc 8c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #76, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+Bounties reset to 3 for player IEC2024004_python_bot_r20 and 5 for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d Ks]
+BASELINE dealt [3c Kd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #77, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5c 4c]
+IEC2024004_python_bot_r20 dealt [5d 3c]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+BASELINE hits their bounty
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (10), IEC2024004_python_bot_r20 (-10)
+
+Round #78, IEC2024004_python_bot_r20 (-10), BASELINE (10)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d Th]
+BASELINE dealt [Jh 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-11), BASELINE (11)
+
+Round #79, BASELINE (11), IEC2024004_python_bot_r20 (-11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jh 9d]
+IEC2024004_python_bot_r20 dealt [8d 2h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (10), IEC2024004_python_bot_r20 (-10)
+
+Round #80, IEC2024004_python_bot_r20 (-10), BASELINE (10)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh 7h]
+BASELINE dealt [Ah 7s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-11), BASELINE (11)
+
+Round #81, BASELINE (11), IEC2024004_python_bot_r20 (-11)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ah Ks]
+IEC2024004_python_bot_r20 dealt [Qh 8c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (10), IEC2024004_python_bot_r20 (-10)
+
+Round #82, IEC2024004_python_bot_r20 (-10), BASELINE (10)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 2s]
+BASELINE dealt [5c 2d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #83, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [As 5d]
+IEC2024004_python_bot_r20 dealt [6d 8s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #84, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ac Ks]
+BASELINE dealt [Js 6d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #85, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ah 5c]
+IEC2024004_python_bot_r20 dealt [Td 4c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #86, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh 8s]
+BASELINE dealt [Ts 4h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #87, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs 8s]
+IEC2024004_python_bot_r20 dealt [2c Ah]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #88, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7d Js]
+BASELINE dealt [Kd 2c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #89, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2h 8d]
+IEC2024004_python_bot_r20 dealt [4s 8h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #90, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Th 8h]
+BASELINE dealt [3c 9h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #91, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s 2d]
+IEC2024004_python_bot_r20 dealt [Jd 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #92, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qh 8s]
+BASELINE dealt [9d 2h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #93, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs 5c]
+IEC2024004_python_bot_r20 dealt [6d Tc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #94, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 7s]
+BASELINE dealt [3c 8h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #95, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs 5s]
+IEC2024004_python_bot_r20 dealt [7c 8d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #96, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2c 9c]
+BASELINE dealt [6c Ts]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #97, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s 8h]
+IEC2024004_python_bot_r20 dealt [9d Ac]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #98, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6s Th]
+BASELINE dealt [Td Qd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-22), BASELINE (22)
+
+Round #99, BASELINE (22), IEC2024004_python_bot_r20 (-22)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s 5h]
+IEC2024004_python_bot_r20 dealt [Kc Js]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (21), IEC2024004_python_bot_r20 (-21)
+
+Round #100, IEC2024004_python_bot_r20 (-21), BASELINE (21)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ks 3c]
+BASELINE dealt [9d 5h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-33), BASELINE (33)
+
+Round #101, BASELINE (33), IEC2024004_python_bot_r20 (-33)
+Bounties reset to T for player BASELINE and 5 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4d Js]
+IEC2024004_python_bot_r20 dealt [2s 9c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (32), IEC2024004_python_bot_r20 (-32)
+
+Round #102, IEC2024004_python_bot_r20 (-32), BASELINE (32)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9c 4h]
+BASELINE dealt [Ts Th]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #103, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9d 6d]
+IEC2024004_python_bot_r20 dealt [4s 8s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #104, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Td Ks]
+BASELINE dealt [Ac Jd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #105, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kc 3d]
+IEC2024004_python_bot_r20 dealt [Js Ac]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #106, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9c 5c]
+BASELINE dealt [Qh 2d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #107, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ts Jd]
+IEC2024004_python_bot_r20 dealt [Ah 5d]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+BASELINE hits their bounty
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (32), IEC2024004_python_bot_r20 (-32)
+
+Round #108, IEC2024004_python_bot_r20 (-32), BASELINE (32)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 2s]
+BASELINE dealt [Qd Jd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-33), BASELINE (33)
+
+Round #109, BASELINE (33), IEC2024004_python_bot_r20 (-33)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6c Jd]
+IEC2024004_python_bot_r20 dealt [Ac 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (32), IEC2024004_python_bot_r20 (-32)
+
+Round #110, IEC2024004_python_bot_r20 (-32), BASELINE (32)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Js Jc]
+BASELINE dealt [Ts 6h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #111, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d 7h]
+IEC2024004_python_bot_r20 dealt [Kh 4s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #112, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4s As]
+BASELINE dealt [4h Ad]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #113, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jh Ad]
+IEC2024004_python_bot_r20 dealt [4h 5c]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (32), IEC2024004_python_bot_r20 (-32)
+
+Round #114, IEC2024004_python_bot_r20 (-32), BASELINE (32)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8c 6c]
+BASELINE dealt [5d Ts]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #115, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qd 3s]
+IEC2024004_python_bot_r20 dealt [4h 9h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #116, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ad Td]
+BASELINE dealt [8h 4c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #117, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9d 3s]
+IEC2024004_python_bot_r20 dealt [Kh 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #118, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jd 4h]
+BASELINE dealt [7d 8c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #119, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9s 8s]
+IEC2024004_python_bot_r20 dealt [3s 6c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #120, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d 6c]
+BASELINE dealt [Kh Qh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #121, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ts 4h]
+IEC2024004_python_bot_r20 dealt [2d Kc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #122, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2h 7s]
+BASELINE dealt [8s 6d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #123, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ad 7h]
+IEC2024004_python_bot_r20 dealt [Ts Jc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #124, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7s 7h]
+BASELINE dealt [6d 6h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #125, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5h 4s]
+IEC2024004_python_bot_r20 dealt [9s 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #126, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+Bounties reset to 7 for player IEC2024004_python_bot_r20 and K for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh 4c]
+BASELINE dealt [Ac 7d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-44), BASELINE (44)
+
+Round #127, BASELINE (44), IEC2024004_python_bot_r20 (-44)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5d 5c]
+IEC2024004_python_bot_r20 dealt [Ts 6d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (43), IEC2024004_python_bot_r20 (-43)
+
+Round #128, IEC2024004_python_bot_r20 (-43), BASELINE (43)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 6c]
+BASELINE dealt [Jh Kd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-55), BASELINE (55)
+
+Round #129, BASELINE (55), IEC2024004_python_bot_r20 (-55)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Js 2d]
+IEC2024004_python_bot_r20 dealt [4c 4h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (54), IEC2024004_python_bot_r20 (-54)
+
+Round #130, IEC2024004_python_bot_r20 (-54), BASELINE (54)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2c 7c]
+BASELINE dealt [Ks 8h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-66), BASELINE (66)
+
+Round #131, BASELINE (66), IEC2024004_python_bot_r20 (-66)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5h 9h]
+IEC2024004_python_bot_r20 dealt [6h 7h]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (54), IEC2024004_python_bot_r20 (-54)
+
+Round #132, IEC2024004_python_bot_r20 (-54), BASELINE (54)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kc 9h]
+BASELINE dealt [3c 7d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-55), BASELINE (55)
+
+Round #133, BASELINE (55), IEC2024004_python_bot_r20 (-55)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9h 4s]
+IEC2024004_python_bot_r20 dealt [Ah Ac]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (54), IEC2024004_python_bot_r20 (-54)
+
+Round #134, IEC2024004_python_bot_r20 (-54), BASELINE (54)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8d 3h]
+BASELINE dealt [Jh Jd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-55), BASELINE (55)
+
+Round #135, BASELINE (55), IEC2024004_python_bot_r20 (-55)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 3d]
+IEC2024004_python_bot_r20 dealt [4d 5h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (54), IEC2024004_python_bot_r20 (-54)
+
+Round #136, IEC2024004_python_bot_r20 (-54), BASELINE (54)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 3c]
+BASELINE dealt [Ts 5h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-55), BASELINE (55)
+
+Round #137, BASELINE (55), IEC2024004_python_bot_r20 (-55)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qh 7d]
+IEC2024004_python_bot_r20 dealt [2h 6s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (54), IEC2024004_python_bot_r20 (-54)
+
+Round #138, IEC2024004_python_bot_r20 (-54), BASELINE (54)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6s Kh]
+BASELINE dealt [Jd 9d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-55), BASELINE (55)
+
+Round #139, BASELINE (55), IEC2024004_python_bot_r20 (-55)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6c 5h]
+IEC2024004_python_bot_r20 dealt [Tc Jd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (54), IEC2024004_python_bot_r20 (-54)
+
+Round #140, IEC2024004_python_bot_r20 (-54), BASELINE (54)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qh 2c]
+BASELINE dealt [Ac 5h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-55), BASELINE (55)
+
+Round #141, BASELINE (55), IEC2024004_python_bot_r20 (-55)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3h Js]
+IEC2024004_python_bot_r20 dealt [Jc 3c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (54), IEC2024004_python_bot_r20 (-54)
+
+Round #142, IEC2024004_python_bot_r20 (-54), BASELINE (54)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jc 4h]
+BASELINE dealt [Ah Kh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-66), BASELINE (66)
+
+Round #143, BASELINE (66), IEC2024004_python_bot_r20 (-66)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3h Qh]
+IEC2024004_python_bot_r20 dealt [4s 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (65), IEC2024004_python_bot_r20 (-65)
+
+Round #144, IEC2024004_python_bot_r20 (-65), BASELINE (65)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh 5s]
+BASELINE dealt [Kc Th]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-77), BASELINE (77)
+
+Round #145, BASELINE (77), IEC2024004_python_bot_r20 (-77)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6d 4s]
+IEC2024004_python_bot_r20 dealt [5c Tc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #146, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7s Tc]
+BASELINE dealt [7c 8h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-77), BASELINE (77)
+
+Round #147, BASELINE (77), IEC2024004_python_bot_r20 (-77)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8s 2h]
+IEC2024004_python_bot_r20 dealt [Th 4s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #148, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ah 6c]
+BASELINE dealt [Ac Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #149, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4d Ts]
+IEC2024004_python_bot_r20 dealt [4s Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #150, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6s 7d]
+BASELINE dealt [8c Jh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #151, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+Bounties reset to 3 for player BASELINE and 9 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8s Js]
+IEC2024004_python_bot_r20 dealt [Qc Kd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #152, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 3d]
+BASELINE dealt [8s 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #153, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ad 4d]
+IEC2024004_python_bot_r20 dealt [Qc Kc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #154, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ac 7d]
+BASELINE dealt [Kd Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #155, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc 7c]
+IEC2024004_python_bot_r20 dealt [Th 9h]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #156, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Tc Kh]
+BASELINE dealt [Qh 8s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-77), BASELINE (77)
+
+Round #157, BASELINE (77), IEC2024004_python_bot_r20 (-77)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4h 6h]
+IEC2024004_python_bot_r20 dealt [Tc 7h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #158, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d 5c]
+BASELINE dealt [Tc 2s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-77), BASELINE (77)
+
+Round #159, BASELINE (77), IEC2024004_python_bot_r20 (-77)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c 8s]
+IEC2024004_python_bot_r20 dealt [5c 8d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #160, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3h 6s]
+BASELINE dealt [Kh Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-77), BASELINE (77)
+
+Round #161, BASELINE (77), IEC2024004_python_bot_r20 (-77)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 3s]
+IEC2024004_python_bot_r20 dealt [6c 7s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #162, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2h Kh]
+BASELINE dealt [9h 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #163, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3s 9d]
+IEC2024004_python_bot_r20 dealt [8c Ks]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #164, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9h Jc]
+BASELINE dealt [Kc Th]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #165, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ah 5d]
+IEC2024004_python_bot_r20 dealt [Ts Qh]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #166, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jc Tc]
+BASELINE dealt [9h 6h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #167, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6d Kc]
+IEC2024004_python_bot_r20 dealt [Tc Ac]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #168, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9s Ts]
+BASELINE dealt [6d Jd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #169, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3c Tc]
+IEC2024004_python_bot_r20 dealt [Kc 3h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #170, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2c 4c]
+BASELINE dealt [5d 8h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #171, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c 9s]
+IEC2024004_python_bot_r20 dealt [8c As]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #172, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 9d]
+BASELINE dealt [7c Jh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #173, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9h Qd]
+IEC2024004_python_bot_r20 dealt [5s Kd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #174, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d Qd]
+BASELINE dealt [2h 2s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #175, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5s 3h]
+IEC2024004_python_bot_r20 dealt [Ts 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #176, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+Bounties reset to A for player IEC2024004_python_bot_r20 and 6 for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4s 3c]
+BASELINE dealt [Qh 8s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #177, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qd 3h]
+IEC2024004_python_bot_r20 dealt [8h 5d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #178, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8c 7c]
+BASELINE dealt [4h 5s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #179, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4s Ts]
+IEC2024004_python_bot_r20 dealt [5d 8c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #180, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jc Qc]
+BASELINE dealt [5h 7h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #181, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs 3c]
+IEC2024004_python_bot_r20 dealt [8s 3s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #182, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ac 7h]
+BASELINE dealt [Ah 4d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #183, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c 8d]
+IEC2024004_python_bot_r20 dealt [Jd 6s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #184, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4s 8h]
+BASELINE dealt [4d 8d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #185, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kd Td]
+IEC2024004_python_bot_r20 dealt [8h Qd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #186, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qd 4c]
+BASELINE dealt [7c Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #187, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3c As]
+IEC2024004_python_bot_r20 dealt [2h 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #188, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8s 9h]
+BASELINE dealt [7h 7d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #189, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4d 2c]
+IEC2024004_python_bot_r20 dealt [Qd 8s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #190, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3h 4c]
+BASELINE dealt [Th 3d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #191, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d 5h]
+IEC2024004_python_bot_r20 dealt [8h Th]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #192, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2c Kh]
+BASELINE dealt [5c 9h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #193, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ah Js]
+IEC2024004_python_bot_r20 dealt [3h 7c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #194, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4d 4h]
+BASELINE dealt [6d 7c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #195, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9h 7h]
+IEC2024004_python_bot_r20 dealt [5c 9d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #196, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kc 9h]
+BASELINE dealt [3h 2c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #197, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc Td]
+IEC2024004_python_bot_r20 dealt [Jd 3c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #198, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4d 2s]
+BASELINE dealt [Qh 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #199, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9s 7s]
+IEC2024004_python_bot_r20 dealt [3d 9d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #200, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qh Jh]
+BASELINE dealt [4h Td]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #201, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+Bounties reset to 6 for player BASELINE and 8 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2s Th]
+IEC2024004_python_bot_r20 dealt [Jh 5h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #202, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6h 8s]
+BASELINE dealt [Ks 4c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #203, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5s 6h]
+IEC2024004_python_bot_r20 dealt [Kc 4h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #204, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jc 6h]
+BASELINE dealt [Qh 7h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #205, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5c 4c]
+IEC2024004_python_bot_r20 dealt [Jh 4h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #206, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qc 5d]
+BASELINE dealt [6s Jh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #207, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d 5s]
+IEC2024004_python_bot_r20 dealt [Jd 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #208, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9c As]
+BASELINE dealt [Qc 7c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #209, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kh Th]
+IEC2024004_python_bot_r20 dealt [8c 5s]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #210, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d 2d]
+BASELINE dealt [Ad Ac]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #211, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Td Kh]
+IEC2024004_python_bot_r20 dealt [3h Ts]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #212, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4s 5c]
+BASELINE dealt [3s 8d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #213, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5s 3s]
+IEC2024004_python_bot_r20 dealt [8h As]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #214, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jc Kd]
+BASELINE dealt [2d As]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #215, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4d Kd]
+IEC2024004_python_bot_r20 dealt [5d 4c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #216, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5c 9h]
+BASELINE dealt [As 2d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #217, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ac 4h]
+IEC2024004_python_bot_r20 dealt [Qc Qh]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #218, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d 7h]
+BASELINE dealt [Qh Jh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #219, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kc Qc]
+IEC2024004_python_bot_r20 dealt [2c 6s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #220, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2s 4h]
+BASELINE dealt [Jc 2c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #221, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 6s]
+IEC2024004_python_bot_r20 dealt [9h Tc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #222, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 4c]
+BASELINE dealt [Ad 8s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #223, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 5c]
+IEC2024004_python_bot_r20 dealt [Jc Ks]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #224, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh 2d]
+BASELINE dealt [5s 3d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #225, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ad Kd]
+IEC2024004_python_bot_r20 dealt [2h Qs]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #226, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+Bounties reset to A for player IEC2024004_python_bot_r20 and 2 for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [As Qc]
+BASELINE dealt [Qs 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #227, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 6c]
+IEC2024004_python_bot_r20 dealt [Ts Ad]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #228, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3h 5d]
+BASELINE dealt [5c 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-77), BASELINE (77)
+
+Round #229, BASELINE (77), IEC2024004_python_bot_r20 (-77)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d Kh]
+IEC2024004_python_bot_r20 dealt [Qh 5h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (76), IEC2024004_python_bot_r20 (-76)
+
+Round #230, IEC2024004_python_bot_r20 (-76), BASELINE (76)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 4d]
+BASELINE dealt [4s 2h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #231, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3s Ts]
+IEC2024004_python_bot_r20 dealt [3h 8h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #232, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4s Ts]
+BASELINE dealt [Qc Ah]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #233, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5d Ad]
+IEC2024004_python_bot_r20 dealt [6s 4c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #234, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6h Kh]
+BASELINE dealt [5c 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #235, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc As]
+IEC2024004_python_bot_r20 dealt [8s 5h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #236, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 8h]
+BASELINE dealt [Ts 5h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #237, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c 2h]
+IEC2024004_python_bot_r20 dealt [6c Qd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #238, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8c 9c]
+BASELINE dealt [Ad 9d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #239, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s Ac]
+IEC2024004_python_bot_r20 dealt [9s 7h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #240, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qd 7s]
+BASELINE dealt [8s 7c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #241, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s 6c]
+IEC2024004_python_bot_r20 dealt [Qs 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #242, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ah 6c]
+BASELINE dealt [Jh 9h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #243, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 3c]
+IEC2024004_python_bot_r20 dealt [Jc 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #244, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qd 8d]
+BASELINE dealt [Ad 6d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #245, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s 4d]
+IEC2024004_python_bot_r20 dealt [7h 8s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #246, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Td 7s]
+BASELINE dealt [5h Ac]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #247, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8s Th]
+IEC2024004_python_bot_r20 dealt [7h Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #248, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6s Qh]
+BASELINE dealt [5d 9c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-88), BASELINE (88)
+
+Round #249, BASELINE (88), IEC2024004_python_bot_r20 (-88)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4h 8c]
+IEC2024004_python_bot_r20 dealt [Ks 4c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (87), IEC2024004_python_bot_r20 (-87)
+
+Round #250, IEC2024004_python_bot_r20 (-87), BASELINE (87)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6d 9c]
+BASELINE dealt [2s Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #251, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+Bounties reset to 8 for player BASELINE and 7 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2d Kd]
+IEC2024004_python_bot_r20 dealt [8h 6s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #252, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2d Kd]
+BASELINE dealt [7s Ad]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #253, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Td 7d]
+IEC2024004_python_bot_r20 dealt [8d Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #254, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh 5d]
+BASELINE dealt [9s 9h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #255, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ad 4h]
+IEC2024004_python_bot_r20 dealt [Ts 3c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #256, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 7s]
+BASELINE dealt [4d 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #257, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kh 7h]
+IEC2024004_python_bot_r20 dealt [5c Ks]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #258, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6d Ad]
+BASELINE dealt [8d 2h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #259, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc 7c]
+IEC2024004_python_bot_r20 dealt [2d Td]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #260, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ac Jh]
+BASELINE dealt [3h 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #261, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ac 3h]
+IEC2024004_python_bot_r20 dealt [Td 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #262, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9h 9c]
+BASELINE dealt [Th Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #263, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2s Js]
+IEC2024004_python_bot_r20 dealt [3s 9s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #264, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7d 6d]
+BASELINE dealt [4d Ts]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #265, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3d 8s]
+IEC2024004_python_bot_r20 dealt [5s 6s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #266, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7c Td]
+BASELINE dealt [Qd 6c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #267, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2d 8d]
+IEC2024004_python_bot_r20 dealt [Ah Jh]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #268, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qh 5c]
+BASELINE dealt [9h Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #269, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7h 5d]
+IEC2024004_python_bot_r20 dealt [5c 7d]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #270, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 8d]
+BASELINE dealt [8s 3d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #271, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jd 7c]
+IEC2024004_python_bot_r20 dealt [6c 2d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #272, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kh 3h]
+BASELINE dealt [7h Jd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #273, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Th 5d]
+IEC2024004_python_bot_r20 dealt [3c Qs]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #274, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2h 8d]
+BASELINE dealt [Qs Ad]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #275, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c 9c]
+IEC2024004_python_bot_r20 dealt [4h Js]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #276, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+Bounties reset to 9 for player IEC2024004_python_bot_r20 and 6 for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [As 8h]
+BASELINE dealt [Jc Ac]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #277, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc 9s]
+IEC2024004_python_bot_r20 dealt [Kd Jd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #278, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 8c]
+BASELINE dealt [Kc 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #279, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc 7h]
+IEC2024004_python_bot_r20 dealt [Kc 9s]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #280, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d Ts]
+BASELINE dealt [5d Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-99), BASELINE (99)
+
+Round #281, BASELINE (99), IEC2024004_python_bot_r20 (-99)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s Ac]
+IEC2024004_python_bot_r20 dealt [3h 4s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (98), IEC2024004_python_bot_r20 (-98)
+
+Round #282, IEC2024004_python_bot_r20 (-98), BASELINE (98)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d 4h]
+BASELINE dealt [Ah 6c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #283, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jh 9d]
+IEC2024004_python_bot_r20 dealt [As Qh]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #284, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d 9s]
+BASELINE dealt [8h As]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #285, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4h 5d]
+IEC2024004_python_bot_r20 dealt [3s 5c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #286, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Td Ah]
+BASELINE dealt [Qh Qs]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #287, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ks Tc]
+IEC2024004_python_bot_r20 dealt [Ad 8d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #288, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3c Jc]
+BASELINE dealt [5d Ac]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #289, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9d 7d]
+IEC2024004_python_bot_r20 dealt [Jh Ah]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #290, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ad 9d]
+BASELINE dealt [Qd 7c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #291, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8c 2c]
+IEC2024004_python_bot_r20 dealt [Ad 3h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #292, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 7s]
+BASELINE dealt [8h 7c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #293, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Th 9h]
+IEC2024004_python_bot_r20 dealt [Qs 8h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #294, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6s Tc]
+BASELINE dealt [9c 7d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #295, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6s 6c]
+IEC2024004_python_bot_r20 dealt [7c Kd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #296, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8d Qh]
+BASELINE dealt [4s Qs]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #297, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 5s]
+IEC2024004_python_bot_r20 dealt [5d 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #298, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6s As]
+BASELINE dealt [7s Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #299, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qh Js]
+IEC2024004_python_bot_r20 dealt [3d Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #300, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3d 8d]
+BASELINE dealt [As Kd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #301, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+Bounties reset to Q for player BASELINE and 2 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2d Kh]
+IEC2024004_python_bot_r20 dealt [Kc Js]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #302, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3h Jh]
+BASELINE dealt [Jc Ts]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-110), BASELINE (110)
+
+Round #303, BASELINE (110), IEC2024004_python_bot_r20 (-110)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qc 3h]
+IEC2024004_python_bot_r20 dealt [Ah Qd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (109), IEC2024004_python_bot_r20 (-109)
+
+Round #304, IEC2024004_python_bot_r20 (-109), BASELINE (109)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 7s]
+BASELINE dealt [Qs 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #305, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6d 2d]
+IEC2024004_python_bot_r20 dealt [5d 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #306, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2s 7c]
+BASELINE dealt [Ad 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #307, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5c 4c]
+IEC2024004_python_bot_r20 dealt [Tc 3d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #308, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6d 4d]
+BASELINE dealt [As 2h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #309, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5d 7s]
+IEC2024004_python_bot_r20 dealt [Jd Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #310, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8h 9s]
+BASELINE dealt [9c Th]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #311, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7s Ac]
+IEC2024004_python_bot_r20 dealt [Ks 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #312, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ad 7d]
+BASELINE dealt [Kh 3d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #313, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4c 2c]
+IEC2024004_python_bot_r20 dealt [6s 5c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #314, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9s 5s]
+BASELINE dealt [Ts 7h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #315, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9s 7s]
+IEC2024004_python_bot_r20 dealt [Ks Kd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #316, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qh Th]
+BASELINE dealt [Jh Td]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #317, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8h Qd]
+IEC2024004_python_bot_r20 dealt [3s As]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #318, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kd 9h]
+BASELINE dealt [Jh 4h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Round #319, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7d 5s]
+IEC2024004_python_bot_r20 dealt [Qs 9h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #320, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d 3h]
+BASELINE dealt [Qh Jc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #321, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4d Ac]
+IEC2024004_python_bot_r20 dealt [7c 8h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #322, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8h 6d]
+BASELINE dealt [4h 5d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #323, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ac Jd]
+IEC2024004_python_bot_r20 dealt [Jc 6c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #324, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8s Ah]
+BASELINE dealt [4s Qs]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #325, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qh 3s]
+IEC2024004_python_bot_r20 dealt [Kh 3c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #326, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+Bounties reset to 8 for player IEC2024004_python_bot_r20 and J for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ts 9s]
+BASELINE dealt [Qs Th]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #327, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4s Kd]
+IEC2024004_python_bot_r20 dealt [Ts 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #328, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8h Kh]
+BASELINE dealt [Ad 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #329, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c 9h]
+IEC2024004_python_bot_r20 dealt [8h Kd]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #330, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d Kd]
+BASELINE dealt [Qc Ad]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #331, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6d 9c]
+IEC2024004_python_bot_r20 dealt [6c 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #332, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c Kc]
+BASELINE dealt [6s Td]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #333, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kd Jh]
+IEC2024004_python_bot_r20 dealt [2s 9c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #334, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4c 7d]
+BASELINE dealt [8d Qs]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #335, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7h Ad]
+IEC2024004_python_bot_r20 dealt [5c 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #336, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9h 5d]
+BASELINE dealt [Ad 2c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #337, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2d 3h]
+IEC2024004_python_bot_r20 dealt [Qc 9s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #338, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kc 7h]
+BASELINE dealt [3d Jc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #339, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jh 8h]
+IEC2024004_python_bot_r20 dealt [Kh Qd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #340, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2h As]
+BASELINE dealt [8d 5d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #341, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7d Ts]
+IEC2024004_python_bot_r20 dealt [7h Jd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #342, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3s 8s]
+BASELINE dealt [8h Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #343, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4h Ah]
+IEC2024004_python_bot_r20 dealt [Js 7s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #344, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 3h]
+BASELINE dealt [As 2c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #345, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9h 7c]
+IEC2024004_python_bot_r20 dealt [Jc 5h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #346, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d Jd]
+BASELINE dealt [Jh Tc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #347, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kh 2h]
+IEC2024004_python_bot_r20 dealt [9d 9s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #348, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qc Tc]
+BASELINE dealt [7c 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #349, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc Ad]
+IEC2024004_python_bot_r20 dealt [6d 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #350, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2h Td]
+BASELINE dealt [6c Qs]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #351, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+Bounties reset to 2 for player BASELINE and 4 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3h 9h]
+IEC2024004_python_bot_r20 dealt [Kc Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #352, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6c 3c]
+BASELINE dealt [Td 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #353, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ad 5c]
+IEC2024004_python_bot_r20 dealt [8c Kh]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #354, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Tc 7s]
+BASELINE dealt [5h 2s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #355, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5d Ts]
+IEC2024004_python_bot_r20 dealt [Js Ad]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #356, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Js Th]
+BASELINE dealt [Ac Tc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #357, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2h Ks]
+IEC2024004_python_bot_r20 dealt [3h Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #358, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 4h]
+BASELINE dealt [Jd Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #359, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc 9s]
+IEC2024004_python_bot_r20 dealt [9c 6s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #360, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9h Kc]
+BASELINE dealt [Ac Jc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #361, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c Kh]
+IEC2024004_python_bot_r20 dealt [Ts 5h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #362, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6s Ad]
+BASELINE dealt [Qc 6h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #363, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qc Ad]
+IEC2024004_python_bot_r20 dealt [7s 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #364, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 6d]
+BASELINE dealt [4d 8c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #365, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qh 8h]
+IEC2024004_python_bot_r20 dealt [8s Ad]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #366, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ac Kh]
+BASELINE dealt [9c Ts]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #367, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9d Js]
+IEC2024004_python_bot_r20 dealt [8c 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #368, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3d 2s]
+BASELINE dealt [Kd As]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #369, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8h Tc]
+IEC2024004_python_bot_r20 dealt [Ad 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #370, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Js 5c]
+BASELINE dealt [Ks Kc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #371, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8h Tc]
+IEC2024004_python_bot_r20 dealt [Jc Th]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #372, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qs 3d]
+BASELINE dealt [4d 2c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-176), BASELINE (176)
+
+Round #373, BASELINE (176), IEC2024004_python_bot_r20 (-176)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ks 3s]
+IEC2024004_python_bot_r20 dealt [2c 4d]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #374, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ah Ts]
+BASELINE dealt [As 7d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #375, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8h 3d]
+IEC2024004_python_bot_r20 dealt [2h Td]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #376, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+Bounties reset to 6 for player IEC2024004_python_bot_r20 and 7 for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [As Th]
+BASELINE dealt [2s Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #377, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5h 3c]
+IEC2024004_python_bot_r20 dealt [As Qc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #378, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 9h]
+BASELINE dealt [Ts Tc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #379, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs 5s]
+IEC2024004_python_bot_r20 dealt [6h 7s]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #380, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d 9h]
+BASELINE dealt [8c Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #381, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Js Ts]
+IEC2024004_python_bot_r20 dealt [Th 6s]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #382, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Td Ac]
+BASELINE dealt [8h Qh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #383, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ts Ac]
+IEC2024004_python_bot_r20 dealt [Kh 5c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #384, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Td 4c]
+BASELINE dealt [6s Ts]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #385, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3s 5s]
+IEC2024004_python_bot_r20 dealt [8d 7h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #386, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jh Qd]
+BASELINE dealt [2c Ad]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #387, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Th 9s]
+IEC2024004_python_bot_r20 dealt [2d Kd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #388, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Th 2h]
+BASELINE dealt [4d 9h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #389, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5s 3s]
+IEC2024004_python_bot_r20 dealt [Kc Kh]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #390, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9s Jc]
+BASELINE dealt [Js Ah]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #391, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qd 5h]
+IEC2024004_python_bot_r20 dealt [Jh Ac]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #392, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2d 5c]
+BASELINE dealt [Kc 7h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #393, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7d 2c]
+IEC2024004_python_bot_r20 dealt [Qc 9h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #394, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ad 4h]
+BASELINE dealt [Js 5h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #395, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4c Ac]
+IEC2024004_python_bot_r20 dealt [9c As]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #396, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9c Jc]
+BASELINE dealt [Ac Qc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #397, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ks Qs]
+IEC2024004_python_bot_r20 dealt [As 8h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #398, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jc Qh]
+BASELINE dealt [Qs Kh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #399, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8s 2h]
+IEC2024004_python_bot_r20 dealt [5d 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #400, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ks Jc]
+BASELINE dealt [5c 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #401, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+Bounties reset to 9 for player BASELINE and 3 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc 3d]
+IEC2024004_python_bot_r20 dealt [As 6s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #402, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7h 6h]
+BASELINE dealt [8d 2s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #403, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8c As]
+IEC2024004_python_bot_r20 dealt [6s 6c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #404, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4d 9h]
+BASELINE dealt [Ks 9c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #405, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2s 2c]
+IEC2024004_python_bot_r20 dealt [Kh Tc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #406, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qc Qs]
+BASELINE dealt [Kd 3h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #407, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3c 7c]
+IEC2024004_python_bot_r20 dealt [Qs Ks]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #408, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8h 4h]
+BASELINE dealt [Ts 6h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #409, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Td Jd]
+IEC2024004_python_bot_r20 dealt [2d 8h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #410, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3h 7s]
+BASELINE dealt [Ts 8h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #411, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9d Jd]
+IEC2024004_python_bot_r20 dealt [3d Ad]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+BASELINE hits their bounty
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #412, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kd Tc]
+BASELINE dealt [3h 6h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #413, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jh 9s]
+IEC2024004_python_bot_r20 dealt [4d 2h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #414, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6c Ks]
+BASELINE dealt [5c 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #415, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2d Kd]
+IEC2024004_python_bot_r20 dealt [Js 3d]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #416, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5c Qd]
+BASELINE dealt [4c Ac]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #417, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qh 8c]
+IEC2024004_python_bot_r20 dealt [Qc 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #418, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d Th]
+BASELINE dealt [Jd Tc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #419, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4s Js]
+IEC2024004_python_bot_r20 dealt [Qh 8s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #420, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7d 4c]
+BASELINE dealt [9h 4d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #421, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8d Qc]
+IEC2024004_python_bot_r20 dealt [2d 5d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #422, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3d 9d]
+BASELINE dealt [Kd 5c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #423, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs Jh]
+IEC2024004_python_bot_r20 dealt [9d 5c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #424, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4h 7s]
+BASELINE dealt [7h Js]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #425, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc 3s]
+IEC2024004_python_bot_r20 dealt [6h Ah]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #426, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+Bounties reset to A for player IEC2024004_python_bot_r20 and 3 for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ac 9h]
+BASELINE dealt [6d Ts]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #427, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c Ts]
+IEC2024004_python_bot_r20 dealt [Kh 3c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #428, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6c Td]
+BASELINE dealt [5d 6h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #429, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3s Kc]
+IEC2024004_python_bot_r20 dealt [Jh 9h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #430, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8h 9c]
+BASELINE dealt [8d 7h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #431, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2d 3h]
+IEC2024004_python_bot_r20 dealt [2h 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #432, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Td 9d]
+BASELINE dealt [8s 3h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-176), BASELINE (176)
+
+Round #433, BASELINE (176), IEC2024004_python_bot_r20 (-176)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc 7h]
+IEC2024004_python_bot_r20 dealt [9s 4s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (175), IEC2024004_python_bot_r20 (-175)
+
+Round #434, IEC2024004_python_bot_r20 (-175), BASELINE (175)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4d 6d]
+BASELINE dealt [7c Jh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-176), BASELINE (176)
+
+Round #435, BASELINE (176), IEC2024004_python_bot_r20 (-176)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3c Kh]
+IEC2024004_python_bot_r20 dealt [6s 2h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (175), IEC2024004_python_bot_r20 (-175)
+
+Round #436, IEC2024004_python_bot_r20 (-175), BASELINE (175)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jd 2h]
+BASELINE dealt [Kd 4c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-176), BASELINE (176)
+
+Round #437, BASELINE (176), IEC2024004_python_bot_r20 (-176)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jh Ad]
+IEC2024004_python_bot_r20 dealt [2h Ac]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #438, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Jd Tc]
+BASELINE dealt [8d 8c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #439, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4d Ts]
+IEC2024004_python_bot_r20 dealt [5d 4s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #440, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9c 3s]
+BASELINE dealt [5h 6s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #441, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9c Ts]
+IEC2024004_python_bot_r20 dealt [7s Kc]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #442, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7s Ts]
+BASELINE dealt [8h 4c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #443, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2s Qd]
+IEC2024004_python_bot_r20 dealt [9s 3s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #444, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [As 2s]
+BASELINE dealt [Ts 7c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #445, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3h As]
+IEC2024004_python_bot_r20 dealt [Kd Js]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #446, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d Ac]
+BASELINE dealt [Ts Qd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #447, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs 3c]
+IEC2024004_python_bot_r20 dealt [9s Jd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+BASELINE hits their bounty
+Winning counts at the end of the round: , BASELINE (164), IEC2024004_python_bot_r20 (-164)
+
+Round #448, IEC2024004_python_bot_r20 (-164), BASELINE (164)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6c 3c]
+BASELINE dealt [2s 9d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-165), BASELINE (165)
+
+Round #449, BASELINE (165), IEC2024004_python_bot_r20 (-165)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5d Ah]
+IEC2024004_python_bot_r20 dealt [2s Ad]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #450, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2c Kh]
+BASELINE dealt [As 6s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #451, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+Bounties reset to 9 for player BASELINE and 2 for player IEC2024004_python_bot_r20
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qc 8h]
+IEC2024004_python_bot_r20 dealt [4c Ts]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #452, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [6h Ac]
+BASELINE dealt [4d 5h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #453, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2h Ks]
+IEC2024004_python_bot_r20 dealt [Jh 6h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #454, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9h Td]
+BASELINE dealt [Jh 2d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #455, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Td 7h]
+IEC2024004_python_bot_r20 dealt [Ah 9c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #456, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9h Kd]
+BASELINE dealt [Jc Qh]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #457, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [5h As]
+IEC2024004_python_bot_r20 dealt [5c 3d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #458, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7h Jh]
+BASELINE dealt [Ad Qs]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #459, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc Ts]
+IEC2024004_python_bot_r20 dealt [4s 7d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #460, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3d As]
+BASELINE dealt [6d Ac]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #461, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qs 8h]
+IEC2024004_python_bot_r20 dealt [4h 7h]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #462, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4h 3h]
+BASELINE dealt [4d Qs]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #463, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ad 5c]
+IEC2024004_python_bot_r20 dealt [3c 4c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #464, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [9d 7d]
+BASELINE dealt [Ad 5c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #465, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc 8s]
+IEC2024004_python_bot_r20 dealt [Th Jh]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #466, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d 7d]
+BASELINE dealt [8c Ad]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #467, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4c Ah]
+IEC2024004_python_bot_r20 dealt [Kh 5d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #468, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8s 2c]
+BASELINE dealt [Kh 6d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #469, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [4h As]
+IEC2024004_python_bot_r20 dealt [7s 3d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #470, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [7h 2h]
+BASELINE dealt [3s 8h]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #471, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [6d Jh]
+IEC2024004_python_bot_r20 dealt [9s 3c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (153), IEC2024004_python_bot_r20 (-153)
+
+Round #472, IEC2024004_python_bot_r20 (-153), BASELINE (153)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d 9h]
+BASELINE dealt [Td Ac]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-154), BASELINE (154)
+
+Round #473, BASELINE (154), IEC2024004_python_bot_r20 (-154)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [7h Jc]
+IEC2024004_python_bot_r20 dealt [6h 2d]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #474, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qc 6h]
+BASELINE dealt [4s 8s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #475, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [3s 5c]
+IEC2024004_python_bot_r20 dealt [8d 3d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #476, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+Bounties reset to 2 for player IEC2024004_python_bot_r20 and 6 for player BASELINE
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5h 9c]
+BASELINE dealt [3s 5s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #477, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qc Qh]
+IEC2024004_python_bot_r20 dealt [Jh 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #478, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Qh Tc]
+BASELINE dealt [Jh Kc]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #479, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [2c 2d]
+IEC2024004_python_bot_r20 dealt [3h 5s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #480, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kd 3h]
+BASELINE dealt [Qh 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #481, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8c 8d]
+IEC2024004_python_bot_r20 dealt [7d 3c]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #482, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Kc 2h]
+BASELINE dealt [2d 9s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #483, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [8c 9d]
+IEC2024004_python_bot_r20 dealt [Qs 5d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #484, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5d 5s]
+BASELINE dealt [Jc 4s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #485, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Qh 7s]
+IEC2024004_python_bot_r20 dealt [7d Th]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #486, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [4s 7c]
+BASELINE dealt [9h 3c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #487, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Js 5d]
+IEC2024004_python_bot_r20 dealt [8d 4d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #488, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2c 6d]
+BASELINE dealt [As 8d]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #489, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [9d Js]
+IEC2024004_python_bot_r20 dealt [7h 5d]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #490, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [3c 8d]
+BASELINE dealt [8h Ks]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #491, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Ks Ac]
+IEC2024004_python_bot_r20 dealt [5h 9s]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (142), IEC2024004_python_bot_r20 (-142)
+
+Round #492, IEC2024004_python_bot_r20 (-142), BASELINE (142)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [8h As]
+BASELINE dealt [9d 7s]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #493, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Kh Jh]
+IEC2024004_python_bot_r20 dealt [Qd 2s]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #494, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [Ah Qd]
+BASELINE dealt [7s 4c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #495, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jc 3c]
+IEC2024004_python_bot_r20 dealt [8d Jd]
+BASELINE folds
+BASELINE awarded -1
+IEC2024004_python_bot_r20 awarded 1
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #496, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s 4c]
+BASELINE dealt [6s Ah]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -12
+BASELINE awarded 12
+BASELINE hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-143), BASELINE (143)
+
+Round #497, BASELINE (143), IEC2024004_python_bot_r20 (-143)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Jh 3h]
+IEC2024004_python_bot_r20 dealt [Ts 2h]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (131), IEC2024004_python_bot_r20 (-131)
+
+Round #498, IEC2024004_python_bot_r20 (-131), BASELINE (131)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [5s Td]
+BASELINE dealt [7d 8c]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-132), BASELINE (132)
+
+Round #499, BASELINE (132), IEC2024004_python_bot_r20 (-132)
+BASELINE posts the blind of 1
+IEC2024004_python_bot_r20 posts the blind of 2
+BASELINE dealt [Tc Jd]
+IEC2024004_python_bot_r20 dealt [6s 2c]
+BASELINE folds
+BASELINE awarded -12
+IEC2024004_python_bot_r20 awarded 12
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , BASELINE (120), IEC2024004_python_bot_r20 (-120)
+
+Round #500, IEC2024004_python_bot_r20 (-120), BASELINE (120)
+IEC2024004_python_bot_r20 posts the blind of 1
+BASELINE posts the blind of 2
+IEC2024004_python_bot_r20 dealt [2c Qd]
+BASELINE dealt [Tc Jd]
+IEC2024004_python_bot_r20 folds
+IEC2024004_python_bot_r20 awarded -1
+BASELINE awarded 1
+IEC2024004_python_bot_r20 hits their bounty
+Winning counts at the end of the round: , IEC2024004_python_bot_r20 (-121), BASELINE (121)
+
+Final, BASELINE (121), IEC2024004_python_bot_r20 (-121)
+BASELINE preflop bets EV: 0
+BASELINE flop bets EV: 0
+BASELINE turn bets EV: 250
+IEC2024004_python_bot_r20 preflop bets EV: 0
+IEC2024004_python_bot_r20 flop bets EV: 0
+IEC2024004_python_bot_r20 turn bets EV: 250
